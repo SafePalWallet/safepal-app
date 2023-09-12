@@ -1,0 +1,1984 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		10D8EDAC292E13860088C398 /* crc16.c in Sources */ = {isa = PBXBuildFile; fileRef = 10D8EDAB292E13860088C398 /* crc16.c */; };
+		12A9838739F2C37D34964CB7 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3567C7695680A70415E52608 /* Pods_Runner.framework */; };
+		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
+		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
+		3E87533128DDC3CA00EB7EAE /* AppTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E87533028DDC3CA00EB7EAE /* AppTheme.m */; };
+		620F06902248F3C70051C978 /* SFPUtilsPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 620F068F2248F3C70051C978 /* SFPUtilsPlugin.m */; };
+		6220F101222E474F006749F3 /* SFPBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6220F0FF222E474F006749F3 /* SFPBaseNavigationController.m */; };
+		62223BB722E7066F00ECF3F4 /* SFPProgressHUDPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 62223BB622E7066F00ECF3F4 /* SFPProgressHUDPlugin.m */; };
+		6240E73722E89EDA005A3EA2 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6240E73322E89EDA005A3EA2 /* MBProgressHUD.m */; };
+		62459B8A222CC76A000FEAE9 /* SFPFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 62459B88222CC76A000FEAE9 /* SFPFont.m */; };
+		62459B8C222D04EE000FEAE9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62459B8B222D04EE000FEAE9 /* Images.xcassets */; };
+		62459B93222D0848000FEAE9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 62459B95222D0848000FEAE9 /* Localizable.strings */; };
+		62459B99222D0881000FEAE9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 62459B9B222D0881000FEAE9 /* InfoPlist.strings */; };
+		624B65712390D21700B2AAEE /* SFPBasePluginItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 624B65702390D21700B2AAEE /* SFPBasePluginItem.m */; };
+		625C8B20222A68F800B7CB24 /* SFPQRCodeScanConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 625C8B18222A68F700B7CB24 /* SFPQRCodeScanConfig.m */; };
+		625C8B21222A68F800B7CB24 /* SFPQRCodeScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 625C8B1A222A68F700B7CB24 /* SFPQRCodeScanView.m */; };
+		625C8B22222A68F800B7CB24 /* SFPQRCodeScanningVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 625C8B1B222A68F700B7CB24 /* SFPQRCodeScanningVC.m */; };
+		625C8B23222A68F800B7CB24 /* SFPQRCodeScanningVC+SFPAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 625C8B1C222A68F700B7CB24 /* SFPQRCodeScanningVC+SFPAdd.m */; };
+		625C8B26222A6BD800B7CB24 /* SFPQRCodeSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 625C8B25222A6BD800B7CB24 /* SFPQRCodeSession.m */; };
+		625C8B42222A73A300B7CB24 /* SFPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 625C8B40222A73A300B7CB24 /* SFPHelper.m */; };
+		62684B9F242F2C0A00575D2C /* SFPFlutterChannelResp.m in Sources */ = {isa = PBXBuildFile; fileRef = 62684B9E242F2C0A00575D2C /* SFPFlutterChannelResp.m */; };
+		62684BAA242F4D2B00575D2C /* SFPColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 62684BA9242F4D2B00575D2C /* SFPColor.m */; };
+		62696F8623ECFE890058A99C /* SecureRandomUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 62696F8523ECFE890058A99C /* SecureRandomUtil.m */; };
+		626FEA132445B4000009405D /* bip39.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE87F2445B3400009405D /* bip39.c */; };
+		626FEA142445B4000009405D /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8842445B3400009405D /* hmac.c */; };
+		626FEA152445B4000009405D /* sha2.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8862445B3400009405D /* sha2.c */; };
+		626FEA162445B4000009405D /* base32.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8892445B3400009405D /* base32.c */; };
+		626FEA172445B4000009405D /* hasher.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE88A2445B3400009405D /* hasher.c */; };
+		626FEA182445B4000009405D /* rand.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE88C2445B3400009405D /* rand.c */; };
+		626FEA192445B4000009405D /* base58_xrp.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE88E2445B3400009405D /* base58_xrp.c */; };
+		626FEA1A2445B4000009405D /* rc4.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8902445B3400009405D /* rc4.c */; };
+		626FEA1B2445B4000009405D /* blake256.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8922445B3400009405D /* blake256.c */; };
+		626FEA1C2445B4000009405D /* cash_addr.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8952445B3400009405D /* cash_addr.c */; };
+		626FEA1D2445B4000009405D /* hmac_drbg.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8962445B3400009405D /* hmac_drbg.c */; };
+		626FEA1E2445B4000009405D /* curves.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE89A2445B3400009405D /* curves.c */; };
+		626FEA1F2445B4000009405D /* rfc6979.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE89B2445B3400009405D /* rfc6979.c */; };
+		626FEA202445B4000009405D /* curve25519-donna-scalarmult-base.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE89D2445B3400009405D /* curve25519-donna-scalarmult-base.c */; };
+		626FEA212445B4000009405D /* ed25519-donna-32bit-tables.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE89F2445B3400009405D /* ed25519-donna-32bit-tables.c */; };
+		626FEA222445B4000009405D /* ed25519.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8A12445B3400009405D /* ed25519.c */; };
+		626FEA232445B4000009405D /* curve25519-donna-helpers.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8A32445B3400009405D /* curve25519-donna-helpers.c */; };
+		626FEA242445B4000009405D /* ed25519-keccak.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8A42445B3400009405D /* ed25519-keccak.c */; };
+		626FEA252445B4000009405D /* ed25519-sha3.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8A72445B3400009405D /* ed25519-sha3.c */; };
+		626FEA262445B4000009405D /* ed25519-donna-basepoint-table.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8AC2445B3400009405D /* ed25519-donna-basepoint-table.c */; };
+		626FEA272445B4000009405D /* modm-donna-32bit.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8B02445B3400009405D /* modm-donna-32bit.c */; };
+		626FEA282445B4000009405D /* curve25519-donna-32bit.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8B32445B3400009405D /* curve25519-donna-32bit.c */; };
+		626FEA292445B4000009405D /* ed25519-donna-impl-base.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8B52445B3400009405D /* ed25519-donna-impl-base.c */; };
+		626FEA2A2445B4000009405D /* nem.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8B72445B3400009405D /* nem.c */; };
+		626FEA2B2445B4000009405D /* secp256k1.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8BA2445B3400009405D /* secp256k1.c */; };
+		626FEA2C2445B4000009405D /* bignum.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8BE2445B3400009405D /* bignum.c */; };
+		626FEA2D2445B4000009405D /* slip39.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8C02445B3400009405D /* slip39.c */; };
+		626FEA2E2445B4000009405D /* segwit_addr.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8C22445B3400009405D /* segwit_addr.c */; };
+		626FEA2F2445B4000009405D /* ripemd160.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8C72445B3400009405D /* ripemd160.c */; };
+		626FEA302445B4000009405D /* groestl.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8CA2445B3400009405D /* groestl.c */; };
+		626FEA312445B4000009405D /* scrypt.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8CB2445B3400009405D /* scrypt.c */; };
+		626FEA322445B4000009405D /* nist256p1.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8CC2445B3400009405D /* nist256p1.c */; };
+		626FEA332445B4000009405D /* memzero.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8F42445B3400009405D /* memzero.c */; };
+		626FEA342445B4000009405D /* blake2b.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8F62445B3400009405D /* blake2b.c */; };
+		626FEA352445B4000009405D /* script.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8F92445B3400009405D /* script.c */; };
+		626FEA362445B4000009405D /* bip32.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8FB2445B3400009405D /* bip32.c */; };
+		626FEA372445B4000009405D /* address.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE8FF2445B3400009405D /* address.c */; };
+		626FEA382445B4000009405D /* blake2s.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9002445B3400009405D /* blake2s.c */; };
+		626FEA392445B4000009405D /* sha3.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9042445B3400009405D /* sha3.c */; };
+		626FEA3A2445B4000009405D /* base58.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9062445B3400009405D /* base58.c */; };
+		626FEA3B2445B4000009405D /* ecdsa.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9092445B3400009405D /* ecdsa.c */; };
+		626FEA3C2445B4000009405D /* pbkdf2.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE90A2445B3400009405D /* pbkdf2.c */; };
+		626FEA3D2445B4000009405D /* shamir.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE90B2445B3400009405D /* shamir.c */; };
+		626FEA412445B4000009405D /* chacha_merged.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9182445B3400009405D /* chacha_merged.c */; };
+		626FEA422445B4000009405D /* rfc7539.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE91E2445B3400009405D /* rfc7539.c */; };
+		626FEA432445B4000009405D /* poly1305-donna.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9222445B3400009405D /* poly1305-donna.c */; };
+		626FEA442445B4000009405D /* chacha20poly1305.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9232445B3400009405D /* chacha20poly1305.c */; };
+		626FEA492445B4000009405D /* cstr.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9612445B3400009405D /* cstr.c */; };
+		626FEA4A2445B4000009405D /* debug.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9622445B3400009405D /* debug.c */; };
+		626FEA4B2445B4000009405D /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9632445B3400009405D /* base64.c */; };
+		626FEA4C2445B4000009405D /* common_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9642445B3400009405D /* common_util.c */; };
+		626FEA4D2445B4000009405D /* protobuf_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9652445B3400009405D /* protobuf_util.c */; };
+		626FEA4E2445B4000009405D /* secure_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9662445B3400009405D /* secure_util.c */; };
+		626FEA4F2445B4000009405D /* array.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE99E2445B3400009405D /* array.c */; };
+		626FEA502445B4000009405D /* rmessage.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9A02445B3400009405D /* rmessage.c */; };
+		626FEA512445B4000009405D /* register.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9A12445B3400009405D /* register.c */; };
+		626FEA522445B4000009405D /* decode.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9A32445B3400009405D /* decode.c */; };
+		626FEA532445B4000009405D /* stringpool.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9A42445B3400009405D /* stringpool.c */; };
+		626FEA542445B4000009405D /* alloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9A72445B3400009405D /* alloc.c */; };
+		626FEA552445B4000009405D /* varint.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9A82445B3400009405D /* varint.c */; };
+		626FEA562445B4000009405D /* map.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9AA2445B3400009405D /* map.c */; };
+		626FEA572445B4000009405D /* proto.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9AB2445B3400009405D /* proto.c */; };
+		626FEA582445B4000009405D /* context.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9AC2445B3400009405D /* context.c */; };
+		626FEA592445B4000009405D /* wmessage.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9AD2445B3400009405D /* wmessage.c */; };
+		626FEA5A2445B4000009405D /* pattern.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9AF2445B3400009405D /* pattern.c */; };
+		626FEA5B2445B4000009405D /* bootstrap.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9B02445B3400009405D /* bootstrap.c */; };
+		626FEA852445B4480009405D /* qr_pack.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FEA072445B3400009405D /* qr_pack.c */; };
+		626FEA962445B9B00009405D /* aeskey.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE90E2445B3400009405D /* aeskey.c */; };
+		626FEA972445B9B00009405D /* aescrypt.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9102445B3400009405D /* aescrypt.c */; };
+		626FEA982445B9B00009405D /* aes_modes.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9132445B3400009405D /* aes_modes.c */; };
+		626FEA9B2445BA670009405D /* aestab.h in Sources */ = {isa = PBXBuildFile; fileRef = 626FE90F2445B3400009405D /* aestab.h */; };
+		626FEA9C2445BA670009405D /* aesopt.h in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9112445B3400009405D /* aesopt.h */; };
+		626FEA9D2445BA670009405D /* aes.h in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9142445B3400009405D /* aes.h */; };
+		626FEAA12445BB6B0009405D /* aestab.c in Sources */ = {isa = PBXBuildFile; fileRef = 626FE9152445B3400009405D /* aestab.c */; };
+		626FEAB0244726250009405D /* FluttertoastPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 626FEAAD244726250009405D /* FluttertoastPlugin.m */; };
+		6271D62B222FEDB10067AE45 /* SFPCommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6271D625222FEDB10067AE45 /* SFPCommonUtils.m */; };
+		6271D62D222FEDB10067AE45 /* SFPCryptoUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6271D627222FEDB10067AE45 /* SFPCryptoUtil.m */; };
+		6271D632222FEF260067AE45 /* SFPBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6271D62F222FEF260067AE45 /* SFPBaseModel.m */; };
+		6271D633222FEF260067AE45 /* SFPPubHDNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6271D630222FEF260067AE45 /* SFPPubHDNode.m */; };
+		6271D638222FF0750067AE45 /* SFPCryptoPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6271D637222FF0750067AE45 /* SFPCryptoPlugin.m */; };
+		62AF589622D43527005F907B /* SFPFlutterBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AF589522D43527005F907B /* SFPFlutterBaseViewController.m */; };
+		62B19C472255A02A00BE2523 /* SFPEIP55.m in Sources */ = {isa = PBXBuildFile; fileRef = 62B19C462255A02A00BE2523 /* SFPEIP55.m */; };
+		62B8C3252374572E0003993E /* crypto_utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 62B8C3232374572E0003993E /* crypto_utils.c */; };
+		62DD50032230C8E60096A2C5 /* SFPQRPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD50022230C8E60096A2C5 /* SFPQRPlugin.m */; };
+		62DD50062230C91A0096A2C5 /* SFPBasePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD50052230C91A0096A2C5 /* SFPBasePlugin.m */; };
+		62DD500C2230FC230096A2C5 /* SFPQRCodeGenerateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD50082230FC230096A2C5 /* SFPQRCodeGenerateManager.m */; };
+		978B8F6F1D3862AE00F588F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFD8EE1D35381100E5BB4D /* AppDelegate.m */; };
+		97C146F31CF9000F007C117D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C146F21CF9000F007C117D /* main.m */; };
+		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
+		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
+		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		626FEA112445B3400009405D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 626FE97E2445B3400009405D /* pbc.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D7EF1334179E5530002B6A46;
+			remoteInfo = pbc;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		050B30FFA8271CD1BB9142E1 /* Pods-RunnerPro.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerPro.profile.xcconfig"; path = "Target Support Files/Pods-RunnerPro/Pods-RunnerPro.profile.xcconfig"; sourceTree = "<group>"; };
+		1003B4862928C1270035751B /* crc16.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = crc16.c; sourceTree = "<group>"; };
+		1003B4892928C1350035751B /* crc16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crc16.h; sourceTree = "<group>"; };
+		1003B48D2928C3A20035751B /* ton_sign.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ton_sign.c; sourceTree = "<group>"; };
+		1003B4902928C3A20035751B /* ton.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ton.c; sourceTree = "<group>"; };
+		1003B4912928C3A20035751B /* ton_proto.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ton_proto.c; sourceTree = "<group>"; };
+		10D8EDAB292E13860088C398 /* crc16.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = crc16.c; sourceTree = "<group>"; };
+		10D8EDAD292E13930088C398 /* crc16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crc16.h; sourceTree = "<group>"; };
+		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
+		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
+		1E23067270F9809BB5EADC40 /* Pods-RunnerPro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerPro.debug.xcconfig"; path = "Target Support Files/Pods-RunnerPro/Pods-RunnerPro.debug.xcconfig"; sourceTree = "<group>"; };
+		2BA68F0D37F1B0539F5E36CE /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
+		2C5876B2576E94ADB4395404 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
+		3567C7695680A70415E52608 /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
+		3E87532E28DDC3CA00EB7EAE /* AppTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppTheme.h; sourceTree = "<group>"; };
+		3E87533028DDC3CA00EB7EAE /* AppTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppTheme.m; sourceTree = "<group>"; };
+		620F068E2248F3C70051C978 /* SFPUtilsPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFPUtilsPlugin.h; sourceTree = "<group>"; };
+		620F068F2248F3C70051C978 /* SFPUtilsPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFPUtilsPlugin.m; sourceTree = "<group>"; };
+		621379A82722594900BE5B4A /* cardano.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cardano.c; sourceTree = "<group>"; };
+		621379AE2722594900BE5B4A /* bech32_cardano.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bech32_cardano.c; sourceTree = "<group>"; };
+		621379AF2722594900BE5B4A /* cbor.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cbor.c; sourceTree = "<group>"; };
+		621379B02722594900BE5B4A /* cardano_sign.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cardano_sign.c; sourceTree = "<group>"; };
+		621379B22722594900BE5B4A /* cardano_hdnode_ckd.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cardano_hdnode_ckd.c; sourceTree = "<group>"; };
+		621379B42722594900BE5B4A /* cardano_proto.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cardano_proto.c; sourceTree = "<group>"; };
+		621379B52722594900BE5B4A /* cardano_util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cardano_util.c; sourceTree = "<group>"; };
+		6220F0FF222E474F006749F3 /* SFPBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFPBaseNavigationController.m; sourceTree = "<group>"; };
+		6220F100222E474F006749F3 /* SFPBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPBaseNavigationController.h; sourceTree = "<group>"; };
+		62223BB522E7066F00ECF3F4 /* SFPProgressHUDPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFPProgressHUDPlugin.h; sourceTree = "<group>"; };
+		62223BB622E7066F00ECF3F4 /* SFPProgressHUDPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFPProgressHUDPlugin.m; sourceTree = "<group>"; };
+		6222D028251DE975009581D2 /* RunnerRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RunnerRelease.entitlements; sourceTree = "<group>"; };
+		6240E73322E89EDA005A3EA2 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		6240E73522E89EDA005A3EA2 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		62459B88222CC76A000FEAE9 /* SFPFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFPFont.m; sourceTree = "<group>"; };
+		62459B89222CC76A000FEAE9 /* SFPFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPFont.h; sourceTree = "<group>"; };
+		62459B8B222D04EE000FEAE9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		62459B94222D0848000FEAE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		62459B9A222D0881000FEAE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		624B656F2390D21700B2AAEE /* SFPBasePluginItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFPBasePluginItem.h; sourceTree = "<group>"; };
+		624B65702390D21700B2AAEE /* SFPBasePluginItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFPBasePluginItem.m; sourceTree = "<group>"; };
+		625C8B18222A68F700B7CB24 /* SFPQRCodeScanConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFPQRCodeScanConfig.m; sourceTree = "<group>"; };
+		625C8B19222A68F700B7CB24 /* SFPQRCodeScanningVC+SFPAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SFPQRCodeScanningVC+SFPAdd.h"; sourceTree = "<group>"; };
+		625C8B1A222A68F700B7CB24 /* SFPQRCodeScanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFPQRCodeScanView.m; sourceTree = "<group>"; };
+		625C8B1B222A68F700B7CB24 /* SFPQRCodeScanningVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFPQRCodeScanningVC.m; sourceTree = "<group>"; };
+		625C8B1C222A68F700B7CB24 /* SFPQRCodeScanningVC+SFPAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SFPQRCodeScanningVC+SFPAdd.m"; sourceTree = "<group>"; };
+		625C8B1D222A68F700B7CB24 /* SFPQRCodeScanConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPQRCodeScanConfig.h; sourceTree = "<group>"; };
+		625C8B1E222A68F700B7CB24 /* SFPQRCodeScanningVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPQRCodeScanningVC.h; sourceTree = "<group>"; };
+		625C8B1F222A68F700B7CB24 /* SFPQRCodeScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPQRCodeScanView.h; sourceTree = "<group>"; };
+		625C8B24222A6BD800B7CB24 /* SFPQRCodeSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPQRCodeSession.h; sourceTree = "<group>"; };
+		625C8B25222A6BD800B7CB24 /* SFPQRCodeSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFPQRCodeSession.m; sourceTree = "<group>"; };
+		625C8B27222A6CAF00B7CB24 /* SFPMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPMacro.h; sourceTree = "<group>"; };
+		625C8B40222A73A300B7CB24 /* SFPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFPHelper.m; sourceTree = "<group>"; };
+		625C8B41222A73A300B7CB24 /* SFPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPHelper.h; sourceTree = "<group>"; };
+		6267EF192295411100CF5CFF /* Runner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runner.entitlements; sourceTree = "<group>"; };
+		62684B9D242F2C0A00575D2C /* SFPFlutterChannelResp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFPFlutterChannelResp.h; sourceTree = "<group>"; };
+		62684B9E242F2C0A00575D2C /* SFPFlutterChannelResp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFPFlutterChannelResp.m; sourceTree = "<group>"; };
+		62684BA8242F4D2B00575D2C /* SFPColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPColor.h; sourceTree = "<group>"; };
+		62684BA9242F4D2B00575D2C /* SFPColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFPColor.m; sourceTree = "<group>"; };
+		62696F8423ECFE890058A99C /* SecureRandomUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecureRandomUtil.h; sourceTree = "<group>"; };
+		62696F8523ECFE890058A99C /* SecureRandomUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecureRandomUtil.m; sourceTree = "<group>"; };
+		62696F8723F0E4F60058A99C /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
+		626FE87F2445B3400009405D /* bip39.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = bip39.c; sourceTree = "<group>"; };
+		626FE8802445B3400009405D /* slip39_wordlist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = slip39_wordlist.h; sourceTree = "<group>"; };
+		626FE8812445B3400009405D /* scrypt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scrypt.h; sourceTree = "<group>"; };
+		626FE8822445B3400009405D /* nist256p1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nist256p1.h; sourceTree = "<group>"; };
+		626FE8832445B3400009405D /* groestl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = groestl.h; sourceTree = "<group>"; };
+		626FE8842445B3400009405D /* hmac.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = hmac.c; sourceTree = "<group>"; };
+		626FE8852445B3400009405D /* ripemd160.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ripemd160.h; sourceTree = "<group>"; };
+		626FE8862445B3400009405D /* sha2.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = sha2.c; sourceTree = "<group>"; };
+		626FE8872445B3400009405D /* nist256p1.table */ = {isa = PBXFileReference; lastKnownFileType = text; path = nist256p1.table; sourceTree = "<group>"; };
+		626FE8882445B3400009405D /* segwit_addr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = segwit_addr.h; sourceTree = "<group>"; };
+		626FE8892445B3400009405D /* base32.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = base32.c; sourceTree = "<group>"; };
+		626FE88A2445B3400009405D /* hasher.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = hasher.c; sourceTree = "<group>"; };
+		626FE88B2445B3400009405D /* script.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = script.h; sourceTree = "<group>"; };
+		626FE88C2445B3400009405D /* rand.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = rand.c; sourceTree = "<group>"; };
+		626FE88D2445B3400009405D /* blake2b.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = blake2b.h; sourceTree = "<group>"; };
+		626FE88E2445B3400009405D /* base58_xrp.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = base58_xrp.c; sourceTree = "<group>"; };
+		626FE88F2445B3400009405D /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		626FE8902445B3400009405D /* rc4.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = rc4.c; sourceTree = "<group>"; };
+		626FE8912445B3400009405D /* memzero.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = memzero.h; sourceTree = "<group>"; };
+		626FE8922445B3400009405D /* blake256.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = blake256.c; sourceTree = "<group>"; };
+		626FE8932445B3400009405D /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		626FE8942445B3400009405D /* base58.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = base58.h; sourceTree = "<group>"; };
+		626FE8952445B3400009405D /* cash_addr.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cash_addr.c; sourceTree = "<group>"; };
+		626FE8962445B3400009405D /* hmac_drbg.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = hmac_drbg.c; sourceTree = "<group>"; };
+		626FE8972445B3400009405D /* blake2s.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = blake2s.h; sourceTree = "<group>"; };
+		626FE8982445B3400009405D /* sha3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sha3.h; sourceTree = "<group>"; };
+		626FE8992445B3400009405D /* address.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = address.h; sourceTree = "<group>"; };
+		626FE89A2445B3400009405D /* curves.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = curves.c; sourceTree = "<group>"; };
+		626FE89B2445B3400009405D /* rfc6979.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = rfc6979.c; sourceTree = "<group>"; };
+		626FE89D2445B3400009405D /* curve25519-donna-scalarmult-base.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "curve25519-donna-scalarmult-base.c"; sourceTree = "<group>"; };
+		626FE89E2445B3400009405D /* ed25519-donna-basepoint-table.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ed25519-donna-basepoint-table.h"; sourceTree = "<group>"; };
+		626FE89F2445B3400009405D /* ed25519-donna-32bit-tables.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "ed25519-donna-32bit-tables.c"; sourceTree = "<group>"; };
+		626FE8A02445B3400009405D /* modm-donna-32bit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "modm-donna-32bit.h"; sourceTree = "<group>"; };
+		626FE8A12445B3400009405D /* ed25519.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ed25519.c; sourceTree = "<group>"; };
+		626FE8A22445B3400009405D /* ed25519-donna.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ed25519-donna.h"; sourceTree = "<group>"; };
+		626FE8A32445B3400009405D /* curve25519-donna-helpers.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "curve25519-donna-helpers.c"; sourceTree = "<group>"; };
+		626FE8A42445B3400009405D /* ed25519-keccak.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "ed25519-keccak.c"; sourceTree = "<group>"; };
+		626FE8A52445B3400009405D /* ed25519-hash-custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ed25519-hash-custom.h"; sourceTree = "<group>"; };
+		626FE8A62445B3400009405D /* curve25519-donna-32bit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "curve25519-donna-32bit.h"; sourceTree = "<group>"; };
+		626FE8A72445B3400009405D /* ed25519-sha3.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "ed25519-sha3.c"; sourceTree = "<group>"; };
+		626FE8A82445B3400009405D /* ed25519-donna-impl-base.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ed25519-donna-impl-base.h"; sourceTree = "<group>"; };
+		626FE8A92445B3400009405D /* ed25519-donna-portable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ed25519-donna-portable.h"; sourceTree = "<group>"; };
+		626FE8AA2445B3400009405D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		626FE8AB2445B3400009405D /* ed25519-donna-32bit-tables.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ed25519-donna-32bit-tables.h"; sourceTree = "<group>"; };
+		626FE8AC2445B3400009405D /* ed25519-donna-basepoint-table.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "ed25519-donna-basepoint-table.c"; sourceTree = "<group>"; };
+		626FE8AD2445B3400009405D /* curve25519-donna-scalarmult-base.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "curve25519-donna-scalarmult-base.h"; sourceTree = "<group>"; };
+		626FE8AE2445B3400009405D /* ed25519-hash-custom-keccak.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ed25519-hash-custom-keccak.h"; sourceTree = "<group>"; };
+		626FE8AF2445B3400009405D /* ed25519-keccak.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ed25519-keccak.h"; sourceTree = "<group>"; };
+		626FE8B02445B3400009405D /* modm-donna-32bit.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "modm-donna-32bit.c"; sourceTree = "<group>"; };
+		626FE8B12445B3400009405D /* curve25519-donna-helpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "curve25519-donna-helpers.h"; sourceTree = "<group>"; };
+		626FE8B22445B3400009405D /* ed25519.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ed25519.h; sourceTree = "<group>"; };
+		626FE8B32445B3400009405D /* curve25519-donna-32bit.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "curve25519-donna-32bit.c"; sourceTree = "<group>"; };
+		626FE8B42445B3400009405D /* ed25519-hash-custom-sha3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ed25519-hash-custom-sha3.h"; sourceTree = "<group>"; };
+		626FE8B52445B3400009405D /* ed25519-donna-impl-base.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "ed25519-donna-impl-base.c"; sourceTree = "<group>"; };
+		626FE8B62445B3400009405D /* ed25519-sha3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ed25519-sha3.h"; sourceTree = "<group>"; };
+		626FE8B72445B3400009405D /* nem.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = nem.c; sourceTree = "<group>"; };
+		626FE8B82445B3400009405D /* check_mem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = check_mem.h; sourceTree = "<group>"; };
+		626FE8B92445B3400009405D /* bip32.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bip32.h; sourceTree = "<group>"; };
+		626FE8BA2445B3400009405D /* secp256k1.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = secp256k1.c; sourceTree = "<group>"; };
+		626FE8BB2445B3400009405D /* shamir.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shamir.h; sourceTree = "<group>"; };
+		626FE8BC2445B3400009405D /* ecdsa.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ecdsa.h; sourceTree = "<group>"; };
+		626FE8BD2445B3400009405D /* pbkdf2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pbkdf2.h; sourceTree = "<group>"; };
+		626FE8BE2445B3400009405D /* bignum.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = bignum.c; sourceTree = "<group>"; };
+		626FE8BF2445B3400009405D /* options.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = options.h; sourceTree = "<group>"; };
+		626FE8C02445B3400009405D /* slip39.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = slip39.c; sourceTree = "<group>"; };
+		626FE8C12445B3400009405D /* base32.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = base32.h; sourceTree = "<group>"; };
+		626FE8C22445B3400009405D /* segwit_addr.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = segwit_addr.c; sourceTree = "<group>"; };
+		626FE8C32445B3400009405D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		626FE8C42445B3400009405D /* bip39_english.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bip39_english.h; sourceTree = "<group>"; };
+		626FE8C52445B3400009405D /* hasher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hasher.h; sourceTree = "<group>"; };
+		626FE8C62445B3400009405D /* sha2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sha2.h; sourceTree = "<group>"; };
+		626FE8C72445B3400009405D /* ripemd160.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ripemd160.c; sourceTree = "<group>"; };
+		626FE8C82445B3400009405D /* setup.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = setup.py; sourceTree = "<group>"; };
+		626FE8C92445B3400009405D /* hmac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
+		626FE8CA2445B3400009405D /* groestl.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = groestl.c; sourceTree = "<group>"; };
+		626FE8CB2445B3400009405D /* scrypt.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = scrypt.c; sourceTree = "<group>"; };
+		626FE8CC2445B3400009405D /* nist256p1.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = nist256p1.c; sourceTree = "<group>"; };
+		626FE8CD2445B3400009405D /* secp256k1.table */ = {isa = PBXFileReference; lastKnownFileType = text; path = secp256k1.table; sourceTree = "<group>"; };
+		626FE8CE2445B3400009405D /* bip39.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bip39.h; sourceTree = "<group>"; };
+		626FE8D12445B3400009405D /* strobe_config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = strobe_config.h; sourceTree = "<group>"; };
+		626FE8D22445B3400009405D /* strobe.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = strobe.c; sourceTree = "<group>"; };
+		626FE8D32445B3400009405D /* x25519.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = x25519.c; sourceTree = "<group>"; };
+		626FE8D42445B3400009405D /* keccak_f.c.inc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.pascal; path = keccak_f.c.inc; sourceTree = "<group>"; };
+		626FE8D52445B3400009405D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		626FE8D62445B3400009405D /* strobe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = strobe.h; sourceTree = "<group>"; };
+		626FE8D72445B3400009405D /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		626FE8D82445B3400009405D /* x25519.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = x25519.h; sourceTree = "<group>"; };
+		626FE8D92445B3400009405D /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		626FE8DA2445B3400009405D /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		626FE8DC2445B3400009405D /* test.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = test.c; sourceTree = "<group>"; };
+		626FE8DD2445B3400009405D /* Dockerfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Dockerfile; sourceTree = "<group>"; };
+		626FE8DE2445B3400009405D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		626FE8DF2445B3400009405D /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		626FE8E12445B3400009405D /* int128.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = int128.c; sourceTree = "<group>"; };
+		626FE8E22445B3400009405D /* types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
+		626FE8E32445B3400009405D /* sr25519.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = sr25519.c; sourceTree = "<group>"; };
+		626FE8E42445B3400009405D /* merlin.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = merlin.c; sourceTree = "<group>"; };
+		626FE8E52445B3400009405D /* int128.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = int128.h; sourceTree = "<group>"; };
+		626FE8E62445B3400009405D /* consts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = consts.h; sourceTree = "<group>"; };
+		626FE8E72445B3400009405D /* sr25519.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sr25519.h; sourceTree = "<group>"; };
+		626FE8E82445B3400009405D /* merlin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = merlin.h; sourceTree = "<group>"; };
+		626FE8EA2445B3400009405D /* xmr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xmr.h; sourceTree = "<group>"; };
+		626FE8EB2445B3400009405D /* serialize.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = serialize.c; sourceTree = "<group>"; };
+		626FE8EC2445B3400009405D /* base58.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = base58.h; sourceTree = "<group>"; };
+		626FE8ED2445B3400009405D /* range_proof.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = range_proof.c; sourceTree = "<group>"; };
+		626FE8EE2445B3400009405D /* monero.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = monero.h; sourceTree = "<group>"; };
+		626FE8EF2445B3400009405D /* xmr.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = xmr.c; sourceTree = "<group>"; };
+		626FE8F02445B3400009405D /* range_proof.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = range_proof.h; sourceTree = "<group>"; };
+		626FE8F12445B3400009405D /* serialize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = serialize.h; sourceTree = "<group>"; };
+		626FE8F22445B3400009405D /* base58.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = base58.c; sourceTree = "<group>"; };
+		626FE8F32445B3400009405D /* int-util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "int-util.h"; sourceTree = "<group>"; };
+		626FE8F42445B3400009405D /* memzero.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = memzero.c; sourceTree = "<group>"; };
+		626FE8F52445B3400009405D /* rc4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rc4.h; sourceTree = "<group>"; };
+		626FE8F62445B3400009405D /* blake2b.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = blake2b.c; sourceTree = "<group>"; };
+		626FE8F72445B3400009405D /* base58_xrp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = base58_xrp.h; sourceTree = "<group>"; };
+		626FE8F82445B3400009405D /* rand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rand.h; sourceTree = "<group>"; };
+		626FE8F92445B3400009405D /* script.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = script.c; sourceTree = "<group>"; };
+		626FE8FA2445B3400009405D /* groestl_internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = groestl_internal.h; sourceTree = "<group>"; };
+		626FE8FB2445B3400009405D /* bip32.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = bip32.c; sourceTree = "<group>"; };
+		626FE8FC2445B3400009405D /* nem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nem.h; sourceTree = "<group>"; };
+		626FE8FD2445B3400009405D /* rfc6979.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rfc6979.h; sourceTree = "<group>"; };
+		626FE8FE2445B3400009405D /* curves.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = curves.h; sourceTree = "<group>"; };
+		626FE8FF2445B3400009405D /* address.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = address.c; sourceTree = "<group>"; };
+		626FE9002445B3400009405D /* blake2s.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = blake2s.c; sourceTree = "<group>"; };
+		626FE9012445B3400009405D /* hmac_drbg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hmac_drbg.h; sourceTree = "<group>"; };
+		626FE9022445B3400009405D /* cash_addr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cash_addr.h; sourceTree = "<group>"; };
+		626FE9032445B3400009405D /* blake2_common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = blake2_common.h; sourceTree = "<group>"; };
+		626FE9042445B3400009405D /* sha3.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = sha3.c; sourceTree = "<group>"; };
+		626FE9052445B3400009405D /* blake256.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = blake256.h; sourceTree = "<group>"; };
+		626FE9062445B3400009405D /* base58.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = base58.c; sourceTree = "<group>"; };
+		626FE9072445B3400009405D /* slip39.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = slip39.h; sourceTree = "<group>"; };
+		626FE9082445B3400009405D /* bignum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bignum.h; sourceTree = "<group>"; };
+		626FE9092445B3400009405D /* ecdsa.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ecdsa.c; sourceTree = "<group>"; };
+		626FE90A2445B3400009405D /* pbkdf2.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pbkdf2.c; sourceTree = "<group>"; };
+		626FE90B2445B3400009405D /* shamir.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = shamir.c; sourceTree = "<group>"; };
+		626FE90C2445B3400009405D /* secp256k1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = secp256k1.h; sourceTree = "<group>"; };
+		626FE90E2445B3400009405D /* aeskey.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = aeskey.c; sourceTree = "<group>"; };
+		626FE90F2445B3400009405D /* aestab.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = aestab.h; sourceTree = "<group>"; };
+		626FE9102445B3400009405D /* aescrypt.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = aescrypt.c; sourceTree = "<group>"; };
+		626FE9112445B3400009405D /* aesopt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = aesopt.h; sourceTree = "<group>"; };
+		626FE9122445B3400009405D /* aestst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = aestst.h; sourceTree = "<group>"; };
+		626FE9132445B3400009405D /* aes_modes.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = aes_modes.c; sourceTree = "<group>"; };
+		626FE9142445B3400009405D /* aes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
+		626FE9152445B3400009405D /* aestab.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = aestab.c; sourceTree = "<group>"; };
+		626FE9162445B3400009405D /* aestst.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = aestst.c; sourceTree = "<group>"; };
+		626FE9182445B3400009405D /* chacha_merged.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = chacha_merged.c; sourceTree = "<group>"; };
+		626FE9192445B3400009405D /* ecrypt-types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ecrypt-types.h"; sourceTree = "<group>"; };
+		626FE91A2445B3400009405D /* rfc7539.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rfc7539.h; sourceTree = "<group>"; };
+		626FE91B2445B3400009405D /* poly1305-donna.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "poly1305-donna.h"; sourceTree = "<group>"; };
+		626FE91C2445B3400009405D /* chacha20poly1305.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = chacha20poly1305.h; sourceTree = "<group>"; };
+		626FE91D2445B3400009405D /* ecrypt-portable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ecrypt-portable.h"; sourceTree = "<group>"; };
+		626FE91E2445B3400009405D /* rfc7539.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = rfc7539.c; sourceTree = "<group>"; };
+		626FE91F2445B3400009405D /* ecrypt-config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ecrypt-config.h"; sourceTree = "<group>"; };
+		626FE9202445B3400009405D /* ecrypt-machine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ecrypt-machine.h"; sourceTree = "<group>"; };
+		626FE9212445B3400009405D /* ecrypt-sync.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ecrypt-sync.h"; sourceTree = "<group>"; };
+		626FE9222445B3400009405D /* poly1305-donna.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "poly1305-donna.c"; sourceTree = "<group>"; };
+		626FE9232445B3400009405D /* chacha20poly1305.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = chacha20poly1305.c; sourceTree = "<group>"; };
+		626FE9242445B3400009405D /* poly1305-donna-32.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "poly1305-donna-32.h"; sourceTree = "<group>"; };
+		626FE9402445B3400009405D /* debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
+		626FE9412445B3400009405D /* base64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
+		626FE9422445B3400009405D /* common_util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common_util.h; sourceTree = "<group>"; };
+		626FE9432445B3400009405D /* secure_util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = secure_util.h; sourceTree = "<group>"; };
+		626FE9442445B3400009405D /* protobuf_util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = protobuf_util.h; sourceTree = "<group>"; };
+		626FE9452445B3400009405D /* defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = defines.h; sourceTree = "<group>"; };
+		626FE9462445B3400009405D /* common_core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common_core.h; sourceTree = "<group>"; };
+		626FE9472445B3400009405D /* cstr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cstr.h; sourceTree = "<group>"; };
+		626FE9522445B3400009405D /* qr_pack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = qr_pack.h; sourceTree = "<group>"; };
+		626FE9532445B3400009405D /* wallet_proto_qr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wallet_proto_qr.h; sourceTree = "<group>"; };
+		626FE9542445B3400009405D /* wallet_proto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wallet_proto.h; sourceTree = "<group>"; };
+		626FE9612445B3400009405D /* cstr.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cstr.c; sourceTree = "<group>"; };
+		626FE9622445B3400009405D /* debug.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = debug.c; sourceTree = "<group>"; };
+		626FE9632445B3400009405D /* base64.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = base64.c; sourceTree = "<group>"; };
+		626FE9642445B3400009405D /* common_util.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = common_util.c; sourceTree = "<group>"; };
+		626FE9652445B3400009405D /* protobuf_util.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = protobuf_util.c; sourceTree = "<group>"; };
+		626FE9662445B3400009405D /* secure_util.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = secure_util.c; sourceTree = "<group>"; };
+		626FE9682445B3400009405D /* pbc.sln */ = {isa = PBXFileReference; lastKnownFileType = text; path = pbc.sln; sourceTree = "<group>"; };
+		626FE9692445B3400009405D /* pbc.vcxproj.filters */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = pbc.vcxproj.filters; sourceTree = "<group>"; };
+		626FE96A2445B3400009405D /* Android.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = Android.mk; sourceTree = "<group>"; };
+		626FE96C2445B3400009405D /* array.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = array.c; sourceTree = "<group>"; };
+		626FE96D2445B3400009405D /* decode.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = decode.c; sourceTree = "<group>"; };
+		626FE96E2445B3400009405D /* float.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = float.proto; sourceTree = "<group>"; };
+		626FE96F2445B3400009405D /* pbc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pbc.c; sourceTree = "<group>"; };
+		626FE9702445B3400009405D /* addressbook.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = addressbook.proto; sourceTree = "<group>"; };
+		626FE9712445B3400009405D /* varint.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = varint.c; sourceTree = "<group>"; };
+		626FE9722445B3400009405D /* readfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = readfile.h; sourceTree = "<group>"; };
+		626FE9732445B3400009405D /* map.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = map.c; sourceTree = "<group>"; };
+		626FE9742445B3400009405D /* float.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = float.c; sourceTree = "<group>"; };
+		626FE9752445B3400009405D /* test.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = test.proto; sourceTree = "<group>"; };
+		626FE9762445B3400009405D /* test.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = test.c; sourceTree = "<group>"; };
+		626FE9772445B3400009405D /* addressbook.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = addressbook.c; sourceTree = "<group>"; };
+		626FE9782445B3400009405D /* descriptor.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = descriptor.proto; sourceTree = "<group>"; };
+		626FE9792445B3400009405D /* pattern.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pattern.c; sourceTree = "<group>"; };
+		626FE97A2445B3400009405D /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		626FE97B2445B3400009405D /* build_ios.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build_ios.sh; sourceTree = "<group>"; };
+		626FE97D2445B3400009405D /* pbc-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "pbc-Prefix.pch"; sourceTree = "<group>"; };
+		626FE97E2445B3400009405D /* pbc.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = pbc.xcodeproj; sourceTree = "<group>"; };
+		626FE9832445B3400009405D /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		626FE9842445B3400009405D /* build_ios.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build_ios.sh; sourceTree = "<group>"; };
+		626FE9852445B3400009405D /* protobuf.lua */ = {isa = PBXFileReference; lastKnownFileType = text; path = protobuf.lua; sourceTree = "<group>"; };
+		626FE9862445B3400009405D /* test.lua */ = {isa = PBXFileReference; lastKnownFileType = text; path = test.lua; sourceTree = "<group>"; };
+		626FE9872445B3400009405D /* pbc-lua53.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "pbc-lua53.c"; sourceTree = "<group>"; };
+		626FE9892445B3400009405D /* parser.lua */ = {isa = PBXFileReference; lastKnownFileType = text; path = parser.lua; sourceTree = "<group>"; };
+		626FE98A2445B3400009405D /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		626FE98B2445B3400009405D /* testparser.lua */ = {isa = PBXFileReference; lastKnownFileType = text; path = testparser.lua; sourceTree = "<group>"; };
+		626FE98C2445B3400009405D /* build_ios.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build_ios.sh; sourceTree = "<group>"; };
+		626FE98D2445B3400009405D /* protobuf.lua */ = {isa = PBXFileReference; lastKnownFileType = text; path = protobuf.lua; sourceTree = "<group>"; };
+		626FE98E2445B3400009405D /* test2.lua */ = {isa = PBXFileReference; lastKnownFileType = text; path = test2.lua; sourceTree = "<group>"; };
+		626FE98F2445B3400009405D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		626FE9902445B3400009405D /* test.lua */ = {isa = PBXFileReference; lastKnownFileType = text; path = test.lua; sourceTree = "<group>"; };
+		626FE9912445B3400009405D /* pbc-lua.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "pbc-lua.c"; sourceTree = "<group>"; };
+		626FE9922445B3400009405D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		626FE9932445B3400009405D /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		626FE9942445B3400009405D /* license.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
+		626FE9952445B3400009405D /* pbc.vcxproj */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = pbc.vcxproj; sourceTree = "<group>"; };
+		626FE9962445B3400009405D /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .travis.yml; sourceTree = "<group>"; };
+		626FE9972445B3400009405D /* pbc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pbc.h; sourceTree = "<group>"; };
+		626FE9992445B3400009405D /* dump.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = dump.c; sourceTree = "<group>"; };
+		626FE99B2445B3400009405D /* varint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = varint.h; sourceTree = "<group>"; };
+		626FE99C2445B3400009405D /* proto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = proto.h; sourceTree = "<group>"; };
+		626FE99D2445B3400009405D /* descriptor.pbc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = descriptor.pbc.h; sourceTree = "<group>"; };
+		626FE99E2445B3400009405D /* array.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = array.c; sourceTree = "<group>"; };
+		626FE99F2445B3400009405D /* map.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = map.h; sourceTree = "<group>"; };
+		626FE9A02445B3400009405D /* rmessage.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = rmessage.c; sourceTree = "<group>"; };
+		626FE9A12445B3400009405D /* register.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = register.c; sourceTree = "<group>"; };
+		626FE9A22445B3400009405D /* context.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = context.h; sourceTree = "<group>"; };
+		626FE9A32445B3400009405D /* decode.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = decode.c; sourceTree = "<group>"; };
+		626FE9A42445B3400009405D /* stringpool.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = stringpool.c; sourceTree = "<group>"; };
+		626FE9A52445B3400009405D /* bootstrap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bootstrap.h; sourceTree = "<group>"; };
+		626FE9A62445B3400009405D /* pattern.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pattern.h; sourceTree = "<group>"; };
+		626FE9A72445B3400009405D /* alloc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = alloc.c; sourceTree = "<group>"; };
+		626FE9A82445B3400009405D /* varint.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = varint.c; sourceTree = "<group>"; };
+		626FE9A92445B3400009405D /* array.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = array.h; sourceTree = "<group>"; };
+		626FE9AA2445B3400009405D /* map.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = map.c; sourceTree = "<group>"; };
+		626FE9AB2445B3400009405D /* proto.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = proto.c; sourceTree = "<group>"; };
+		626FE9AC2445B3400009405D /* context.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = context.c; sourceTree = "<group>"; };
+		626FE9AD2445B3400009405D /* wmessage.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = wmessage.c; sourceTree = "<group>"; };
+		626FE9AE2445B3400009405D /* alloc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = alloc.h; sourceTree = "<group>"; };
+		626FE9AF2445B3400009405D /* pattern.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pattern.c; sourceTree = "<group>"; };
+		626FE9B02445B3400009405D /* bootstrap.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = bootstrap.c; sourceTree = "<group>"; };
+		626FE9B12445B3400009405D /* stringpool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stringpool.h; sourceTree = "<group>"; };
+		626FEA072445B3400009405D /* qr_pack.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = qr_pack.c; sourceTree = "<group>"; };
+		626FEAAB244726250009405D /* FluttertoastPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FluttertoastPlugin.h; sourceTree = "<group>"; };
+		626FEAAD244726250009405D /* FluttertoastPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FluttertoastPlugin.m; sourceTree = "<group>"; };
+		6271D625222FEDB10067AE45 /* SFPCommonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFPCommonUtils.m; sourceTree = "<group>"; };
+		6271D627222FEDB10067AE45 /* SFPCryptoUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFPCryptoUtil.m; sourceTree = "<group>"; };
+		6271D628222FEDB10067AE45 /* SFPCryptoUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPCryptoUtil.h; sourceTree = "<group>"; };
+		6271D62A222FEDB10067AE45 /* SFPCommonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPCommonUtils.h; sourceTree = "<group>"; };
+		6271D62E222FEF260067AE45 /* SFPBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPBaseModel.h; sourceTree = "<group>"; };
+		6271D62F222FEF260067AE45 /* SFPBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFPBaseModel.m; sourceTree = "<group>"; };
+		6271D630222FEF260067AE45 /* SFPPubHDNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFPPubHDNode.m; sourceTree = "<group>"; };
+		6271D631222FEF260067AE45 /* SFPPubHDNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPPubHDNode.h; sourceTree = "<group>"; };
+		6271D634222FF0060067AE45 /* SFPCryptoPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFPCryptoPlugin.h; sourceTree = "<group>"; };
+		6271D637222FF0750067AE45 /* SFPCryptoPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFPCryptoPlugin.m; sourceTree = "<group>"; };
+		62AF589422D43527005F907B /* SFPFlutterBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFPFlutterBaseViewController.h; sourceTree = "<group>"; };
+		62AF589522D43527005F907B /* SFPFlutterBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFPFlutterBaseViewController.m; sourceTree = "<group>"; };
+		62B19C452255A02900BE2523 /* SFPEIP55.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPEIP55.h; sourceTree = "<group>"; };
+		62B19C462255A02A00BE2523 /* SFPEIP55.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFPEIP55.m; sourceTree = "<group>"; };
+		62B8C3232374572E0003993E /* crypto_utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = crypto_utils.c; path = ../../android/app/src/main/cpp/crypto_utils.c; sourceTree = "<group>"; };
+		62B8C3242374572E0003993E /* crypto_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = crypto_utils.h; path = ../../android/app/src/main/cpp/crypto_utils.h; sourceTree = "<group>"; };
+		62DD50012230C8E60096A2C5 /* SFPQRPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFPQRPlugin.h; sourceTree = "<group>"; };
+		62DD50022230C8E60096A2C5 /* SFPQRPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFPQRPlugin.m; sourceTree = "<group>"; };
+		62DD50042230C91A0096A2C5 /* SFPBasePlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFPBasePlugin.h; sourceTree = "<group>"; };
+		62DD50052230C91A0096A2C5 /* SFPBasePlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFPBasePlugin.m; sourceTree = "<group>"; };
+		62DD50082230FC230096A2C5 /* SFPQRCodeGenerateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFPQRCodeGenerateManager.m; sourceTree = "<group>"; };
+		62DD50092230FC230096A2C5 /* SFPQRCodeGenerateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPQRCodeGenerateManager.h; sourceTree = "<group>"; };
+		6C1928CFB51C115A3FFE28A3 /* Pods-RunnerPro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerPro.release.xcconfig"; path = "Target Support Files/Pods-RunnerPro/Pods-RunnerPro.release.xcconfig"; sourceTree = "<group>"; };
+		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = "<group>"; };
+		7AFFD8ED1D35381100E5BB4D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7AFFD8EE1D35381100E5BB4D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9740EEB21CF90195004384FC /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Flutter/Debug.xcconfig; sourceTree = "<group>"; };
+		9740EEB31CF90195004384FC /* Generated.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Generated.xcconfig; path = Flutter/Generated.xcconfig; sourceTree = "<group>"; };
+		97C146EE1CF9000F007C117D /* Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		97C146F21CF9000F007C117D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		97C146FB1CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC4AE26FD63FDB718B936CF1 /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		97C146EB1CF9000F007C117D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12A9838739F2C37D34964CB7 /* Pods_Runner.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1025AFB72722EAC4006CBAB7 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				621379B42722594900BE5B4A /* cardano_proto.c */,
+				621379B02722594900BE5B4A /* cardano_sign.c */,
+				621379B52722594900BE5B4A /* cardano_util.c */,
+				621379AE2722594900BE5B4A /* bech32_cardano.c */,
+				621379B22722594900BE5B4A /* cardano_hdnode_ckd.c */,
+				621379A82722594900BE5B4A /* cardano.c */,
+				621379AF2722594900BE5B4A /* cbor.c */,
+				1003B4902928C3A20035751B /* ton.c */,
+				1003B48D2928C3A20035751B /* ton_sign.c */,
+				1003B4862928C1270035751B /* crc16.c */,
+				1003B4912928C3A20035751B /* ton_proto.c */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		240D3BC6F331C0DAEA8A37C8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2C5876B2576E94ADB4395404 /* Pods-Runner.debug.xcconfig */,
+				2BA68F0D37F1B0539F5E36CE /* Pods-Runner.release.xcconfig */,
+				DC4AE26FD63FDB718B936CF1 /* Pods-Runner.profile.xcconfig */,
+				1E23067270F9809BB5EADC40 /* Pods-RunnerPro.debug.xcconfig */,
+				6C1928CFB51C115A3FFE28A3 /* Pods-RunnerPro.release.xcconfig */,
+				050B30FFA8271CD1BB9142E1 /* Pods-RunnerPro.profile.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6220F0FE222E474F006749F3 /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6220F0FF222E474F006749F3 /* SFPBaseNavigationController.m */,
+				6220F100222E474F006749F3 /* SFPBaseNavigationController.h */,
+			);
+			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		6240E73222E89EDA005A3EA2 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				6240E73322E89EDA005A3EA2 /* MBProgressHUD.m */,
+				6240E73522E89EDA005A3EA2 /* MBProgressHUD.h */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		625C8B17222A68F700B7CB24 /* QRCodeViewCtrl */ = {
+			isa = PBXGroup;
+			children = (
+				62DD50092230FC230096A2C5 /* SFPQRCodeGenerateManager.h */,
+				62DD50082230FC230096A2C5 /* SFPQRCodeGenerateManager.m */,
+				625C8B24222A6BD800B7CB24 /* SFPQRCodeSession.h */,
+				625C8B25222A6BD800B7CB24 /* SFPQRCodeSession.m */,
+				625C8B1D222A68F700B7CB24 /* SFPQRCodeScanConfig.h */,
+				625C8B18222A68F700B7CB24 /* SFPQRCodeScanConfig.m */,
+				625C8B1C222A68F700B7CB24 /* SFPQRCodeScanningVC+SFPAdd.m */,
+				625C8B19222A68F700B7CB24 /* SFPQRCodeScanningVC+SFPAdd.h */,
+				625C8B1F222A68F700B7CB24 /* SFPQRCodeScanView.h */,
+				625C8B1A222A68F700B7CB24 /* SFPQRCodeScanView.m */,
+				625C8B1E222A68F700B7CB24 /* SFPQRCodeScanningVC.h */,
+				625C8B1B222A68F700B7CB24 /* SFPQRCodeScanningVC.m */,
+			);
+			path = QRCodeViewCtrl;
+			sourceTree = "<group>";
+		};
+		625C8B3F222A738800B7CB24 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				62B19C452255A02900BE2523 /* SFPEIP55.h */,
+				62B19C462255A02A00BE2523 /* SFPEIP55.m */,
+				6271D62E222FEF260067AE45 /* SFPBaseModel.h */,
+				6271D62F222FEF260067AE45 /* SFPBaseModel.m */,
+				6271D631222FEF260067AE45 /* SFPPubHDNode.h */,
+				6271D630222FEF260067AE45 /* SFPPubHDNode.m */,
+				6271D62A222FEDB10067AE45 /* SFPCommonUtils.h */,
+				6271D625222FEDB10067AE45 /* SFPCommonUtils.m */,
+				6271D628222FEDB10067AE45 /* SFPCryptoUtil.h */,
+				6271D627222FEDB10067AE45 /* SFPCryptoUtil.m */,
+				62459B89222CC76A000FEAE9 /* SFPFont.h */,
+				62684BA8242F4D2B00575D2C /* SFPColor.h */,
+				62684BA9242F4D2B00575D2C /* SFPColor.m */,
+				62459B88222CC76A000FEAE9 /* SFPFont.m */,
+				625C8B41222A73A300B7CB24 /* SFPHelper.h */,
+				625C8B40222A73A300B7CB24 /* SFPHelper.m */,
+				625C8B27222A6CAF00B7CB24 /* SFPMacro.h */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		626FE87D2445B3400009405D /* core */ = {
+			isa = PBXGroup;
+			children = (
+				626FE87E2445B3400009405D /* crypto */,
+				626FE9322445B3400009405D /* include */,
+				626FE9602445B3400009405D /* utils */,
+				626FE9672445B3400009405D /* pbc */,
+				626FEA062445B3400009405D /* wallet */,
+			);
+			name = core;
+			path = Runner/core;
+			sourceTree = "<group>";
+		};
+		626FE87E2445B3400009405D /* crypto */ = {
+			isa = PBXGroup;
+			children = (
+				626FE87F2445B3400009405D /* bip39.c */,
+				626FE8802445B3400009405D /* slip39_wordlist.h */,
+				626FE8812445B3400009405D /* scrypt.h */,
+				626FE8822445B3400009405D /* nist256p1.h */,
+				626FE8832445B3400009405D /* groestl.h */,
+				626FE8842445B3400009405D /* hmac.c */,
+				626FE8852445B3400009405D /* ripemd160.h */,
+				626FE8862445B3400009405D /* sha2.c */,
+				626FE8872445B3400009405D /* nist256p1.table */,
+				626FE8882445B3400009405D /* segwit_addr.h */,
+				626FE8892445B3400009405D /* base32.c */,
+				626FE88A2445B3400009405D /* hasher.c */,
+				626FE88B2445B3400009405D /* script.h */,
+				626FE88C2445B3400009405D /* rand.c */,
+				626FE88D2445B3400009405D /* blake2b.h */,
+				626FE88E2445B3400009405D /* base58_xrp.c */,
+				626FE88F2445B3400009405D /* LICENSE */,
+				626FE8902445B3400009405D /* rc4.c */,
+				626FE8912445B3400009405D /* memzero.h */,
+				626FE8922445B3400009405D /* blake256.c */,
+				626FE8932445B3400009405D /* Makefile */,
+				626FE8942445B3400009405D /* base58.h */,
+				626FE8952445B3400009405D /* cash_addr.c */,
+				626FE8962445B3400009405D /* hmac_drbg.c */,
+				626FE8972445B3400009405D /* blake2s.h */,
+				626FE8982445B3400009405D /* sha3.h */,
+				626FE8992445B3400009405D /* address.h */,
+				626FE89A2445B3400009405D /* curves.c */,
+				626FE89B2445B3400009405D /* rfc6979.c */,
+				626FE89C2445B3400009405D /* ed25519-donna */,
+				626FE8B72445B3400009405D /* nem.c */,
+				626FE8B82445B3400009405D /* check_mem.h */,
+				626FE8B92445B3400009405D /* bip32.h */,
+				626FE8BA2445B3400009405D /* secp256k1.c */,
+				626FE8BB2445B3400009405D /* shamir.h */,
+				626FE8BC2445B3400009405D /* ecdsa.h */,
+				626FE8BD2445B3400009405D /* pbkdf2.h */,
+				626FE8BE2445B3400009405D /* bignum.c */,
+				626FE8BF2445B3400009405D /* options.h */,
+				626FE8C02445B3400009405D /* slip39.c */,
+				626FE8C12445B3400009405D /* base32.h */,
+				626FE8C22445B3400009405D /* segwit_addr.c */,
+				626FE8C32445B3400009405D /* README.md */,
+				626FE8C42445B3400009405D /* bip39_english.h */,
+				626FE8C52445B3400009405D /* hasher.h */,
+				626FE8C62445B3400009405D /* sha2.h */,
+				626FE8C72445B3400009405D /* ripemd160.c */,
+				626FE8C82445B3400009405D /* setup.py */,
+				626FE8C92445B3400009405D /* hmac.h */,
+				626FE8CA2445B3400009405D /* groestl.c */,
+				626FE8CB2445B3400009405D /* scrypt.c */,
+				626FE8CC2445B3400009405D /* nist256p1.c */,
+				626FE8CD2445B3400009405D /* secp256k1.table */,
+				626FE8CE2445B3400009405D /* bip39.h */,
+				626FE8CF2445B3400009405D /* sr25519 */,
+				626FE8E92445B3400009405D /* monero */,
+				626FE8F42445B3400009405D /* memzero.c */,
+				626FE8F52445B3400009405D /* rc4.h */,
+				626FE8F62445B3400009405D /* blake2b.c */,
+				626FE8F72445B3400009405D /* base58_xrp.h */,
+				626FE8F82445B3400009405D /* rand.h */,
+				626FE8F92445B3400009405D /* script.c */,
+				626FE8FA2445B3400009405D /* groestl_internal.h */,
+				626FE8FB2445B3400009405D /* bip32.c */,
+				626FE8FC2445B3400009405D /* nem.h */,
+				626FE8FD2445B3400009405D /* rfc6979.h */,
+				626FE8FE2445B3400009405D /* curves.h */,
+				626FE8FF2445B3400009405D /* address.c */,
+				626FE9002445B3400009405D /* blake2s.c */,
+				626FE9012445B3400009405D /* hmac_drbg.h */,
+				626FE9022445B3400009405D /* cash_addr.h */,
+				626FE9032445B3400009405D /* blake2_common.h */,
+				626FE9042445B3400009405D /* sha3.c */,
+				626FE9052445B3400009405D /* blake256.h */,
+				626FE9062445B3400009405D /* base58.c */,
+				626FE9072445B3400009405D /* slip39.h */,
+				626FE9082445B3400009405D /* bignum.h */,
+				626FE9092445B3400009405D /* ecdsa.c */,
+				626FE90A2445B3400009405D /* pbkdf2.c */,
+				626FE90B2445B3400009405D /* shamir.c */,
+				626FE90C2445B3400009405D /* secp256k1.h */,
+				626FE90D2445B3400009405D /* aes */,
+				626FE9172445B3400009405D /* chacha20poly1305 */,
+			);
+			path = crypto;
+			sourceTree = "<group>";
+		};
+		626FE89C2445B3400009405D /* ed25519-donna */ = {
+			isa = PBXGroup;
+			children = (
+				626FE89D2445B3400009405D /* curve25519-donna-scalarmult-base.c */,
+				626FE89E2445B3400009405D /* ed25519-donna-basepoint-table.h */,
+				626FE89F2445B3400009405D /* ed25519-donna-32bit-tables.c */,
+				626FE8A02445B3400009405D /* modm-donna-32bit.h */,
+				626FE8A12445B3400009405D /* ed25519.c */,
+				626FE8A22445B3400009405D /* ed25519-donna.h */,
+				626FE8A32445B3400009405D /* curve25519-donna-helpers.c */,
+				626FE8A42445B3400009405D /* ed25519-keccak.c */,
+				626FE8A52445B3400009405D /* ed25519-hash-custom.h */,
+				626FE8A62445B3400009405D /* curve25519-donna-32bit.h */,
+				626FE8A72445B3400009405D /* ed25519-sha3.c */,
+				626FE8A82445B3400009405D /* ed25519-donna-impl-base.h */,
+				626FE8A92445B3400009405D /* ed25519-donna-portable.h */,
+				626FE8AA2445B3400009405D /* README.md */,
+				626FE8AB2445B3400009405D /* ed25519-donna-32bit-tables.h */,
+				626FE8AC2445B3400009405D /* ed25519-donna-basepoint-table.c */,
+				626FE8AD2445B3400009405D /* curve25519-donna-scalarmult-base.h */,
+				626FE8AE2445B3400009405D /* ed25519-hash-custom-keccak.h */,
+				626FE8AF2445B3400009405D /* ed25519-keccak.h */,
+				626FE8B02445B3400009405D /* modm-donna-32bit.c */,
+				626FE8B12445B3400009405D /* curve25519-donna-helpers.h */,
+				626FE8B22445B3400009405D /* ed25519.h */,
+				626FE8B32445B3400009405D /* curve25519-donna-32bit.c */,
+				626FE8B42445B3400009405D /* ed25519-hash-custom-sha3.h */,
+				626FE8B52445B3400009405D /* ed25519-donna-impl-base.c */,
+				626FE8B62445B3400009405D /* ed25519-sha3.h */,
+			);
+			path = "ed25519-donna";
+			sourceTree = "<group>";
+		};
+		626FE8CF2445B3400009405D /* sr25519 */ = {
+			isa = PBXGroup;
+			children = (
+				626FE8D02445B3400009405D /* strobe-code */,
+				626FE8D92445B3400009405D /* CMakeLists.txt */,
+				626FE8DA2445B3400009405D /* LICENSE */,
+				626FE8DB2445B3400009405D /* test */,
+				626FE8DD2445B3400009405D /* Dockerfile */,
+				626FE8DE2445B3400009405D /* README.md */,
+				626FE8DF2445B3400009405D /* .gitignore */,
+				626FE8E02445B3400009405D /* src */,
+			);
+			path = sr25519;
+			sourceTree = "<group>";
+		};
+		626FE8D02445B3400009405D /* strobe-code */ = {
+			isa = PBXGroup;
+			children = (
+				626FE8D12445B3400009405D /* strobe_config.h */,
+				626FE8D22445B3400009405D /* strobe.c */,
+				626FE8D32445B3400009405D /* x25519.c */,
+				626FE8D42445B3400009405D /* keccak_f.c.inc */,
+				626FE8D52445B3400009405D /* README.md */,
+				626FE8D62445B3400009405D /* strobe.h */,
+				626FE8D72445B3400009405D /* LICENSE.txt */,
+				626FE8D82445B3400009405D /* x25519.h */,
+			);
+			path = "strobe-code";
+			sourceTree = "<group>";
+		};
+		626FE8DB2445B3400009405D /* test */ = {
+			isa = PBXGroup;
+			children = (
+				626FE8DC2445B3400009405D /* test.c */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
+		626FE8E02445B3400009405D /* src */ = {
+			isa = PBXGroup;
+			children = (
+				626FE8E12445B3400009405D /* int128.c */,
+				626FE8E22445B3400009405D /* types.h */,
+				626FE8E32445B3400009405D /* sr25519.c */,
+				626FE8E42445B3400009405D /* merlin.c */,
+				626FE8E52445B3400009405D /* int128.h */,
+				626FE8E62445B3400009405D /* consts.h */,
+				626FE8E72445B3400009405D /* sr25519.h */,
+				626FE8E82445B3400009405D /* merlin.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		626FE8E92445B3400009405D /* monero */ = {
+			isa = PBXGroup;
+			children = (
+				626FE8EA2445B3400009405D /* xmr.h */,
+				626FE8EB2445B3400009405D /* serialize.c */,
+				626FE8EC2445B3400009405D /* base58.h */,
+				626FE8ED2445B3400009405D /* range_proof.c */,
+				626FE8EE2445B3400009405D /* monero.h */,
+				626FE8EF2445B3400009405D /* xmr.c */,
+				626FE8F02445B3400009405D /* range_proof.h */,
+				626FE8F12445B3400009405D /* serialize.h */,
+				626FE8F22445B3400009405D /* base58.c */,
+				626FE8F32445B3400009405D /* int-util.h */,
+			);
+			path = monero;
+			sourceTree = "<group>";
+		};
+		626FE90D2445B3400009405D /* aes */ = {
+			isa = PBXGroup;
+			children = (
+				626FE90E2445B3400009405D /* aeskey.c */,
+				626FE90F2445B3400009405D /* aestab.h */,
+				626FE9102445B3400009405D /* aescrypt.c */,
+				626FE9112445B3400009405D /* aesopt.h */,
+				626FE9122445B3400009405D /* aestst.h */,
+				626FE9132445B3400009405D /* aes_modes.c */,
+				626FE9142445B3400009405D /* aes.h */,
+				626FE9152445B3400009405D /* aestab.c */,
+				626FE9162445B3400009405D /* aestst.c */,
+			);
+			path = aes;
+			sourceTree = "<group>";
+		};
+		626FE9172445B3400009405D /* chacha20poly1305 */ = {
+			isa = PBXGroup;
+			children = (
+				626FE9182445B3400009405D /* chacha_merged.c */,
+				626FE9192445B3400009405D /* ecrypt-types.h */,
+				626FE91A2445B3400009405D /* rfc7539.h */,
+				626FE91B2445B3400009405D /* poly1305-donna.h */,
+				626FE91C2445B3400009405D /* chacha20poly1305.h */,
+				626FE91D2445B3400009405D /* ecrypt-portable.h */,
+				626FE91E2445B3400009405D /* rfc7539.c */,
+				626FE91F2445B3400009405D /* ecrypt-config.h */,
+				626FE9202445B3400009405D /* ecrypt-machine.h */,
+				626FE9212445B3400009405D /* ecrypt-sync.h */,
+				626FE9222445B3400009405D /* poly1305-donna.c */,
+				626FE9232445B3400009405D /* chacha20poly1305.c */,
+				626FE9242445B3400009405D /* poly1305-donna-32.h */,
+			);
+			path = chacha20poly1305;
+			sourceTree = "<group>";
+		};
+		626FE9322445B3400009405D /* include */ = {
+			isa = PBXGroup;
+			children = (
+				626FE93F2445B3400009405D /* utils */,
+				626FE94D2445B3400009405D /* wallet */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		626FE93F2445B3400009405D /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				10D8EDAD292E13930088C398 /* crc16.h */,
+				626FE9402445B3400009405D /* debug.h */,
+				626FE9412445B3400009405D /* base64.h */,
+				626FE9422445B3400009405D /* common_util.h */,
+				626FE9432445B3400009405D /* secure_util.h */,
+				626FE9442445B3400009405D /* protobuf_util.h */,
+				626FE9452445B3400009405D /* defines.h */,
+				626FE9462445B3400009405D /* common_core.h */,
+				1003B4892928C1350035751B /* crc16.h */,
+				626FE9472445B3400009405D /* cstr.h */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		626FE94D2445B3400009405D /* wallet */ = {
+			isa = PBXGroup;
+			children = (
+				626FE9522445B3400009405D /* qr_pack.h */,
+				626FE9532445B3400009405D /* wallet_proto_qr.h */,
+				626FE9542445B3400009405D /* wallet_proto.h */,
+			);
+			path = wallet;
+			sourceTree = "<group>";
+		};
+		626FE9602445B3400009405D /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				10D8EDAB292E13860088C398 /* crc16.c */,
+				626FE9612445B3400009405D /* cstr.c */,
+				626FE9622445B3400009405D /* debug.c */,
+				626FE9632445B3400009405D /* base64.c */,
+				626FE9642445B3400009405D /* common_util.c */,
+				626FE9652445B3400009405D /* protobuf_util.c */,
+				626FE9662445B3400009405D /* secure_util.c */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		626FE9672445B3400009405D /* pbc */ = {
+			isa = PBXGroup;
+			children = (
+				626FE9682445B3400009405D /* pbc.sln */,
+				626FE9692445B3400009405D /* pbc.vcxproj.filters */,
+				626FE96A2445B3400009405D /* Android.mk */,
+				626FE96B2445B3400009405D /* test */,
+				626FE97A2445B3400009405D /* Makefile */,
+				626FE97B2445B3400009405D /* build_ios.sh */,
+				626FE97C2445B3400009405D /* pbc */,
+				626FE97E2445B3400009405D /* pbc.xcodeproj */,
+				626FE9812445B3400009405D /* binding */,
+				626FE9922445B3400009405D /* README.md */,
+				626FE9932445B3400009405D /* .gitignore */,
+				626FE9942445B3400009405D /* license.txt */,
+				626FE9952445B3400009405D /* pbc.vcxproj */,
+				626FE9962445B3400009405D /* .travis.yml */,
+				626FE9972445B3400009405D /* pbc.h */,
+				626FE9982445B3400009405D /* tool */,
+				626FE99A2445B3400009405D /* src */,
+			);
+			path = pbc;
+			sourceTree = "<group>";
+		};
+		626FE96B2445B3400009405D /* test */ = {
+			isa = PBXGroup;
+			children = (
+				626FE96C2445B3400009405D /* array.c */,
+				626FE96D2445B3400009405D /* decode.c */,
+				626FE96E2445B3400009405D /* float.proto */,
+				626FE96F2445B3400009405D /* pbc.c */,
+				626FE9702445B3400009405D /* addressbook.proto */,
+				626FE9712445B3400009405D /* varint.c */,
+				626FE9722445B3400009405D /* readfile.h */,
+				626FE9732445B3400009405D /* map.c */,
+				626FE9742445B3400009405D /* float.c */,
+				626FE9752445B3400009405D /* test.proto */,
+				626FE9762445B3400009405D /* test.c */,
+				626FE9772445B3400009405D /* addressbook.c */,
+				626FE9782445B3400009405D /* descriptor.proto */,
+				626FE9792445B3400009405D /* pattern.c */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
+		626FE97C2445B3400009405D /* pbc */ = {
+			isa = PBXGroup;
+			children = (
+				626FE97D2445B3400009405D /* pbc-Prefix.pch */,
+			);
+			path = pbc;
+			sourceTree = "<group>";
+		};
+		626FE97F2445B3400009405D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				626FEA122445B3400009405D /* libpbc.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		626FE9812445B3400009405D /* binding */ = {
+			isa = PBXGroup;
+			children = (
+				626FE9822445B3400009405D /* lua53 */,
+				626FE9882445B3400009405D /* lua */,
+			);
+			path = binding;
+			sourceTree = "<group>";
+		};
+		626FE9822445B3400009405D /* lua53 */ = {
+			isa = PBXGroup;
+			children = (
+				626FE9832445B3400009405D /* Makefile */,
+				626FE9842445B3400009405D /* build_ios.sh */,
+				626FE9852445B3400009405D /* protobuf.lua */,
+				626FE9862445B3400009405D /* test.lua */,
+				626FE9872445B3400009405D /* pbc-lua53.c */,
+			);
+			path = lua53;
+			sourceTree = "<group>";
+		};
+		626FE9882445B3400009405D /* lua */ = {
+			isa = PBXGroup;
+			children = (
+				626FE9892445B3400009405D /* parser.lua */,
+				626FE98A2445B3400009405D /* Makefile */,
+				626FE98B2445B3400009405D /* testparser.lua */,
+				626FE98C2445B3400009405D /* build_ios.sh */,
+				626FE98D2445B3400009405D /* protobuf.lua */,
+				626FE98E2445B3400009405D /* test2.lua */,
+				626FE98F2445B3400009405D /* README.md */,
+				626FE9902445B3400009405D /* test.lua */,
+				626FE9912445B3400009405D /* pbc-lua.c */,
+			);
+			path = lua;
+			sourceTree = "<group>";
+		};
+		626FE9982445B3400009405D /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				626FE9992445B3400009405D /* dump.c */,
+			);
+			path = tool;
+			sourceTree = "<group>";
+		};
+		626FE99A2445B3400009405D /* src */ = {
+			isa = PBXGroup;
+			children = (
+				626FE99B2445B3400009405D /* varint.h */,
+				626FE99C2445B3400009405D /* proto.h */,
+				626FE99D2445B3400009405D /* descriptor.pbc.h */,
+				626FE99E2445B3400009405D /* array.c */,
+				626FE99F2445B3400009405D /* map.h */,
+				626FE9A02445B3400009405D /* rmessage.c */,
+				626FE9A12445B3400009405D /* register.c */,
+				626FE9A22445B3400009405D /* context.h */,
+				626FE9A32445B3400009405D /* decode.c */,
+				626FE9A42445B3400009405D /* stringpool.c */,
+				626FE9A52445B3400009405D /* bootstrap.h */,
+				626FE9A62445B3400009405D /* pattern.h */,
+				626FE9A72445B3400009405D /* alloc.c */,
+				626FE9A82445B3400009405D /* varint.c */,
+				626FE9A92445B3400009405D /* array.h */,
+				626FE9AA2445B3400009405D /* map.c */,
+				626FE9AB2445B3400009405D /* proto.c */,
+				626FE9AC2445B3400009405D /* context.c */,
+				626FE9AD2445B3400009405D /* wmessage.c */,
+				626FE9AE2445B3400009405D /* alloc.h */,
+				626FE9AF2445B3400009405D /* pattern.c */,
+				626FE9B02445B3400009405D /* bootstrap.c */,
+				626FE9B12445B3400009405D /* stringpool.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		626FEA062445B3400009405D /* wallet */ = {
+			isa = PBXGroup;
+			children = (
+				626FEA072445B3400009405D /* qr_pack.c */,
+			);
+			path = wallet;
+			sourceTree = "<group>";
+		};
+		626FEAAA244726250009405D /* FlutterToast */ = {
+			isa = PBXGroup;
+			children = (
+				626FEAAB244726250009405D /* FluttertoastPlugin.h */,
+				626FEAAD244726250009405D /* FluttertoastPlugin.m */,
+			);
+			path = FlutterToast;
+			sourceTree = "<group>";
+		};
+		9740EEB11CF90186004384FC /* Flutter */ = {
+			isa = PBXGroup;
+			children = (
+				3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */,
+				9740EEB21CF90195004384FC /* Debug.xcconfig */,
+				7AFA3C8E1D35360C0083082E /* Release.xcconfig */,
+				9740EEB31CF90195004384FC /* Generated.xcconfig */,
+			);
+			name = Flutter;
+			sourceTree = "<group>";
+		};
+		97C146E51CF9000F007C117D = {
+			isa = PBXGroup;
+			children = (
+				626FE87D2445B3400009405D /* core */,
+				9740EEB11CF90186004384FC /* Flutter */,
+				97C146F01CF9000F007C117D /* Runner */,
+				97C146EF1CF9000F007C117D /* Products */,
+				240D3BC6F331C0DAEA8A37C8 /* Pods */,
+				BD8CFA6AC40B3ECD0B563A85 /* Frameworks */,
+				1025AFB72722EAC4006CBAB7 /* Recovered References */,
+			);
+			sourceTree = "<group>";
+		};
+		97C146EF1CF9000F007C117D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				97C146EE1CF9000F007C117D /* Runner.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		97C146F01CF9000F007C117D /* Runner */ = {
+			isa = PBXGroup;
+			children = (
+				6222D028251DE975009581D2 /* RunnerRelease.entitlements */,
+				626FEAAA244726250009405D /* FlutterToast */,
+				6240E73222E89EDA005A3EA2 /* MBProgressHUD */,
+				6267EF192295411100CF5CFF /* Runner.entitlements */,
+				6220F0FE222E474F006749F3 /* BaseViewController */,
+				625C8B3F222A738800B7CB24 /* Utils */,
+				625C8B17222A68F700B7CB24 /* QRCodeViewCtrl */,
+				7AFFD8ED1D35381100E5BB4D /* AppDelegate.h */,
+				7AFFD8EE1D35381100E5BB4D /* AppDelegate.m */,
+				3E87532E28DDC3CA00EB7EAE /* AppTheme.h */,
+				3E87533028DDC3CA00EB7EAE /* AppTheme.m */,
+				62DD50042230C91A0096A2C5 /* SFPBasePlugin.h */,
+				62DD50052230C91A0096A2C5 /* SFPBasePlugin.m */,
+				62684B9D242F2C0A00575D2C /* SFPFlutterChannelResp.h */,
+				62684B9E242F2C0A00575D2C /* SFPFlutterChannelResp.m */,
+				6271D634222FF0060067AE45 /* SFPCryptoPlugin.h */,
+				6271D637222FF0750067AE45 /* SFPCryptoPlugin.m */,
+				62223BB522E7066F00ECF3F4 /* SFPProgressHUDPlugin.h */,
+				62223BB622E7066F00ECF3F4 /* SFPProgressHUDPlugin.m */,
+				624B656F2390D21700B2AAEE /* SFPBasePluginItem.h */,
+				624B65702390D21700B2AAEE /* SFPBasePluginItem.m */,
+				62B8C3232374572E0003993E /* crypto_utils.c */,
+				62B8C3242374572E0003993E /* crypto_utils.h */,
+				62DD50012230C8E60096A2C5 /* SFPQRPlugin.h */,
+				62DD50022230C8E60096A2C5 /* SFPQRPlugin.m */,
+				620F068E2248F3C70051C978 /* SFPUtilsPlugin.h */,
+				620F068F2248F3C70051C978 /* SFPUtilsPlugin.m */,
+				62696F8423ECFE890058A99C /* SecureRandomUtil.h */,
+				62696F8523ECFE890058A99C /* SecureRandomUtil.m */,
+				62AF589422D43527005F907B /* SFPFlutterBaseViewController.h */,
+				62AF589522D43527005F907B /* SFPFlutterBaseViewController.m */,
+				97C146FA1CF9000F007C117D /* Main.storyboard */,
+				97C146FD1CF9000F007C117D /* Assets.xcassets */,
+				97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */,
+				97C147021CF9000F007C117D /* Info.plist */,
+				97C146F11CF9000F007C117D /* Supporting Files */,
+				1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */,
+				1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */,
+				62459B8B222D04EE000FEAE9 /* Images.xcassets */,
+				62459B95222D0848000FEAE9 /* Localizable.strings */,
+				62459B9B222D0881000FEAE9 /* InfoPlist.strings */,
+				62696F8723F0E4F60058A99C /* Runner-Bridging-Header.h */,
+			);
+			path = Runner;
+			sourceTree = "<group>";
+		};
+		97C146F11CF9000F007C117D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				97C146F21CF9000F007C117D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BD8CFA6AC40B3ECD0B563A85 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3567C7695680A70415E52608 /* Pods_Runner.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		97C146ED1CF9000F007C117D /* Runner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget "Runner" */;
+			buildPhases = (
+				B278E53E4EB7DBB6E9FC6BE2 /* [CP] Check Pods Manifest.lock */,
+				9740EEB61CF901F6004384FC /* Run Script */,
+				97C146EA1CF9000F007C117D /* Sources */,
+				97C146EB1CF9000F007C117D /* Frameworks */,
+				97C146EC1CF9000F007C117D /* Resources */,
+				3B06AD1E1E4923F5004D2608 /* Thin Binary */,
+				C175EAC8ACFAF6381E89E87C /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Runner;
+			productName = Runner;
+			productReference = 97C146EE1CF9000F007C117D /* Runner.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		97C146E61CF9000F007C117D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1300;
+				ORGANIZATIONNAME = "The Chromium Authors";
+				TargetAttributes = {
+					97C146ED1CF9000F007C117D = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 4N6LM73A6Q;
+						LastSwiftMigration = 1130;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 97C146E91CF9000F007C117D /* Build configuration list for PBXProject "Runner" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 97C146E51CF9000F007C117D;
+			productRefGroup = 97C146EF1CF9000F007C117D /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 626FE97F2445B3400009405D /* Products */;
+					ProjectRef = 626FE97E2445B3400009405D /* pbc.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				97C146ED1CF9000F007C117D /* Runner */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		626FEA122445B3400009405D /* libpbc.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libpbc.a;
+			remoteRef = 626FEA112445B3400009405D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		97C146EC1CF9000F007C117D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62459B99222D0881000FEAE9 /* InfoPlist.strings in Resources */,
+				62459B8C222D04EE000FEAE9 /* Images.xcassets in Resources */,
+				62459B93222D0848000FEAE9 /* Localizable.strings in Resources */,
+				97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */,
+				3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */,
+				97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */,
+				97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3B06AD1E1E4923F5004D2608 /* Thin Binary */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Thin Binary";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" embed_and_thin\n";
+		};
+		9740EEB61CF901F6004384FC /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build\n";
+		};
+		B278E53E4EB7DBB6E9FC6BE2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Runner-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C175EAC8ACFAF6381E89E87C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/YYCategories/YYCategories.framework",
+				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
+				"${BUILT_PRODUCTS_DIR}/device_info/device_info.framework",
+				"${BUILT_PRODUCTS_DIR}/shared_preferences_foundation/shared_preferences_foundation.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYCategories.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/device_info.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/shared_preferences_foundation.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		97C146EA1CF9000F007C117D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				626FEAA12445BB6B0009405D /* aestab.c in Sources */,
+				626FEA9B2445BA670009405D /* aestab.h in Sources */,
+				626FEA9C2445BA670009405D /* aesopt.h in Sources */,
+				626FEA9D2445BA670009405D /* aes.h in Sources */,
+				626FEA962445B9B00009405D /* aeskey.c in Sources */,
+				626FEA972445B9B00009405D /* aescrypt.c in Sources */,
+				626FEA982445B9B00009405D /* aes_modes.c in Sources */,
+				626FEAB0244726250009405D /* FluttertoastPlugin.m in Sources */,
+				626FEA852445B4480009405D /* qr_pack.c in Sources */,
+				3E87533128DDC3CA00EB7EAE /* AppTheme.m in Sources */,
+				626FEA132445B4000009405D /* bip39.c in Sources */,
+				626FEA142445B4000009405D /* hmac.c in Sources */,
+				626FEA152445B4000009405D /* sha2.c in Sources */,
+				626FEA162445B4000009405D /* base32.c in Sources */,
+				626FEA172445B4000009405D /* hasher.c in Sources */,
+				626FEA182445B4000009405D /* rand.c in Sources */,
+				626FEA192445B4000009405D /* base58_xrp.c in Sources */,
+				626FEA1A2445B4000009405D /* rc4.c in Sources */,
+				626FEA1B2445B4000009405D /* blake256.c in Sources */,
+				626FEA1C2445B4000009405D /* cash_addr.c in Sources */,
+				626FEA1D2445B4000009405D /* hmac_drbg.c in Sources */,
+				626FEA1E2445B4000009405D /* curves.c in Sources */,
+				626FEA1F2445B4000009405D /* rfc6979.c in Sources */,
+				626FEA202445B4000009405D /* curve25519-donna-scalarmult-base.c in Sources */,
+				626FEA212445B4000009405D /* ed25519-donna-32bit-tables.c in Sources */,
+				626FEA222445B4000009405D /* ed25519.c in Sources */,
+				626FEA232445B4000009405D /* curve25519-donna-helpers.c in Sources */,
+				626FEA242445B4000009405D /* ed25519-keccak.c in Sources */,
+				626FEA252445B4000009405D /* ed25519-sha3.c in Sources */,
+				626FEA262445B4000009405D /* ed25519-donna-basepoint-table.c in Sources */,
+				626FEA272445B4000009405D /* modm-donna-32bit.c in Sources */,
+				626FEA282445B4000009405D /* curve25519-donna-32bit.c in Sources */,
+				626FEA292445B4000009405D /* ed25519-donna-impl-base.c in Sources */,
+				626FEA2A2445B4000009405D /* nem.c in Sources */,
+				626FEA2B2445B4000009405D /* secp256k1.c in Sources */,
+				626FEA2C2445B4000009405D /* bignum.c in Sources */,
+				626FEA2D2445B4000009405D /* slip39.c in Sources */,
+				626FEA2E2445B4000009405D /* segwit_addr.c in Sources */,
+				626FEA2F2445B4000009405D /* ripemd160.c in Sources */,
+				626FEA302445B4000009405D /* groestl.c in Sources */,
+				626FEA312445B4000009405D /* scrypt.c in Sources */,
+				626FEA322445B4000009405D /* nist256p1.c in Sources */,
+				626FEA332445B4000009405D /* memzero.c in Sources */,
+				626FEA342445B4000009405D /* blake2b.c in Sources */,
+				626FEA352445B4000009405D /* script.c in Sources */,
+				626FEA362445B4000009405D /* bip32.c in Sources */,
+				626FEA372445B4000009405D /* address.c in Sources */,
+				626FEA382445B4000009405D /* blake2s.c in Sources */,
+				626FEA392445B4000009405D /* sha3.c in Sources */,
+				626FEA3A2445B4000009405D /* base58.c in Sources */,
+				626FEA3B2445B4000009405D /* ecdsa.c in Sources */,
+				626FEA3C2445B4000009405D /* pbkdf2.c in Sources */,
+				626FEA3D2445B4000009405D /* shamir.c in Sources */,
+				626FEA412445B4000009405D /* chacha_merged.c in Sources */,
+				626FEA422445B4000009405D /* rfc7539.c in Sources */,
+				626FEA432445B4000009405D /* poly1305-donna.c in Sources */,
+				626FEA442445B4000009405D /* chacha20poly1305.c in Sources */,
+				626FEA492445B4000009405D /* cstr.c in Sources */,
+				626FEA4A2445B4000009405D /* debug.c in Sources */,
+				626FEA4B2445B4000009405D /* base64.c in Sources */,
+				626FEA4C2445B4000009405D /* common_util.c in Sources */,
+				626FEA4D2445B4000009405D /* protobuf_util.c in Sources */,
+				626FEA4E2445B4000009405D /* secure_util.c in Sources */,
+				626FEA4F2445B4000009405D /* array.c in Sources */,
+				626FEA502445B4000009405D /* rmessage.c in Sources */,
+				626FEA512445B4000009405D /* register.c in Sources */,
+				626FEA522445B4000009405D /* decode.c in Sources */,
+				626FEA532445B4000009405D /* stringpool.c in Sources */,
+				626FEA542445B4000009405D /* alloc.c in Sources */,
+				626FEA552445B4000009405D /* varint.c in Sources */,
+				626FEA562445B4000009405D /* map.c in Sources */,
+				626FEA572445B4000009405D /* proto.c in Sources */,
+				626FEA582445B4000009405D /* context.c in Sources */,
+				626FEA592445B4000009405D /* wmessage.c in Sources */,
+				626FEA5A2445B4000009405D /* pattern.c in Sources */,
+				626FEA5B2445B4000009405D /* bootstrap.c in Sources */,
+				6271D633222FEF260067AE45 /* SFPPubHDNode.m in Sources */,
+				620F06902248F3C70051C978 /* SFPUtilsPlugin.m in Sources */,
+				625C8B23222A68F800B7CB24 /* SFPQRCodeScanningVC+SFPAdd.m in Sources */,
+				62DD500C2230FC230096A2C5 /* SFPQRCodeGenerateManager.m in Sources */,
+				978B8F6F1D3862AE00F588F7 /* AppDelegate.m in Sources */,
+				62B8C3252374572E0003993E /* crypto_utils.c in Sources */,
+				6271D638222FF0750067AE45 /* SFPCryptoPlugin.m in Sources */,
+				62684B9F242F2C0A00575D2C /* SFPFlutterChannelResp.m in Sources */,
+				62696F8623ECFE890058A99C /* SecureRandomUtil.m in Sources */,
+				62223BB722E7066F00ECF3F4 /* SFPProgressHUDPlugin.m in Sources */,
+				97C146F31CF9000F007C117D /* main.m in Sources */,
+				624B65712390D21700B2AAEE /* SFPBasePluginItem.m in Sources */,
+				62DD50032230C8E60096A2C5 /* SFPQRPlugin.m in Sources */,
+				625C8B20222A68F800B7CB24 /* SFPQRCodeScanConfig.m in Sources */,
+				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
+				6271D62D222FEDB10067AE45 /* SFPCryptoUtil.m in Sources */,
+				6220F101222E474F006749F3 /* SFPBaseNavigationController.m in Sources */,
+				6271D632222FEF260067AE45 /* SFPBaseModel.m in Sources */,
+				10D8EDAC292E13860088C398 /* crc16.c in Sources */,
+				62459B8A222CC76A000FEAE9 /* SFPFont.m in Sources */,
+				62B19C472255A02A00BE2523 /* SFPEIP55.m in Sources */,
+				625C8B22222A68F800B7CB24 /* SFPQRCodeScanningVC.m in Sources */,
+				62DD50062230C91A0096A2C5 /* SFPBasePlugin.m in Sources */,
+				625C8B21222A68F800B7CB24 /* SFPQRCodeScanView.m in Sources */,
+				62684BAA242F4D2B00575D2C /* SFPColor.m in Sources */,
+				6240E73722E89EDA005A3EA2 /* MBProgressHUD.m in Sources */,
+				62AF589622D43527005F907B /* SFPFlutterBaseViewController.m in Sources */,
+				625C8B42222A73A300B7CB24 /* SFPHelper.m in Sources */,
+				625C8B26222A6BD800B7CB24 /* SFPQRCodeSession.m in Sources */,
+				6271D62B222FEDB10067AE45 /* SFPCommonUtils.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		62459B95222D0848000FEAE9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				62459B94222D0848000FEAE9 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		62459B9B222D0881000FEAE9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				62459B9A222D0881000FEAE9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		97C146FA1CF9000F007C117D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				97C146FB1CF9000F007C117D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				97C147001CF9000F007C117D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		249021D3217E4FDB00AE95B9 /* Profile */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"IOS=1",
+					BUILD_FOR_LOCAL_WALLET,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FMDB/FMDB.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry/Masonry.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ReactiveCocoa/ReactiveCocoa.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/UICKeyChainStore/UICKeyChainStore.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYCategories/YYCategories.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYModel/YYModel.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ZXingObjC/ZXingObjC.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/app_settings/app_settings.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/device_info/device_info.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/flutter_webview_plugin/flutter_webview_plugin.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/fluttertoast/fluttertoast.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/package_info/package_info.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/path_provider/path_provider.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/shared_preferences/shared_preferences.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/sqflite/sqflite.framework/Headers\"",
+					"$(PROJECT_DIR)/Runner/core",
+					"$(PROJECT_DIR)/Runner/core/crypto/ed25519-donna",
+					"$(PROJECT_DIR)/Runner/core/crypto",
+					"$(PROJECT_DIR)/Runner/core/include",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SYSTEM_HEADER_SEARCH_PATHS = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Profile;
+		};
+		249021D4217E4FDB00AE95B9 /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4N6LM73A6Q;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flutter",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					ZXINGOBJC_USE_SUBSPECS,
+					ZXINGOBJC_USE_SUBSPECS,
+					ZXINGOBJC_QRCODE,
+					BUILD_FOR_LOCAL_WALLET,
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FMDB/FMDB.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry/Masonry.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Reachability/Reachability.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ReactiveCocoa/ReactiveCocoa.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/UICKeyChainStore/UICKeyChainStore.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYCategories/YYCategories.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYModel/YYModel.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ZXingObjC/ZXingObjC.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/app_settings/app_settings.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/device_info/device_info.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/flutter_webview_plugin/flutter_webview_plugin.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/fluttertoast/fluttertoast.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/keyboard_visibility/keyboard_visibility.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/package_info/package_info.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/path_provider/path_provider.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/shared_preferences/shared_preferences.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/sqflite/sqflite.framework/Headers\"",
+					"$(PROJECT_DIR)/Runner/core/include/utils",
+					"$(PROJECT_DIR)/Runner/core/include/proto/**",
+					"$(PROJECT_DIR)/Runner/core/include/wallet",
+					"$(PROJECT_DIR)/Runner/core/include/coin",
+					"$(PROJECT_DIR)/Runner/core/crypto",
+					"$(PROJECT_DIR)/Runner/core/crypto/ed25519-donna",
+					"$(PROJECT_DIR)/Runner/core/crypto/aes",
+					"$(PROJECT_DIR)/Runner/core/coin/Bitcoin",
+					"$(PROJECT_DIR)/Runner/core/coin/Binance",
+					"$(PROJECT_DIR)/Runner/core/coin/Ripple",
+				);
+				INFOPLIST_FILE = Runner/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "SafePal App Core";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flutter",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PODS_BUILD_DIR = "${BUILD_DIR}";
+				PODS_PODFILE_DIR_PATH = "${SRCROOT}/.";
+				PODS_ROOTS = "${SRCROOT}/Pods";
+				PRODUCT_BUNDLE_IDENTIFIER = com.safepal.example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				SYSTEM_HEADER_SEARCH_PATHS = "";
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Profile;
+		};
+		97C147031CF9000F007C117D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"IOS=1",
+					"DEBUG=1",
+					BUILD_FOR_LOCAL_WALLET,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FMDB/FMDB.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry/Masonry.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ReactiveCocoa/ReactiveCocoa.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/UICKeyChainStore/UICKeyChainStore.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYCategories/YYCategories.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYModel/YYModel.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ZXingObjC/ZXingObjC.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/app_settings/app_settings.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/device_info/device_info.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/flutter_webview_plugin/flutter_webview_plugin.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/fluttertoast/fluttertoast.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/package_info/package_info.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/path_provider/path_provider.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/shared_preferences/shared_preferences.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/sqflite/sqflite.framework/Headers\"",
+					"$(PROJECT_DIR)/Runner/core/**",
+					"$(PROJECT_DIR)/Runner/core/crypto/ed25519-donna/**",
+					"$(PROJECT_DIR)/Runner/core/crypto/**",
+					"$(PROJECT_DIR)/Runner/core/include/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SYSTEM_HEADER_SEARCH_PATHS = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		97C147041CF9000F007C117D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"IOS=1",
+					BUILD_FOR_LOCAL_WALLET,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FMDB/FMDB.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry/Masonry.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ReactiveCocoa/ReactiveCocoa.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/UICKeyChainStore/UICKeyChainStore.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYCategories/YYCategories.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYModel/YYModel.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ZXingObjC/ZXingObjC.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/app_settings/app_settings.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/device_info/device_info.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/flutter_webview_plugin/flutter_webview_plugin.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/fluttertoast/fluttertoast.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/package_info/package_info.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/path_provider/path_provider.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/shared_preferences/shared_preferences.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/sqflite/sqflite.framework/Headers\"",
+					"$(PROJECT_DIR)/Runner/core",
+					"$(PROJECT_DIR)/Runner/core/crypto/ed25519-donna",
+					"$(PROJECT_DIR)/Runner/core/crypto",
+					"$(PROJECT_DIR)/Runner/core/include",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SYSTEM_HEADER_SEARCH_PATHS = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		97C147061CF9000F007C117D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9740EEB21CF90195004384FC /* Debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4N6LM73A6Q;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flutter",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					ZXINGOBJC_USE_SUBSPECS,
+					ZXINGOBJC_USE_SUBSPECS,
+					ZXINGOBJC_QRCODE,
+					BUILD_FOR_LOCAL_WALLET,
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FMDB/FMDB.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry/Masonry.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Reachability/Reachability.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ReactiveCocoa/ReactiveCocoa.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/UICKeyChainStore/UICKeyChainStore.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYCategories/YYCategories.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYModel/YYModel.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ZXingObjC/ZXingObjC.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/app_settings/app_settings.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/device_info/device_info.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/flutter_webview_plugin/flutter_webview_plugin.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/fluttertoast/fluttertoast.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/keyboard_visibility/keyboard_visibility.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/package_info/package_info.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/path_provider/path_provider.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/shared_preferences/shared_preferences.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/sqflite/sqflite.framework/Headers\"",
+					"$(PROJECT_DIR)/Runner/core/include/wallet",
+					"$(PROJECT_DIR)/Runner/core/include/coin/**",
+					"$(PROJECT_DIR)/Runner/core/include/libbtc/**",
+					"$(PROJECT_DIR)/Runner/core/include/utils/**",
+					"$(PROJECT_DIR)/Runner/core/include/proto/**",
+					"$(PROJECT_DIR)/Runner/core/crypto",
+					"$(PROJECT_DIR)/Runner/core/crypto/ed25519-donna",
+					"$(PROJECT_DIR)/Runner/core/crypto/aes",
+					"$(PROJECT_DIR)/Runner/core/coin/Bitcoin",
+					"$(PROJECT_DIR)/Runner/core/coin/Binance",
+					"$(PROJECT_DIR)/Runner/core/coin/Ripple",
+				);
+				INFOPLIST_FILE = Runner/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "SafePal App Core";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flutter",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PODS_BUILD_DIR = "${BUILD_DIR}";
+				PODS_PODFILE_DIR_PATH = "${SRCROOT}/.";
+				PODS_ROOTS = "${SRCROOT}/Pods";
+				PRODUCT_BUNDLE_IDENTIFIER = com.safepal.example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYSTEM_HEADER_SEARCH_PATHS = "";
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		97C147071CF9000F007C117D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Runner/RunnerRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4N6LM73A6Q;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flutter",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					ZXINGOBJC_USE_SUBSPECS,
+					ZXINGOBJC_USE_SUBSPECS,
+					ZXINGOBJC_QRCODE,
+					BUILD_FOR_LOCAL_WALLET,
+					BUILD_FOR_RELEASE,
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FMDB/FMDB.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry/Masonry.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Reachability/Reachability.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ReactiveCocoa/ReactiveCocoa.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/UICKeyChainStore/UICKeyChainStore.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYCategories/YYCategories.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYModel/YYModel.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ZXingObjC/ZXingObjC.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/app_settings/app_settings.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/device_info/device_info.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/flutter_webview_plugin/flutter_webview_plugin.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/fluttertoast/fluttertoast.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/keyboard_visibility/keyboard_visibility.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/package_info/package_info.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/path_provider/path_provider.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/shared_preferences/shared_preferences.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/sqflite/sqflite.framework/Headers\"",
+					"$(PROJECT_DIR)/Runner/core/include/wallet",
+					"$(PROJECT_DIR)/Runner/core/include/coin/**",
+					"$(PROJECT_DIR)/Runner/core/include/ptoto",
+					"$(PROJECT_DIR)/Runner/core/include/utils",
+					"$(PROJECT_DIR)/Runner/core/crypto",
+					"$(PROJECT_DIR)/Runner/core/crypto/ed25519-donna",
+					"$(PROJECT_DIR)/Runner/core/crypto/aes",
+					"$(PROJECT_DIR)/Runner/core/coin/Bitcoin",
+					"$(PROJECT_DIR)/Runner/core/coin/Binance",
+					"$(PROJECT_DIR)/Runner/core/coin/Ripple",
+				);
+				INFOPLIST_FILE = Runner/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "SafePal App Core";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flutter",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PODS_BUILD_DIR = "${BUILD_DIR}";
+				PODS_PODFILE_DIR_PATH = "${SRCROOT}/.";
+				PODS_ROOTS = "${SRCROOT}/Pods";
+				PRODUCT_BUNDLE_IDENTIFIER = com.safepal.example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				SYSTEM_HEADER_SEARCH_PATHS = "";
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		97C146E91CF9000F007C117D /* Build configuration list for PBXProject "Runner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97C147031CF9000F007C117D /* Debug */,
+				97C147041CF9000F007C117D /* Release */,
+				249021D3217E4FDB00AE95B9 /* Profile */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget "Runner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97C147061CF9000F007C117D /* Debug */,
+				97C147071CF9000F007C117D /* Release */,
+				249021D4217E4FDB00AE95B9 /* Profile */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 97C146E61CF9000F007C117D /* Project object */;
+}

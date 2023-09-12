@@ -1,0 +1,247 @@
+syntax = "proto3";
+
+package Wallet;
+
+enum MessageType {
+    MSG_UNKOWN = 0;
+
+    MSG_BIND_ACCOUNT_REQUEST = 0x2;
+    MSG_BIND_ACCOUNT_RESP = 0x3;
+
+    MSG_GET_PUBKEY_REQUEST = 0x4;
+    MSG_GET_PUBKEY_RESP = 0x5;
+
+    MSG_BITCOIN_SIGN_REQUEST = 0x6;
+    MSG_BITCOIN_SIGN_RESP = 0x7;
+
+    MSG_ETH_SIGN_REQUEST = 0x8;
+    MSG_ETH_SIGN_RESP = 0x9;
+
+    MSG_CUSTOM_MSG_SIGN_REQUEST = 0x22;
+    MSG_CUSTOM_MSG_SIGN_RESP = 0x23;
+}
+
+enum CoinType {
+    COIN_TYPE_UNKOWN = 0x00;
+    COIN_TYPE_BITCOIN = 0x01; // bitcoin: BTC、BCH
+    COIN_TYPE_ETH = 0x02; // eth:
+    COIN_TYPE_ERC20 = 0x03; // ETH ERC20
+}
+
+enum BitcoinOutputFlag {
+    BITCOIN_OUTPUT_FLAG_NO_CHANGE = 0x0;
+    BITCOIN_OUTPUT_FLAG_CHANGE = 0x1;
+}
+
+message PacketHeader {
+    uint64 time = 1;
+    int32 time_zone = 2; // offset minute: [-900,900]; if > 900 minus;example: -60 =  900 - (-60) = 840
+    fixed32 account_id = 3;
+    uint32 version = 4;
+}
+
+message PacketHeaderWrapper {
+    PacketHeader header = 15; //15 is specially tag id
+}
+
+message PacketRespHeader {
+    uint32 version = 1; // hardware version
+}
+
+message PacketRespHeaderWrapper {
+    PacketRespHeader header = 15; //15 is specially tag id
+}
+
+message CoinInfo {
+    int32 type = 1; //is CoinType
+    string uname = 2; //unique name
+    string path = 3; // m/44h/0h/0h
+}
+
+message PubHDNode {
+    uint32 depth = 1;
+    uint32 fingerprint = 2;
+    uint32 child_num = 3;
+    bytes chain_code = 4;
+    bytes public_key = 5;
+    int32 purpose = 6;
+    uint32 curve = 7; //0 1:CURVE_SECP256K1 2:CURVE_NIST256P1 3:CURVE_ED25519
+    int32 single_key = 8;
+}
+
+message ExchangeRate {
+    uint32 amount = 1; // 10^N
+    string currency = 2; // example: USD CNY
+    string symbol = 3; // $ ¥
+    uint64 value = 4;
+}
+
+message DeviceInfo {
+    string id = 1;
+    string name = 2;
+    uint32 version = 3;
+    uint32 se_version = 4;
+    string product_sn = 5;
+    string product_series = 6;
+    string product_type = 7;
+    string product_name = 8;
+    string product_brand = 9;
+    string account_suffix = 10; //deprecated
+    int64 active_time = 11;
+    string active_code = 12;
+    int32 active_time_zone = 13;
+}
+
+message CoinPubkey {
+    CoinInfo coin = 1;
+    PubHDNode node = 2;
+    repeated PubHDNode ext_nodes = 3;
+}
+
+message BindAccountReq {
+    string client_unique_id = 1;
+    string client_name = 2;
+    bytes sec_random = 3; //pubkey 65byte
+    repeated CoinInfo coin = 4;
+    int32 version = 5; //APP proto version
+}
+
+message BindAccountRespWrapper {
+    string client_unique_id = 1;
+    bytes sec_random = 3; //pubkey 65byte
+    int32 version = 6;
+    bytes encoded_info = 7;
+    bytes encoded_digest = 8;
+}
+
+message BindAccountResp {
+    string client_unique_id = 1;
+    uint32 client_id = 2;
+    bytes sec_random = 3; //pubkey 65byte
+    DeviceInfo device_info = 4;
+    repeated CoinPubkey pubkey = 5;
+    int32 version = 6;
+    uint32 account_id = 9;
+    string account_suffix = 10;
+    uint32 account_type = 11; // 0 invalid; 1 create; 2 recover; 3 walletconnect login
+}
+
+message GetPubkeyReq {
+    repeated CoinInfo coin = 1;
+}
+
+message GetPubkeyResp {
+    repeated CoinPubkey pubkey = 1;
+    DeviceInfo device_info = 2;
+}
+
+message BitcoinInput {
+    bytes txid = 1;
+    bytes script = 2;
+    uint32 index = 3;
+    string path = 4; // 0/1
+    uint64 value = 5;
+    string address = 6;
+}
+
+message BitcoinOutput {
+    string address = 1;
+    uint64 value = 2;
+    uint32 flag = 3; // 0:none  0x1: return change address
+    string path = 4; // check owner if type & 0x1
+}
+
+message BitcoinSignRequest {
+    CoinInfo coin = 1;
+    repeated BitcoinInput inputs = 2;
+    repeated BitcoinOutput outputs = 3;
+    ExchangeRate exchange = 4;
+    int64 max_receive_index = 5;
+    uint32 lock_time = 6; // transaction lock_time
+    uint32 expiry = 7; // only for Decred and Zcash
+    uint32 branch_id = 8; // for Zcash
+}
+
+message BitcoinSignRespone {
+    CoinInfo coin = 1;
+    int32 result_code = 2;
+    bytes tx_data = 3;
+}
+
+message EthTokenInfo {
+    int32 type = 1; //is CoinType
+    string name = 2;
+    string symbol = 3;
+    int32 decimals = 4;
+}
+
+message EthContractInfo {
+    bytes id = 1;
+    string name = 2;
+}
+
+message EthEIP1559GasFee {
+    uint64 estimated_base_fee_per_gas = 1;
+    uint64 max_priority_fee_per_gas = 2;
+    uint64 max_fee_per_gas = 3;
+}
+
+message EthChainInfo {
+    string chain_name = 1;
+    uint64 chain_id = 2;
+    string native_name = 3;
+    string native_symbol = 4;
+    uint32 native_decimals = 5;
+    string rpc_url = 6;
+}
+
+message EthSignRequest {
+    CoinInfo coin = 1;
+    uint64 nonce = 2;
+    uint64 gas_price = 3;
+    uint64 gas_limit = 4;
+    bytes to = 5;
+    bytes value = 6;
+    bytes data = 7;
+    uint64 chain_id = 8; //EIP 155
+    uint32 tx_type = 9; //Wanchain only
+    ExchangeRate exchange = 10;
+    EthTokenInfo token = 11;
+    EthContractInfo contract = 12;
+    int32 sign_type = 13; //0 Transfer 1 Approval 3 dapp private data
+    int32 transaction_type = 14; // EIP2718 TransactionType
+    bytes ext_req_data = 15;
+    EthChainInfo chain_info = 16;
+}
+
+message EthSignRespone {
+    bytes tx_data = 1; //signed tx data
+    int32 sign_type = 2;
+}
+
+//EIP712 TypedData message
+message TypedDataMessage {
+    int32 version = 1; //V1 V3 V4
+    string raw = 2; // reserve field
+    bytes  hash_msg = 3; // hash struct
+    string display_msg = 4; // cold wallet display
+}
+
+//Custom message, bitcoin & ethereum sign message
+message CustmsgSignRequest {
+    CoinInfo coin = 1;
+    string path = 2; // 0/1
+    int32 msg_type = 3; //0 common message; 3 typedData
+    string msg = 4;
+    string my_address = 5;
+    int32 version = 6;
+    string app_name = 7;
+    bytes bin_msg = 9;
+    TypedDataMessage typed_data = 10;
+}
+
+message CustmsgSignRespone {
+    int32 coin_type = 1;
+    int32 msg_type = 2;
+    bytes sign_data = 3; //signed tx data
+}

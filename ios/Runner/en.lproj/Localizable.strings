@@ -1,0 +1,8 @@
+
+
+"guide_title_mobile_show_qr" = "APP show QR Code";
+"guide_title_mobile_scan_cold_wallet" = "Scan the QR code generated on the cold wallet";
+"guide_title_cold_wallet_scan_mobile" = "Scan this QR code with SafePal S1";
+"guide_title_cold_wallet_show_qr" = "Generation of Two-Dimensional codes after Cold Wallet scanning";
+"guide_tips_multi_qr_code_auto" = "When there are more than one QR code, it will switch automatically, keep the shot still, and finish scanning the code.";
+"scan" = "SCAN";

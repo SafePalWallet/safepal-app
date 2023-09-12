@@ -1,0 +1,6 @@
+
+
+NSPhotoLibraryUsageDescription = "SafePal need to access your photo album to save a screenshot of the QR code.";
+NSCameraUsageDescription = "SafePal need to access your camera for scanning QR codes.";
+NSPhotoLibraryAddUsageDescription = "SafePal need to access your photo album to save a screenshot of the QR code.";
+NSFaceIDUsageDescription = "SafePal requires the use of Face ID to authorize the use of funds transfer.";
