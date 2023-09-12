@@ -28,7 +28,11 @@ class StringUtils {
     if (!url.startsWith("http")) {
       return false;
     }
-    if (url.contains('.safepal.io') || url.contains(".safepal.com")) {
+    final Uri? uri = Uri.tryParse(url);
+    if (uri == null) {
+      return false;
+    }
+    if (uri.host.toLowerCase() == "safepal.io" || uri.host.toLowerCase() == "safepal.com") {
       return true;
     }
     return false;
