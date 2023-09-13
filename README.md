@@ -1,6 +1,8 @@
-# safepal_app
+## SafePal App Core
 
-A new Flutter application.
+This is a simplified version of SafePal Wallet App. To know the full features of SafePal Wallet, please visit our community.
+
+- [More details](https://www.safepal.com/en/sitemap)
 
 ## Getting Started
 
