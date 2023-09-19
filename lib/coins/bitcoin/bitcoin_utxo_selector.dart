@@ -5,7 +5,7 @@ class BitcoinUtxoFeeCalculator {
   static const  double gDefaultBytesPerInput = 148;
   static const  double gDefaultBytesPerOutput = 34;
   static const  double gDefaultBytesBase = 10;
-  static const  double gSegwitBytesPerInput = 68.5;
+  static const  double gSegwitBytesPerInput = 101.25;
   static const  double gSegwitBytesPerOutput = 31;
   static const  double gSegwitBytesBase = gDefaultBytesBase;
 
