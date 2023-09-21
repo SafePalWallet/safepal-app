@@ -1,6 +1,6 @@
-## SafePal App Core
+## SafePal App (Core Version)
 
-This is a simplified version of SafePal Wallet App. To know the full features of SafePal Wallet, please visit our [community](https://www.safepal.com/en/sitemap).
+This is the core version of the SafePal Wallet App. To learn about the full features of SafePal Wallet, please visit our [community](https://www.safepal.com/en/sitemap).
 
 ## Getting Started
 
