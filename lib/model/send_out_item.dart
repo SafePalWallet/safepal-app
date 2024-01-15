@@ -1,4 +1,3 @@
-
 class SendOutItem {
   String? address;
   String? amountText;

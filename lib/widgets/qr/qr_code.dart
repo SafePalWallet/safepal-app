@@ -25,7 +25,7 @@ class QrCode {
         errorCorrectLevel, QrErrorCorrectLevel.levels, 'errorCorrectLevel');
 
     for (var row = 0; row < moduleCount; row++) {
-      _modules.add(List<bool?>.filled(moduleCount,null));
+      _modules.add(List<bool?>.filled(moduleCount, null));
     }
   }
 
@@ -301,8 +301,8 @@ List<int> _createBytes(QrBitBuffer buffer, List<QrRsBlock> rsBlocks) {
   var maxDcCount = 0;
   var maxEcCount = 0;
 
-  List<List<int>?> dcdata = List<List<int>?>.filled(rsBlocks.length,null);
-  List<List<int>?> ecdata = List<List<int>?>.filled(rsBlocks.length,null);
+  List<List<int>?> dcdata = List<List<int>?>.filled(rsBlocks.length, null);
+  List<List<int>?> ecdata = List<List<int>?>.filled(rsBlocks.length, null);
 
   for (var r = 0; r < rsBlocks.length; r++) {
     var dcCount = rsBlocks[r].dataCount;

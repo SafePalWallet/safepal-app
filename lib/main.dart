@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:safepal_example/pages/add_wallet_page.dart';
@@ -29,19 +28,16 @@ void _initApp() async {
 }
 
 class MyApp extends StatefulWidget {
-
   @override
   State<StatefulWidget> createState() {
     return _MyAppState();
   }
-
 }
 
 class _MyAppState extends State<MyApp> with AutomaticKeepAliveClientMixin {
-
   @override
   void initState() {
-    WalletManager.instance.addDidChangeWalletCallback(callback: (){
+    WalletManager.instance.addDidChangeWalletCallback(callback: () {
       updateUI();
     });
     super.initState();
@@ -71,11 +67,13 @@ class _MyAppState extends State<MyApp> with AutomaticKeepAliveClientMixin {
     if (instance.isBinded()) {
       return MainWalletPage();
     }
-    return AddWalletPage(onPress: (){
-      Navigator.of(this.context).push(MaterialPageRoute(builder: (context){
-        return MainWalletPage();
-      }));
-    },);
+    return AddWalletPage(
+      onPress: () {
+        Navigator.of(this.context).push(MaterialPageRoute(builder: (context) {
+          return MainWalletPage();
+        }));
+      },
+    );
   }
 
   @override
@@ -84,19 +82,19 @@ class _MyAppState extends State<MyApp> with AutomaticKeepAliveClientMixin {
 
     MaterialApp materialApp = MaterialApp(
       navigatorKey: navigatorKey,
-        title: "SafePal App Core",
-        localeResolutionCallback: (locale, locales) {
-          if (locales.contains(locale)) {
-            return locale;
-          }
-          return langConfig.curLang!.locale;
-        },
-        supportedLocales: langConfig.supportedLocales(),
-        locale: langConfig.curLang!.locale,
-        theme: themeProvider.lightTheme,
-        darkTheme: themeProvider.darkTheme,
-        themeMode: themeProvider.themeMode,
-        home: _createHomePage(), //主体部分
+      title: "SafePal App Core",
+      localeResolutionCallback: (locale, locales) {
+        if (locales.contains(locale)) {
+          return locale;
+        }
+        return langConfig.curLang!.locale;
+      },
+      supportedLocales: langConfig.supportedLocales(),
+      locale: langConfig.curLang!.locale,
+      theme: themeProvider.lightTheme,
+      darkTheme: themeProvider.darkTheme,
+      themeMode: themeProvider.themeMode,
+      home: _createHomePage(), //主体部分
     );
     return materialApp;
   }

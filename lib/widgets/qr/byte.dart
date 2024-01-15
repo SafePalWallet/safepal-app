@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'bit_buffer.dart';
 import 'mode.dart' as qr_mode;
 

@@ -1,12 +1,6 @@
-
-enum BIPPurposeType {
-  bip44,
-  bip49,
-  bip84
-}
+enum BIPPurposeType { bip44, bip49, bip84 }
 
 class HDPurposeUtil {
-
   static BIPPurposeType? getPurposeTypeForDerivedValue(int derivedPurpose) {
     if (derivedPurpose == 44) {
       return BIPPurposeType.bip44;

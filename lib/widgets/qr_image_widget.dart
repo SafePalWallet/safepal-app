@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:safepal_example/widgets/qr_image/qr_image.dart';
 
 import '../widgets/qr/error_correct_level.dart';
-import '../utils/style.dart';
 
 export 'package:safepal_example/widgets/qr/error_correct_level.dart';
 
+// ignore: must_be_immutable
 class QRImageWidget extends StatelessWidget {
   final List<int> qrData;
   final int version;
@@ -14,7 +14,6 @@ class QRImageWidget extends StatelessWidget {
   Color? foregroundColor;
   final EdgeInsets padding;
   final int errorLevel;
-
 
   QRImageWidget({
     Key? key,
@@ -25,13 +24,13 @@ class QRImageWidget extends StatelessWidget {
     this.foregroundColor,
     this.padding = const EdgeInsets.all(10.0),
     this.errorLevel = QrErrorCorrectLevel.L,
-  }) : super(key:key){
-    this.backgroundColor = this.backgroundColor?? Colors.white;
-    this.foregroundColor = this.foregroundColor?? Colors.black;
+  }) : super(key: key) {
+    this.backgroundColor = this.backgroundColor ?? Colors.white;
+    this.foregroundColor = this.foregroundColor ?? Colors.black;
   }
 
   static int getQrVersion(List<int> qrData) {
-    if (qrData == null || qrData.isEmpty) {
+    if (qrData.isEmpty) {
       return 4;
     }
     int len = qrData.length;
@@ -59,7 +58,6 @@ class QRImageWidget extends StatelessWidget {
       return 75;
     }
   }
-
 
   @override
   Widget build(BuildContext context) {

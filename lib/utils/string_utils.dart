@@ -1,15 +1,4 @@
-import 'dart:math';
-import 'dart:typed_data';
-import 'dart:convert';
-import 'package:convert/convert.dart';
-import 'package:crypto/crypto.dart';
-import 'package:decimal/decimal.dart';
-import 'package:intl/intl.dart';
-
-import 'debug_logger.dart';
-
 class StringUtils {
-
   static String trim0(String string) {
     String result;
     if (string.contains('\u0000')) {
@@ -20,8 +9,8 @@ class StringUtils {
     return result;
   }
 
- static bool isSafePalHost(String url) {
-    if (url == null || url.isEmpty) {
+  static bool isSafePalHost(String url) {
+    if (url.isEmpty) {
       return false;
     }
     url = url.toLowerCase();
@@ -32,10 +21,10 @@ class StringUtils {
     if (uri == null) {
       return false;
     }
-    if (uri.host.toLowerCase() == "safepal.io" || uri.host.toLowerCase() == "safepal.com") {
+    if (uri.host.toLowerCase() == "safepal.io" ||
+        uri.host.toLowerCase() == "safepal.com") {
       return true;
     }
     return false;
- }
-
+  }
 }

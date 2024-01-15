@@ -42,73 +42,52 @@ class ChainConfig {
 
   String? supportedPurposes;
 
-
   Map<BIPPurposeType, String>? _supportedExtendedPublicKeys;
   Map<BIPPurposeType, String>? get supportedExtendedPublicKeys {
     return _supportedExtendedPublicKeys;
   }
 
-  ChainConfig({
-    required this.id,
-
-    required this.type,
-    required this.uname,
-
-    required this.name,
-    required this.symbol,
-    required this.decimals,
-
-    required this.blockchain,
-    required this.derivationPath,
-    this.curve,
-    this.publicKeyType,
-    this.staticPrefix,
-    this.p2pkhPrefix,
-
-    this.p2shPrefix,
-    this.hrp,
-    this.publicKeyHasher,
-    this.base58Hasher,
-
-    this.explorer,
-    this.account,
-
-    this.logo,
-    this.chainLogo,
-    this.chainId,
-
-    this.supportedPurposes
-  }) {
+  ChainConfig(
+      {required this.id,
+      required this.type,
+      required this.uname,
+      required this.name,
+      required this.symbol,
+      required this.decimals,
+      required this.blockchain,
+      required this.derivationPath,
+      this.curve,
+      this.publicKeyType,
+      this.staticPrefix,
+      this.p2pkhPrefix,
+      this.p2shPrefix,
+      this.hrp,
+      this.publicKeyHasher,
+      this.base58Hasher,
+      this.explorer,
+      this.account,
+      this.logo,
+      this.chainLogo,
+      this.chainId,
+      this.supportedPurposes}) {
     if (this.supportedPurposes != null) {
-      _supportedExtendedPublicKeys = _supportedExtendedFromString(this.supportedPurposes!);
+      _supportedExtendedPublicKeys =
+          _supportedExtendedFromString(this.supportedPurposes!);
     }
   }
 
-  static Map<BIPPurposeType, String> _supportedExtendedFromString(String value) {
+  static Map<BIPPurposeType, String> _supportedExtendedFromString(
+      String value) {
     final Map<BIPPurposeType, String> result = {};
     final List<String> pairs = value.split(";");
     for (String pair in pairs) {
       final List<String> items = pair.split(":");
-      final BIPPurposeType? type = HDPurposeUtil.getPurposeTypeForDerivedValue(int.parse(items[0]));
+      final BIPPurposeType? type =
+          HDPurposeUtil.getPurposeTypeForDerivedValue(int.parse(items[0]));
       if (type == null) {
         continue;
       }
       result[type] = items[1];
-    }
-    return result;
-  }
-
-  static String _supportedExtendedToString(Map<BIPPurposeType, String> values) {
-    String result = "";
-    for (BIPPurposeType type in values.keys) {
-      final typeValue = HDPurposeUtil.getDerivedValueForPurposeType(type);
-      if (typeValue == null) {
-        continue;
-      }
-      if (result.isNotEmpty) {
-        result += ";";
-      }
-      result += "$typeValue:${values[type]}";
     }
     return result;
   }
@@ -144,7 +123,8 @@ class ChainConfig {
       _isEvm = false;
       return _isEvm!;
     }
-    HDDerivedPath? path = HDDerivedPath.derivedPathWithPath(this.derivationPath);
+    HDDerivedPath? path =
+        HDDerivedPath.derivedPathWithPath(this.derivationPath);
     if (path == null) {
       return false;
     }
@@ -153,12 +133,13 @@ class ChainConfig {
   }
 
   String get pathPrefix {
-    final HDDerivedPath path = HDDerivedPath.derivedPathWithPath(this.derivationPath)!;
+    final HDDerivedPath path =
+        HDDerivedPath.derivedPathWithPath(this.derivationPath)!;
     return path.prefix;
   }
 
   int? addressPrefixFromType(BIPPurposeType type) {
-    switch (type){
+    switch (type) {
       case BIPPurposeType.bip44:
         return this.p2pkhPrefix;
       case BIPPurposeType.bip49:
@@ -171,15 +152,14 @@ class ChainConfig {
     return null;
   }
 
-  factory ChainConfig.fromJson(Map<String, dynamic> json) => _$ChainConfigFromJson(json);
+  factory ChainConfig.fromJson(Map<String, dynamic> json) =>
+      _$ChainConfigFromJson(json);
   Map<String, dynamic> toJson() => _$ChainConfigToJson(this);
-
 }
 
 final ChainConfigManager chainConfigManager = ChainConfigManager();
 
 class ChainConfigManager {
-
   List<ChainConfig>? _allChainConfigs;
 
   final Map<String, ChainConfig> _chainTidConfigMaps = {};
@@ -188,7 +168,7 @@ class ChainConfigManager {
     final String path = 'assets/json/blockchain.json';
     ByteData byteData = await rootBundle.load(path);
     Uint8List uint8list = byteData.buffer.asUint8List();
-    dynamic jsons = json.decode(utf8.decode(uint8list as List<int>));
+    dynamic jsons = json.decode(utf8.decode(uint8list));
     if (jsons == null || jsons is! List) {
       return;
     }
@@ -233,7 +213,7 @@ class ChainConfigManager {
 
   ChainConfig? coinConfigWithChainId(int chainId) {
     for (ChainConfig item in coinConfigs()) {
-      if (item.chainId == null){
+      if (item.chainId == null) {
         continue;
       }
       if (item.chainId == chainId) {
@@ -259,5 +239,4 @@ class ChainConfigManager {
     }
     return null;
   }
-
 }

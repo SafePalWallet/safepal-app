@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
@@ -9,8 +8,8 @@ enum Toast { LENGTH_SHORT, LENGTH_LONG }
 enum ToastGravity { TOP, BOTTOM, CENTER }
 
 class Fluttertoast {
-
-  static const MethodChannel _channel = const MethodChannel('PonnamKarthik/fluttertoast');
+  static const MethodChannel _channel =
+      const MethodChannel('PonnamKarthik/fluttertoast');
 
   static Future<bool?> cancel() async {
     bool? res = await _channel.invokeMethod("cancel");

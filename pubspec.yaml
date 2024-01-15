@@ -19,7 +19,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  intl: ^0.17.0
+  intl: ^0.18.1
   dio: ^4.0.0
   shared_preferences: ^2.0.13
   protobuf: ^2.0.1

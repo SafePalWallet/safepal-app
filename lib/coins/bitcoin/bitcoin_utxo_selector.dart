@@ -2,22 +2,20 @@ import '../hd_purpose_util.dart';
 import 'bitcoin_unspend.dart';
 
 class BitcoinUtxoFeeCalculator {
-  static const  double gDefaultBytesPerInput = 148;
-  static const  double gDefaultBytesPerOutput = 34;
-  static const  double gDefaultBytesBase = 10;
-  static const  double gSegwitBytesPerInput = 101.25;
-  static const  double gSegwitBytesPerOutput = 31;
-  static const  double gSegwitBytesBase = gDefaultBytesBase;
+  static const double gDefaultBytesPerInput = 148;
+  static const double gDefaultBytesPerOutput = 34;
+  static const double gDefaultBytesBase = 10;
+  static const double gSegwitBytesPerInput = 101.25;
+  static const double gSegwitBytesPerOutput = 31;
+  static const double gSegwitBytesBase = gDefaultBytesBase;
 
-  static const  double gDecredBytesPerInput = 166;
-  static const  double gDecredBytesPerOutput = 38;
-  static const  double gDecredBytesBase = 12;
+  static const double gDecredBytesPerInput = 166;
+  static const double gDecredBytesPerOutput = 38;
+  static const double gDecredBytesBase = 12;
 
   final BIPPurposeType purpose;
 
-  BitcoinUtxoFeeCalculator({
-    required this.purpose
-  });
+  BitcoinUtxoFeeCalculator({required this.purpose});
 
   BigInt singleInputFee(BigInt bytefee) {
     if (this.purpose == BIPPurposeType.bip44) {
@@ -31,16 +29,21 @@ class BitcoinUtxoFeeCalculator {
   BigInt calFee({int? numInput, int? numOutput, BigInt? bytefee}) {
     late int txSize;
     if (this.purpose == BIPPurposeType.bip44) {
-      txSize = ((gDefaultBytesPerInput.ceil() * numInput!) + (gDefaultBytesPerOutput.ceil() * numOutput!) + gDefaultBytesBase).toInt();
+      txSize = ((gDefaultBytesPerInput.ceil() * numInput!) +
+              (gDefaultBytesPerOutput.ceil() * numOutput!) +
+              gDefaultBytesBase)
+          .toInt();
     } else {
-      txSize = ((gSegwitBytesPerInput.ceil() * numInput!) + (gSegwitBytesPerOutput.ceil() * numOutput!) + gSegwitBytesBase).toInt();
+      txSize = ((gSegwitBytesPerInput.ceil() * numInput!) +
+              (gSegwitBytesPerOutput.ceil() * numOutput!) +
+              gSegwitBytesBase)
+          .toInt();
     }
     return BigInt.from(txSize) * bytefee!;
-    }
+  }
 }
 
 class BitcoinUtxoSelector {
-
   static BigInt dustThreshold = BigInt.from(3 * 182);
 
   final BIPPurposeType purpose;
@@ -63,7 +66,8 @@ class BitcoinUtxoSelector {
     _calculator = BitcoinUtxoFeeCalculator(purpose: this.purpose);
   }
 
-  static List<List<BitcoinUnspend>>? slice({List<BitcoinUnspend>? utxos, int numSlice = 1}) {
+  static List<List<BitcoinUnspend>>? slice(
+      {List<BitcoinUnspend>? utxos, int numSlice = 1}) {
     if (utxos == null || utxos.isEmpty) {
       return null;
     }
@@ -77,7 +81,7 @@ class BitcoinUtxoSelector {
   }
 
   static BigInt sumAmount(List<BitcoinUnspend> utxos) {
-    if (utxos == null || utxos.isEmpty) {
+    if (utxos.isEmpty) {
       return BigInt.zero;
     }
     BigInt result = BigInt.zero;
@@ -91,12 +95,11 @@ class BitcoinUtxoSelector {
     if (utxos == null || utxos.isEmpty) {
       return utxos;
     }
-    utxos.sort((obj1, obj2){
+    utxos.sort((obj1, obj2) {
       return obj1.amountVal!.compareTo(obj2.amountVal!);
     });
     return utxos;
   }
-
 
   List<BitcoinUnspend> filterDustInput(List<BitcoinUnspend> items) {
     List<BitcoinUnspend> results = [];
@@ -122,9 +125,9 @@ class BitcoinUtxoSelector {
     }
 
     BigInt doubleTargetValue = this.targetVal * BigInt.two;
-    List<BitcoinUnspend> sortedUtxos = sort(utxos:this.utxos)!;
+    List<BitcoinUnspend> sortedUtxos = sort(utxos: this.utxos)!;
 
-    var distFrom2x = (BigInt val){
+    var distFrom2x = (BigInt val) {
       if (val > doubleTargetValue) {
         return val - doubleTargetValue;
       } else {
@@ -138,16 +141,18 @@ class BitcoinUtxoSelector {
     //    (2) closer to 2x the amount,
     //    (3) and does not produce dust change.
     int numInput = 1;
-    for (;numInput <= sortedUtxos.length; numInput += 1) {
-      BigInt  fee = _calculator.calFee(numInput: numInput, numOutput: numOuput, bytefee: this.bytefee);
+    for (; numInput <= sortedUtxos.length; numInput += 1) {
+      BigInt fee = _calculator.calFee(
+          numInput: numInput, numOutput: numOuput, bytefee: this.bytefee);
       BigInt targetWithFeeAndDust = this.targetVal + fee + this.dust;
-      List<List<BitcoinUnspend>> slices = slice(utxos: sortedUtxos, numSlice: numInput)!;
-      slices.removeWhere((List<BitcoinUnspend> item){
+      List<List<BitcoinUnspend>> slices =
+          slice(utxos: sortedUtxos, numSlice: numInput)!;
+      slices.removeWhere((List<BitcoinUnspend> item) {
         return sumAmount(item) < targetWithFeeAndDust;
       });
 
       if (slices.isNotEmpty) {
-        slices.sort((obj1, obj2){
+        slices.sort((obj1, obj2) {
           BigInt dist1 = distFrom2x(sumAmount(obj1));
           BigInt dist2 = distFrom2x(sumAmount(obj2));
           return dist1.compareTo(dist2);
@@ -159,20 +164,20 @@ class BitcoinUtxoSelector {
 
     // 2. If not, find a combination of outputs that may produce dust change.
     numOuput = 1;
-    for ( numInput = 1; numInput <= sortedUtxos.length; numInput += 1) {
-      BigInt  fee = _calculator.calFee(numInput: numInput, numOutput: numOuput, bytefee: this.bytefee);
+    for (numInput = 1; numInput <= sortedUtxos.length; numInput += 1) {
+      BigInt fee = _calculator.calFee(
+          numInput: numInput, numOutput: numOuput, bytefee: this.bytefee);
       BigInt targetWithFee = this.targetVal + fee;
-      List<List<BitcoinUnspend>> slices = slice(utxos: sortedUtxos, numSlice: numInput)!;
-      slices.removeWhere((List<BitcoinUnspend> item){
+      List<List<BitcoinUnspend>> slices =
+          slice(utxos: sortedUtxos, numSlice: numInput)!;
+      slices.removeWhere((List<BitcoinUnspend> item) {
         return sumAmount(item) < targetWithFee;
       });
-      if (!slices.isEmpty) {
+      if (slices.isNotEmpty) {
         return filterDustInput(slices.first);
       }
     }
 
     return [];
   }
-
-
 }

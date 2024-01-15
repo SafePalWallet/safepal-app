@@ -1,9 +1,7 @@
-import 'package:meta/meta.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
 
 class BasePlugin {
-
   static Future<T?> invokeMethod<T>(
       {required MethodChannel channel,
       required String method,
@@ -17,5 +15,4 @@ class BasePlugin {
       throw e;
     }
   }
-
 }

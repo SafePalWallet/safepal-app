@@ -24,29 +24,24 @@ import '../widgets/alert_dialog.dart';
 import '../utils/toast_util.dart';
 
 class TransferPage extends StatefulWidget {
-
   final TransferHistoryManager historyManager;
   final Wallet wallet;
   final Coin coin;
   final VoidCallback onSendHandler;
 
-  TransferPage({
-    required this.wallet,
-    required this.coin,
-    required this.historyManager,
-    required this.onSendHandler
-  });
+  TransferPage(
+      {required this.wallet,
+      required this.coin,
+      required this.historyManager,
+      required this.onSendHandler});
 
   @override
   State<StatefulWidget> createState() {
     return _TransferPageState();
   }
-
 }
 
-
 class _TransferPageState extends State<TransferPage> {
-
   final TextEditingController _addressController = TextEditingController();
   final TextEditingController _amountController = TextEditingController();
 
@@ -101,7 +96,8 @@ class _TransferPageState extends State<TransferPage> {
     SendOutItem out = SendOutItem();
     out.address = _addressController.text;
     out.amountText = _amountController.text;
-    out.amount = (Decimal.parse(_amountController.text) * DecimalUtil.decimal8).toBigInt();
+    out.amount = (Decimal.parse(_amountController.text) * DecimalUtil.decimal8)
+        .toBigInt();
 
     final BitcoinTxBuilder builder = await BitcoinTxBuilder.build(
         wallet: widget.wallet,
@@ -136,7 +132,8 @@ class _TransferPageState extends State<TransferPage> {
       final BitcoinInput input = BitcoinInput();
       input.txid = hex.decode(item.txid!);
       input.index = item.txIndex!;
-      HDDerivedPath coinDerivedPath = HDDerivedPath.derivedPathWithPath(item.path)!;
+      HDDerivedPath coinDerivedPath =
+          HDDerivedPath.derivedPathWithPath(item.path)!;
       input.path = coinDerivedPath.suffixPath;
       input.value = Int64.parseInt(item.amount!);
       input.address = item.address!;
@@ -151,33 +148,35 @@ class _TransferPageState extends State<TransferPage> {
     final List<int> result = await _sign(
         reqType: MessageType.MSG_BITCOIN_SIGN_REQUEST,
         respType: MessageType.MSG_BITCOIN_SIGN_RESP,
-        reqdata: signRequest.writeToBuffer().toList()
-    );
+        reqdata: signRequest.writeToBuffer().toList());
     if (result.isEmpty) {
       ToastUtil.show("Sign bitcoin failed");
       return;
     }
     final String rawdata = hex.encode(result);
-    Alert.show(context: this.context, content: rawdata, options: ["Cancel", "Broadcast"], onPress: (idx) async {
-      if (idx == 0) {
-        return;
-      }
-      final ApiResp resp = await BitcoinApi().sendtx(rawdata);
-      if (resp.error != null) {
-        ToastUtil.show(resp.error.toString());
-        return;
-      }
-      final String txid = resp.data['result'];
-      ToastUtil.show("sendt bitcoin tx success, txid:$txid");
-      final TransferHistory model = TransferHistory(
-          amount: _amountController.text,
-          timestamp: DateTime.now().millisecondsSinceEpoch ~/ 1000,
-          txid: txid,
-          to: _addressController.text
-      );
-      widget.historyManager.addHistory(history: model, isBitcoin: true);
-      widget.onSendHandler();
-    });
+    Alert.show(
+        context: this.context,
+        content: rawdata,
+        options: ["Cancel", "Broadcast"],
+        onPress: (idx) async {
+          if (idx == 0) {
+            return;
+          }
+          final ApiResp resp = await BitcoinApi().sendtx(rawdata);
+          if (resp.error != null) {
+            ToastUtil.show(resp.error.toString());
+            return;
+          }
+          final String txid = resp.data['result'];
+          ToastUtil.show("sendt bitcoin tx success, txid:$txid");
+          final TransferHistory model = TransferHistory(
+              amount: _amountController.text,
+              timestamp: DateTime.now().millisecondsSinceEpoch ~/ 1000,
+              txid: txid,
+              to: _addressController.text);
+          widget.historyManager.addHistory(history: model, isBitcoin: true);
+          widget.onSendHandler();
+        });
   }
 
   Future<void> _sendEthereum() async {
@@ -189,8 +188,7 @@ class _TransferPageState extends State<TransferPage> {
     List<int>? toAddress;
     try {
       toAddress = hex.decode(addr.substring(2));
-    } catch (e) {
-    }
+    } catch (e) {}
     if (toAddress?.length != 20) {
       ToastUtil.show("invalid address");
     }
@@ -217,7 +215,8 @@ class _TransferPageState extends State<TransferPage> {
       signRequest.gasPrice = Int64(gasPrice);
       signRequest.gasLimit = Int64(gas);
       signRequest.to = toAddress!;
-      signRequest.value = hex.decode((amount * rate).toBigInt().toRadixString(16));
+      signRequest.value =
+          hex.decode((amount * rate).toBigInt().toRadixString(16));
 
       final EthTokenInfo tokenInfo = EthTokenInfo();
       tokenInfo.type = coinInfo.type;
@@ -229,59 +228,58 @@ class _TransferPageState extends State<TransferPage> {
       final List<int> result = await _sign(
           reqType: MessageType.MSG_ETH_SIGN_REQUEST,
           respType: MessageType.MSG_ETH_SIGN_RESP,
-          reqdata: signRequest.writeToBuffer().toList()
-      );
+          reqdata: signRequest.writeToBuffer().toList());
       if (result.isEmpty) {
         ToastUtil.show("Sign ethereum failed");
         return;
       }
       final String rawdata = "0x" + hex.encode(result);
-      Alert.show(context: this.context, content: rawdata, options: ["Cancel", "Broadcast"], onPress: (idx) async {
-        if (idx == 0) {
-          return;
-        }
-        final String txid = await api.eth_sendRawTransaction(rawdata);
-        ToastUtil.show("sendt ethereum tx success, txid:$txid");
-        final TransferHistory model = TransferHistory(
-            amount: _amountController.text,
-            timestamp: DateTime.now().millisecondsSinceEpoch ~/ 1000,
-            txid: txid, to: _addressController.text);
-        widget.historyManager.addHistory(history: model, isBitcoin: false);
-        widget.onSendHandler();
-      });
+      Alert.show(
+          context: this.context,
+          content: rawdata,
+          options: ["Cancel", "Broadcast"],
+          onPress: (idx) async {
+            if (idx == 0) {
+              return;
+            }
+            final String txid = await api.eth_sendRawTransaction(rawdata);
+            ToastUtil.show("sendt ethereum tx success, txid:$txid");
+            final TransferHistory model = TransferHistory(
+                amount: _amountController.text,
+                timestamp: DateTime.now().millisecondsSinceEpoch ~/ 1000,
+                txid: txid,
+                to: _addressController.text);
+            widget.historyManager.addHistory(history: model, isBitcoin: false);
+            widget.onSendHandler();
+          });
     } catch (e) {
       ToastUtil.show(e.toString());
       return;
     }
   }
 
-  Future<List<int>> _sign({
-    required MessageType reqType,
-    required MessageType respType,
-    required List<int> reqdata
-  }) async {
+  Future<List<int>> _sign(
+      {required MessageType reqType,
+      required MessageType respType,
+      required List<int> reqdata}) async {
     final WalletReqExtInfo extInfo = WalletReqExtInfo(
       qrcodePageTitle: "Sign Transfer",
       qrcodePageTips: "Please scan the code with your wallet",
       scanPageTitle: "Sign Transfer",
     );
     final Completer<List<int>> completer = Completer();
-    await TransportUtil.commandRequest(
-        widget.wallet.channelType,
+    await TransportUtil.commandRequest(widget.wallet.channelType,
         context: context,
         wallet: widget.wallet,
         data: reqdata,
         reqType: reqType,
-        respType: respType,
-        respDataConfirmFinishHandler: (object){
-          if (object is EthSignRespone) {
-            completer.complete(object.txData);
-          } else if (object is BitcoinSignRespone) {
-            completer.complete(object.txData);
-          }
-        },
-        info: extInfo
-    );
+        respType: respType, respDataConfirmFinishHandler: (object) {
+      if (object is EthSignRespone) {
+        completer.complete(object.txData);
+      } else if (object is BitcoinSignRespone) {
+        completer.complete(object.txData);
+      }
+    }, info: extInfo);
     return completer.future;
   }
 
@@ -294,38 +292,48 @@ class _TransferPageState extends State<TransferPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Receive Address", style: AppTextStyle.bodyMedium.apply(color: Colors.grey),),
+            Text(
+              "Receive Address",
+              style: AppTextStyle.bodyMedium.apply(color: Colors.grey),
+            ),
             SizedBox(
               height: 44,
               child: TextFormField(
                 controller: _addressController,
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
-                    fillColor: Colors.grey.withAlpha(100),
-                    filled: true,
-                    hintText: "Please enter receive address",
-                    hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
+                  fillColor: Colors.grey.withAlpha(100),
+                  filled: true,
+                  hintText: "Please enter receive address",
+                  hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
                 ),
               ),
             ),
-            SizedBox(height: 20,),
-            Text("Amount", style: AppTextStyle.bodyMedium.apply(color: Colors.grey),),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              "Amount",
+              style: AppTextStyle.bodyMedium.apply(color: Colors.grey),
+            ),
             SizedBox(
               height: 44,
               child: TextFormField(
                 controller: _amountController,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
-                    fillColor: Colors.grey.withAlpha(100),
-                    filled: true,
-                    hintText: "Please enter amount",
-                    hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
-                    suffixText: widget.coin.coinInfo.uname,
-                    suffixStyle: AppTextStyle.bodyMedium,
+                  fillColor: Colors.grey.withAlpha(100),
+                  filled: true,
+                  hintText: "Please enter amount",
+                  hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
+                  suffixText: widget.coin.coinInfo.uname,
+                  suffixStyle: AppTextStyle.bodyMedium,
                 ),
               ),
             ),
-            SizedBox(height: 30,),
+            SizedBox(
+              height: 30,
+            ),
             Row(
               children: [
                 Expanded(child: Container()),
@@ -333,7 +341,8 @@ class _TransferPageState extends State<TransferPage> {
                   width: 200,
                   height: 44,
                   child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(primary: Colors.green),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.green),
                       child: Text("Next", style: AppTextStyle.headMedium),
                       onPressed: () {
                         if (_addressController.text.isEmpty) {
@@ -344,7 +353,8 @@ class _TransferPageState extends State<TransferPage> {
                           ToastUtil.show("Please enter amount");
                           return;
                         }
-                        final Decimal? amount = Decimal.tryParse(_amountController.text);
+                        final Decimal? amount =
+                            Decimal.tryParse(_amountController.text);
                         if (amount == null) {
                           ToastUtil.show("Invalid amount");
                           return;
@@ -364,8 +374,7 @@ class _TransferPageState extends State<TransferPage> {
                           default:
                             break;
                         }
-                      }
-                  ),
+                      }),
                 ),
                 Expanded(child: Container())
               ],
@@ -375,5 +384,4 @@ class _TransferPageState extends State<TransferPage> {
       ),
     );
   }
-
 }

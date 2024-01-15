@@ -11,7 +11,6 @@ import '../utils/qr_plugin.dart';
 import '../utils/style.dart';
 import '../widgets/qr_image_widget.dart';
 
-
 enum QRCodeType { bin, base64 }
 
 typedef void NextStepCallBack();
@@ -31,21 +30,20 @@ class ShowQrCodeListPage extends StatefulWidget {
   final NextStepCallBack? nextCallBack;
   final VoidCallback? moreDetailsCallback;
 
-  ShowQrCodeListPage(
-      {Key? key,
-        required this.title,
-        this.tips,
-        this.strongReminderTips,
-        required this.clientId,
-        required this.msgType,
-        required this.data,
-        required this.wallet,
-        this.qrType = QRCodeType.bin,
-        this.secKey,
-        this.nextCallBack,
-        this.moreDetailsCallback,
-      })
-      : super(key: key);
+  ShowQrCodeListPage({
+    Key? key,
+    required this.title,
+    this.tips,
+    this.strongReminderTips,
+    required this.clientId,
+    required this.msgType,
+    required this.data,
+    required this.wallet,
+    this.qrType = QRCodeType.bin,
+    this.secKey,
+    this.nextCallBack,
+    this.moreDetailsCallback,
+  }) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -84,7 +82,7 @@ class _ShowQrCodeListPageState extends State<ShowQrCodeListPage> {
 
   Future<void> _getQRImages(Wallet? wallet) async {
     PacketHeaderWrapper? wrapper;
-    if ( wallet != null) {
+    if (wallet != null) {
       PacketHeader header = PacketHeader();
       if (widget.msgType != MessageType.MSG_BIND_ACCOUNT_REQUEST.value) {
         header.accountId = wallet.accountId;
@@ -100,11 +98,10 @@ class _ShowQrCodeListPageState extends State<ShowQrCodeListPage> {
         base64Encode: widget.qrType == QRCodeType.base64,
         data: widget.data,
         secKey: widget.secKey,
-        exHeader: wrapper?.writeToBuffer()
-    );
+        exHeader: wrapper?.writeToBuffer());
 
     if (items.isEmpty) {
-      DebugLogger.v('generate qr image failed: ${items}');
+      DebugLogger.v('generate qr image failed: $items');
       return;
     }
     int count = items.length;
@@ -127,23 +124,22 @@ class _ShowQrCodeListPageState extends State<ShowQrCodeListPage> {
     Widget moreDetail = (widget.moreDetailsCallback == null)
         ? Container()
         : ElevatedButton(
-        child: Text("Details"),
-        onPressed: () {
-          widget.moreDetailsCallback!();
-        });
+            child: Text("Details"),
+            onPressed: () {
+              widget.moreDetailsCallback!();
+            });
 
     Widget nextStepWidget = SizedBox(
       width: 200,
       height: 44,
       child: ElevatedButton(
-          style: ElevatedButton.styleFrom(primary: Colors.green),
+          style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
           child: Text("Next", style: AppTextStyle.headMedium),
           onPressed: () {
             if (widget.nextCallBack != null) {
               widget.nextCallBack!();
             }
-          }
-      ),
+          }),
     );
     return Container(
       alignment: Alignment.center,
@@ -173,12 +169,10 @@ class _ShowQrCodeListPageState extends State<ShowQrCodeListPage> {
         TextSpan(children: [
           TextSpan(
               text: '$progress',
-              style: TextStyle(
-                  color: AppColor.blue, fontSize: 16)),
+              style: TextStyle(color: AppColor.blue, fontSize: 16)),
           TextSpan(
               text: ' / $total',
-              style: TextStyle(
-                  color: AppColor.textDarkColor1, fontSize: 16))
+              style: TextStyle(color: AppColor.textDarkColor1, fontSize: 16))
         ]),
         textAlign: TextAlign.center,
         textScaleFactor: 1,
@@ -190,21 +184,22 @@ class _ShowQrCodeListPageState extends State<ShowQrCodeListPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         verticalDirection: VerticalDirection.up,
         children: <Widget>[
-          (this.images!.length <= 1) ? Container() : Padding(
-            padding: EdgeInsets.only(top: 3),
-            child: progressText,
-          ),
+          (this.images!.length <= 1)
+              ? Container()
+              : Padding(
+                  padding: EdgeInsets.only(top: 3),
+                  child: progressText,
+                ),
           Expanded(
               flex: 1,
               child: Padding(
                 padding: EdgeInsets.only(top: 10),
                 child: QRImageWidget(qrData: qrData), //二维码图片
-              )
-          )
+              ))
         ],
       );
-    // } else {
-    } else if(_isGetImages == false) {
+      // } else {
+    } else if (_isGetImages == false) {
       topWidget = Text(
         "generate qr code failed",
         style: TextStyle(color: Colors.red),
@@ -213,8 +208,7 @@ class _ShowQrCodeListPageState extends State<ShowQrCodeListPage> {
 
     return RootPage(
       title: widget.title,
-      onTapBack: () {
-      },
+      onTapBack: () {},
       child: WillPopScope(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -233,10 +227,11 @@ class _ShowQrCodeListPageState extends State<ShowQrCodeListPage> {
                           child: Column(
                             children: <Widget>[
                               Padding(
-                                padding:
-                                EdgeInsets.only(top: 5, left: 20, right: 20),
+                                padding: EdgeInsets.only(
+                                    top: 5, left: 20, right: 20),
                                 child: Text(
-                                  widget.tips ?? "Please scan the code with your SafePal wallet.",
+                                  widget.tips ??
+                                      "Please scan the code with your SafePal wallet.",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       color: AppColor.textDarkColor2,
@@ -244,14 +239,13 @@ class _ShowQrCodeListPageState extends State<ShowQrCodeListPage> {
                                 ),
                               ),
                               Padding(
-                                padding:
-                                EdgeInsets.only(top: 5, left: 20, right: 20),
+                                padding: EdgeInsets.only(
+                                    top: 5, left: 20, right: 20),
                                 child: Text(
                                   widget.strongReminderTips ?? "",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                      color: Colors.red,
-                                      fontSize: 12),
+                                      color: Colors.red, fontSize: 12),
                                 ),
                               )
                             ],
@@ -260,9 +254,10 @@ class _ShowQrCodeListPageState extends State<ShowQrCodeListPage> {
                         _createButtons(context)
                       ]))
             ],
-          ), onWillPop: () async {
-        return true;
-      }),
+          ),
+          onWillPop: () async {
+            return true;
+          }),
     );
   }
 }

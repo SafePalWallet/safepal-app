@@ -1,5 +1,3 @@
-
-
 enum CoinCategory {
   unkown,
   bitcoin,

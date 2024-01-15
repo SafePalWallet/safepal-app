@@ -1,4 +1,3 @@
-
 export 'package:safepal_example/coins/coin.dart';
 export 'package:safepal_example/coins/coin_base_info.dart';
 export 'package:safepal_example/coins/hd_node.dart';

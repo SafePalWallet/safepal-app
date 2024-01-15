@@ -1,8 +1,6 @@
-
 import 'dart:convert';
 
 import 'package:safepal_example/model/transfer_history.dart';
-import 'package:safepal_example/utils/time.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class TransferHistoryManager {
@@ -18,7 +16,7 @@ class TransferHistoryManager {
   }
 
   Future<List<TransferHistory>> _getHisotry({required String key}) async {
-    SharedPreferences prefs =  await SharedPreferences.getInstance();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     final String? value = prefs.getString(key);
     if (value == null || value.isEmpty) {
       return [];
@@ -38,7 +36,8 @@ class TransferHistoryManager {
     return results;
   }
 
-  Future<void> addHistory({required TransferHistory history, required bool isBitcoin}) async {
+  Future<void> addHistory(
+      {required TransferHistory history, required bool isBitcoin}) async {
     late List<TransferHistory> results;
     late String key;
     if (isBitcoin) {
@@ -62,10 +61,8 @@ class TransferHistoryManager {
   }
 
   List<TransferHistory> historys({required bool isBitcoin}) {
-    return [
-    ];
+    return [];
 
     return isBitcoin ? _bitcoinHisotys : _ethereumHisotys;
   }
-
 }

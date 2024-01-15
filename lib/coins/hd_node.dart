@@ -1,8 +1,5 @@
-import 'dart:typed_data';
-import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:safepal_example/coins/coin.dart';
 import 'package:safepal_example/coins/hd_purpose_util.dart';
 
 part 'hd_node.g.dart';
@@ -23,23 +20,22 @@ class HDNode {
   int? usedRecvAddrIndex;
   int? usedChangeAddrsIndex;
   int? addrType;
-  Map<String,dynamic>? addressNode;
+  Map<String, dynamic>? addressNode;
 
-  HDNode({
-    required this.depth,
-    required this.childNum,
-    required this.fingerPrint,
-    required this.chainCode,
-    required this.pubKey,
-    this.curve,
-    this.singleKey,
-    this.purpose,
-    this.usedRecvAddrIndex = -1,
-    this.usedChangeAddrsIndex = -1,
-    this.addrType,
-    this.addressNode
-  }){
-    if(addressNode==null){
+  HDNode(
+      {required this.depth,
+      required this.childNum,
+      required this.fingerPrint,
+      required this.chainCode,
+      required this.pubKey,
+      this.curve,
+      this.singleKey,
+      this.purpose,
+      this.usedRecvAddrIndex = -1,
+      this.usedChangeAddrsIndex = -1,
+      this.addrType,
+      this.addressNode}) {
+    if (addressNode == null) {
       addressNode = {};
     }
   }
@@ -64,10 +60,10 @@ class HDNode {
   @override
   int get hashCode {
     return this.depth.hashCode ^
-           this.childNum.hashCode ^
-           this.fingerPrint.hashCode ^
-           this.chainCode.hashCode ^
-           this.pubKey.hashCode;
+        this.childNum.hashCode ^
+        this.fingerPrint.hashCode ^
+        this.chainCode.hashCode ^
+        this.pubKey.hashCode;
   }
 
   @override
@@ -77,12 +73,11 @@ class HDNode {
       bool? chainCodeEq = eq(other.chainCode, this.chainCode);
       bool? pubKeyEq = eq(other.pubKey, this.pubKey);
       return other.depth == this.depth &&
-             other.childNum == this.childNum &&
-             chainCodeEq! && pubKeyEq! &&
-             other.fingerPrint == this.fingerPrint;
+          other.childNum == this.childNum &&
+          chainCodeEq! &&
+          pubKeyEq! &&
+          other.fingerPrint == this.fingerPrint;
     }
     return false;
   }
-
 }
-

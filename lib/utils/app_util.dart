@@ -8,7 +8,7 @@ import 'package:platform/platform.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'crypto_plugin.dart';
 
-final AppUtil appUtil =  AppUtil();
+final AppUtil appUtil = AppUtil();
 
 class AppUtil {
   static const String _cachedAppPublickKey = 'cache.app.public.key';
@@ -17,7 +17,7 @@ class AppUtil {
   Future<String> clientUId() async {
     final key = "example.client.uid.key";
     final SharedPreferences pref = await SharedPreferences.getInstance();
-    final String? uid = await pref.getString(key);
+    final String? uid = pref.getString(key);
     if (uid != null) {
       return uid;
     }
@@ -25,10 +25,11 @@ class AppUtil {
     List<int> list = [];
     final Random random = Random.secure();
     for (int index = 0; index < 8; index++) {
-      list.add(random.nextInt(1<<32));
+      list.add(random.nextInt(1 << 32));
     }
     var digest = sha256.convert(list);
-    String result = (await CryptoPlugin.base58Encode(Uint8List.fromList(digest.bytes)))!;
+    String result =
+        (await CryptoPlugin.base58Encode(Uint8List.fromList(digest.bytes)))!;
 
     if (result.length > 20) {
       result = result.substring(result.length - 20);
@@ -61,18 +62,18 @@ class AppUtil {
 
   Future<String?> getClientPubKey() async {
     final SharedPreferences pref = await SharedPreferences.getInstance();
-    return await pref.getString(_cachedAppPublickKey);
+    return pref.getString(_cachedAppPublickKey);
   }
 
   Future<String?> getClientPrivateKey() async {
     final SharedPreferences pref = await SharedPreferences.getInstance();
-    return await pref.getString(_cacheAppPrivateKey);
+    return pref.getString(_cacheAppPrivateKey);
   }
 
-  Future<void> updateClientKey({required String pubkey, required String privkey}) async {
+  Future<void> updateClientKey(
+      {required String pubkey, required String privkey}) async {
     final SharedPreferences pref = await SharedPreferences.getInstance();
     await pref.setString(_cachedAppPublickKey, pubkey);
     await pref.setString(_cacheAppPrivateKey, privkey);
   }
-
 }

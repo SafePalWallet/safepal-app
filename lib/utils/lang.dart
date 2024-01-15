@@ -1,41 +1,20 @@
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
 
-import 'debug_logger.dart';
-
-enum LangType {
-  en,
-  zh,
-  zht,
-  de,
-  fr,
-  es,
-  it,
-  ko,
-  ja,
-  vi,
-  pt,
-  ru,
-  th,
-  id,
-  tr
-}
+enum LangType { en, zh, zht, de, fr, es, it, ko, ja, vi, pt, ru, th, id, tr }
 
 class Lang {
   final LangType? type;
   final Locale? locale;
   final String? des;
 
-  Lang({
-    this.type,
-    this.des,
-    this.locale
-  });
+  Lang({this.type, this.des, this.locale});
 
   String get intlCode {
     if (this.locale == null) {
       return "en";
-    } else if (this.locale?.countryCode == null || this.locale!.countryCode!.isEmpty) {
+    } else if (this.locale?.countryCode == null ||
+        this.locale!.countryCode!.isEmpty) {
       return "${this.locale?.languageCode}";
     }
     return "${this.locale?.languageCode}-${this.locale?.countryCode}";
@@ -46,8 +25,8 @@ LangConfig langConfig = LangConfig();
 
 class LangConfig {
   static const LangSaveKey = 'io.safepal.LangSaveKey';
-  static const  defaultLangType = LangType.en;
-  static final LangConfig _config_ =  LangConfig._internal();
+  static const defaultLangType = LangType.en;
+  static final LangConfig _config_ = LangConfig._internal();
 
   LangType? systemLang;
 
@@ -57,7 +36,7 @@ class LangConfig {
 
   static const defaultLocale = Locale('en', 'US');
 
-  factory LangConfig(){
+  factory LangConfig() {
     return _config_;
   }
   LangConfig._internal() {
@@ -65,7 +44,7 @@ class LangConfig {
   }
 
   Future<void> loadSystemLang() async {
-    Locale? locale = ui.window.locale;;
+    Locale? locale = ui.window.locale;
     _rawSystemLocale = locale;
     this.systemLang = langTypeFromLocale(locale, allowNull: true);
   }
@@ -98,35 +77,35 @@ class LangConfig {
     LangType.en: 'Today',
     LangType.zh: '今天',
     LangType.zht: '今天',
-    LangType.ko : '오늘',
-    LangType.ja : 'きょう',
-    LangType.de : 'Heute',
-    LangType.fr : 'Aujourd\'hui',
-    LangType.es : 'Hoy',
-    LangType.it : 'oggi',
-    LangType.vi : 'Hôm nay',
-    LangType.ru : 'Cегодня',
-    LangType.th : 'Today',
-    LangType.id : 'Today',
-    LangType.tr : 'Today',
+    LangType.ko: '오늘',
+    LangType.ja: 'きょう',
+    LangType.de: 'Heute',
+    LangType.fr: 'Aujourd\'hui',
+    LangType.es: 'Hoy',
+    LangType.it: 'oggi',
+    LangType.vi: 'Hôm nay',
+    LangType.ru: 'Cегодня',
+    LangType.th: 'Today',
+    LangType.id: 'Today',
+    LangType.tr: 'Today',
   };
 
   static Map<LangType, String> hourLabels = {
     LangType.en: 'H',
     LangType.zh: '时',
     LangType.zht: '时',
-    LangType.ko : '시간',
-    LangType.ja : '時間',
-    LangType.de : 'h',
-    LangType.fr : 'h',
-    LangType.es : 'h',
-    LangType.it : 'h',
-    LangType.vi : 'g',
-    LangType.pt : 'h',
-    LangType.ru : 'h',
-    LangType.th : 'h',
-    LangType.id : 'h',
-    LangType.tr : 'h',
+    LangType.ko: '시간',
+    LangType.ja: '時間',
+    LangType.de: 'h',
+    LangType.fr: 'h',
+    LangType.es: 'h',
+    LangType.it: 'h',
+    LangType.vi: 'g',
+    LangType.pt: 'h',
+    LangType.ru: 'h',
+    LangType.th: 'h',
+    LangType.id: 'h',
+    LangType.tr: 'h',
   };
 
   static Map<LangType, String> minLabels = {
@@ -142,27 +121,27 @@ class LangConfig {
     LangType.vi: 'ph',
     LangType.pt: 'min',
     LangType.ru: 'min',
-    LangType.th : 'min',
-    LangType.id : 'min',
-    LangType.tr : 'min',
+    LangType.th: 'min',
+    LangType.id: 'min',
+    LangType.tr: 'min',
   };
 
   static Map<LangType, String> secondLabels = {
     LangType.en: 's',
     LangType.zh: '秒',
     LangType.zht: '秒',
-    LangType.ko : '둘째',
-    LangType.ja : '第二',
-    LangType.de : 's',
-    LangType.fr : 'Deuxième',
-    LangType.es : 'Segundo',
-    LangType.it : 's',
-    LangType.vi : 'th',
-    LangType.pt : 's',
+    LangType.ko: '둘째',
+    LangType.ja: '第二',
+    LangType.de: 's',
+    LangType.fr: 'Deuxième',
+    LangType.es: 'Segundo',
+    LangType.it: 's',
+    LangType.vi: 'th',
+    LangType.pt: 's',
     LangType.ru: 's',
-    LangType.th : 's',
-    LangType.id : 's',
-    LangType.tr : 's',
+    LangType.th: 's',
+    LangType.id: 's',
+    LangType.tr: 's',
   };
 
   List<Locale> supportedLocales() {
@@ -184,13 +163,15 @@ class LangConfig {
       case 'en':
         return LangType.en;
         break;
-      case 'zh': {
-        const List<String> zhtCodes = ['TW', 'HK', 'MO'];
-        if (locale.countryCode != null && zhtCodes.contains(locale.countryCode)) {
-          return LangType.zht;
+      case 'zh':
+        {
+          const List<String> zhtCodes = ['TW', 'HK', 'MO'];
+          if (locale.countryCode != null &&
+              zhtCodes.contains(locale.countryCode)) {
+            return LangType.zht;
+          }
+          return LangType.zh;
         }
-        return LangType.zh;
-      }
         break;
       case 'de':
         return LangType.de;
@@ -263,5 +244,4 @@ class LangConfig {
   Lang? get curLang {
     return _lang;
   }
-
 }

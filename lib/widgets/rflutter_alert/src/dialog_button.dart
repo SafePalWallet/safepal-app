@@ -39,7 +39,7 @@ class DialogButton extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
-        color: color ?? Theme.of(context).accentColor,
+        color: color ?? Theme.of(context).colorScheme.secondary,
         gradient: gradient,
         borderRadius: radius ?? BorderRadius.circular(6),
       ),

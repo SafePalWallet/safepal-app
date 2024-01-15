@@ -4,7 +4,7 @@ import '../utils/coin_utils.dart';
 part 'coin_base_info.g.dart';
 
 @JsonSerializable()
-class CoinBaseInfo  {
+class CoinBaseInfo {
   final int type;
   final String uname;
   String? path;
@@ -15,7 +15,8 @@ class CoinBaseInfo  {
     this.path,
   });
 
-  factory CoinBaseInfo.fromJson(Map<String, dynamic> json) => _$CoinBaseInfoFromJson(json);
+  factory CoinBaseInfo.fromJson(Map<String, dynamic> json) =>
+      _$CoinBaseInfoFromJson(json);
   Map<String, dynamic> toJson() => _$CoinBaseInfoToJson(this);
 
   static CoinBaseInfo? fromTid(String? id) {
@@ -48,8 +49,7 @@ class CoinBaseInfo  {
 
   bool operator ==(Object other) {
     if (other is CoinBaseInfo) {
-      return other.type == this.type &&
-          other.uname == this.uname;
+      return other.type == this.type && other.uname == this.uname;
     }
     return false;
   }
@@ -66,5 +66,4 @@ class CoinBaseInfo  {
   String? get symbol {
     return this.uname;
   }
-
 }

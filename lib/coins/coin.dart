@@ -1,18 +1,13 @@
-import 'package:convert/convert.dart';
 import 'package:decimal/decimal.dart';
 import 'package:safepal_example/coins/bitcoin/bitcoin_address.dart';
 import 'package:safepal_example/coins/bitcoin/native_segwit_address.dart';
 
-import 'package:safepal_example/coins/coin_base_info.dart';
 import 'package:safepal_example/coins/hd_derived_path.dart';
-import 'package:safepal_example/coins/hd_node.dart';
 import 'package:safepal_example/model/models.dart';
 
 import 'package:json_annotation/json_annotation.dart';
-import 'package:safepal_example/utils/crypto_plugin.dart';
 
 import '../utils/coin_utils.dart';
-import '../utils/debug_logger.dart';
 import 'bitcoin/extended_public_key.dart';
 import 'ethereum/ethereum_address.dart';
 import 'hd_magic_version.dart';
@@ -22,11 +17,10 @@ part 'coin.g.dart';
 
 @JsonSerializable()
 class Coin {
-
-  @JsonKey(fromJson: _baseInfoFromJson, toJson:_baseInfoToJson)
+  @JsonKey(fromJson: _baseInfoFromJson, toJson: _baseInfoToJson)
   final CoinBaseInfo coinInfo;
 
-  @JsonKey(fromJson:_nodeFromJson, toJson:_nodeToJson)
+  @JsonKey(fromJson: _nodeFromJson, toJson: _nodeToJson)
   final HDNode node;
 
   @JsonKey(fromJson: _extNodesFromJson, toJson: _extNodesToJson)
@@ -36,13 +30,12 @@ class Coin {
   int? curPurpose;
   Decimal? balance;
 
-  Coin({
-    required this.coinInfo,
-    required this.node,
-    this.extNodes,
-    this.account,
-    this.balance
-  }) {
+  Coin(
+      {required this.coinInfo,
+      required this.node,
+      this.extNodes,
+      this.account,
+      this.balance}) {
     this.curPurpose = this.node.purpose;
   }
 
@@ -72,7 +65,7 @@ class Coin {
       return null;
     }
     List<Map<String, dynamic>> items = [];
-    for (HDNode item in nodes){
+    for (HDNode item in nodes) {
       items.add(item.toJson());
     }
     return items;
@@ -82,10 +75,7 @@ class Coin {
   Map<String, dynamic> toJson() => _$CoinToJson(this);
 
   int get hashCode {
-    if (this.coinInfo != null) {
-      return this.coinInfo.hashCode;
-    }
-    return 0;
+    return this.coinInfo.hashCode;
   }
 
   List<HDNode> get allNodes {
@@ -135,7 +125,8 @@ class Coin {
     if (this.chainConfig.derivationPath.isEmpty) {
       return null;
     }
-    final HDDerivedPath? path = HDDerivedPath.derivedPathWithPath(this.chainConfig.derivationPath);
+    final HDDerivedPath? path =
+        HDDerivedPath.derivedPathWithPath(this.chainConfig.derivationPath);
     if (path == null || path.purpose == null) {
       return null;
     }
@@ -161,29 +152,45 @@ class Coin {
   }
 
   ChainConfig get chainConfig {
-    return chainConfigManager.coinConfigWithUname(uname: coinInfo.uname, type:coinInfo.type)!;
+    return chainConfigManager.coinConfigWithUname(
+        uname: coinInfo.uname, type: coinInfo.type)!;
   }
 
   Future<String> generateAddress({int accountIndex = 0, int index = 0}) async {
     final ChainConfig chainConfig = this.chainConfig;
     if (chainConfig.coinCategory == CoinCategory.bitcoin) {
       if (this.curPurposeType == null) {
-        throw("generate address failed, uname:${coinInfo.uname} type:${coinInfo.type}");
+        throw ("generate address failed, uname:${coinInfo.uname} type:${coinInfo.type}");
       }
       final HDNode selectedNode = this.findNodeWithType(this.curPurposeType)!;
       if (this.curPurposeType != BIPPurposeType.bip84) {
-        final int? prefix = this.curPurposeType == BIPPurposeType.bip44 ? chainConfig.p2pkhPrefix : chainConfig.p2shPrefix;
+        final int? prefix = this.curPurposeType == BIPPurposeType.bip44
+            ? chainConfig.p2pkhPrefix
+            : chainConfig.p2shPrefix;
         if (prefix == null) {
-          throw("generate address failed, uname:${coinInfo.uname} type:${coinInfo.type}");
+          throw ("generate address failed, uname:${coinInfo.uname} type:${coinInfo.type}");
         }
-        return BitcoinAddress(node: selectedNode, purpose: this.curPurpose!, prefix: prefix, account: accountIndex, index: index).getAddress();
+        return BitcoinAddress(
+                node: selectedNode,
+                purpose: this.curPurpose!,
+                prefix: prefix,
+                account: accountIndex,
+                index: index)
+            .getAddress();
       } else {
-        return NativeSegwitAddress(node: selectedNode, hrp: chainConfig.hrp!, account: accountIndex, index: index).getAddress();
+        return NativeSegwitAddress(
+                node: selectedNode,
+                hrp: chainConfig.hrp!,
+                account: accountIndex,
+                index: index)
+            .getAddress();
       }
     } else if (chainConfig.coinCategory == CoinCategory.eth) {
-      return EthereumAddress(node: this.node, accountIndex: accountIndex, index: index).getAddress();
+      return EthereumAddress(
+              node: this.node, accountIndex: accountIndex, index: index)
+          .getAddress();
     }
-    throw("generate address failed, uname:${coinInfo.uname} type:${coinInfo.type}");
+    throw ("generate address failed, uname:${coinInfo.uname} type:${coinInfo.type}");
   }
 
   Future<void> generateAccount() async {
@@ -194,18 +201,21 @@ class Coin {
     this.curPurpose = HDPurposeUtil.getDerivedValueForPurposeType(purposeType);
     final ChainConfig chainConfig = this.chainConfig;
     if (chainConfig.coinCategory == CoinCategory.bitcoin) {
-      final String name = chainConfig.supportedExtendedPublicKeys![purposeType]!;
-      final int? version = HDMagicVersion.getExtendedMagicVersionFor(name: name);
+      final String name =
+          chainConfig.supportedExtendedPublicKeys![purposeType]!;
+      final int? version =
+          HDMagicVersion.getExtendedMagicVersionFor(name: name);
       if (version == null) {
-        throw("update purpose failed, invalid version type:${coinInfo.coinCatetory} uname:${coinInfo.uname} purposeType:$purposeType");
+        throw ("update purpose failed, invalid version type:${coinInfo.coinCatetory} uname:${coinInfo.uname} purposeType:$purposeType");
       }
-      final ExtendedPublicKey publicKey = ExtendedPublicKey(node: node, magicVersion: version);
+      final ExtendedPublicKey publicKey =
+          ExtendedPublicKey(node: node, magicVersion: version);
       this.account = await publicKey.getKey();
     } else {
       this.account = await EthereumAddress(node: node).getAddress();
     }
     if (this.account == null || this.account!.isEmpty) {
-      throw("update purpose failed type:${coinInfo.coinCatetory} uname:${coinInfo.uname} purposeType:$purposeType");
+      throw ("update purpose failed type:${coinInfo.coinCatetory} uname:${coinInfo.uname} purposeType:$purposeType");
     }
   }
 }

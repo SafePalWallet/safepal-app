@@ -1,5 +1,3 @@
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:safepal_example/pages/pair_device_page.dart';
@@ -9,30 +7,26 @@ import 'package:safepal_example/utils/utils_plugin.dart';
 
 import '../widgets/card_widget.dart';
 
-
 class AddWalletPage extends StatelessWidget {
-
   final VoidCallback onPress;
 
-
-  AddWalletPage({
-    required this.onPress
-  });
+  AddWalletPage({required this.onPress});
 
   @override
   Widget build(BuildContext context) {
-
     final Widget richTextWidget = Text.rich(TextSpan(
-        text:"Don’t have a SafePal hardware wallet?",
+        text: "Don’t have a SafePal hardware wallet?",
         style: AppTextStyle.bodySmall,
-      children: [TextSpan(
-          text: " Go get one",
-          recognizer: TapGestureRecognizer()..onTap = (){
-            UtilsPlugin.openSystemBrowser("https://m.safepal.com/shop");
-          },
-          style: AppTextStyle.bodySmall.apply(color: Colors.green),
-      )])
-    );
+        children: [
+          TextSpan(
+            text: " Go get one",
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                UtilsPlugin.openSystemBrowser("https://m.safepal.com/shop");
+              },
+            style: AppTextStyle.bodySmall.apply(color: Colors.green),
+          )
+        ]));
 
     return RootPage(
       title: "SafePal",
@@ -40,8 +34,13 @@ class AddWalletPage extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.only(left: 15, right: 15),
         children: [
-          Padding(padding: EdgeInsets.only(top: 40, bottom: 40),
-            child: Text("Add a Wallet to Start\n Your Crypto Journey", style: AppTextStyle.headLarge, textAlign: TextAlign.center,),
+          Padding(
+            padding: EdgeInsets.only(top: 40, bottom: 40),
+            child: Text(
+              "Add a Wallet to Start\n Your Crypto Journey",
+              style: AppTextStyle.headLarge,
+              textAlign: TextAlign.center,
+            ),
           ),
           CardWidget(
             width: double.infinity,
@@ -53,15 +52,20 @@ class AddWalletPage extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    SizedBox(width: 15,),
-                    Text("Hardware Wallet", style: AppTextStyle.headMedium,),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Text(
+                      "Hardware Wallet",
+                      style: AppTextStyle.headMedium,
+                    ),
                     Expanded(child: Container())
                   ],
                 )
               ],
             ),
-            onPress: (){
-              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+            onPress: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return PairDevicePage();
               }));
             },
@@ -74,5 +78,4 @@ class AddWalletPage extends StatelessWidget {
       ),
     );
   }
-
 }

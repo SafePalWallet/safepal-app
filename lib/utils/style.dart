@@ -36,29 +36,38 @@ class DarkAppColor {
 }
 
 class AppTextStyle {
-
-  static TextStyle titleStyle = TextStyle(color: AppColor.textDarkColor1, fontSize: 18, fontWeight: FontWeight.w500);
-  static TextStyle inputTitleStyle = TextStyle(color: AppColor.textDarkColor1,fontSize: 15,fontWeight: FontWeight.w500);
-  static TextStyle labelTitleStyle = TextStyle(color: AppColor.textDarkColor2,fontSize: 15,fontWeight: FontWeight.w500);
+  static TextStyle titleStyle = TextStyle(
+      color: AppColor.textDarkColor1,
+      fontSize: 18,
+      fontWeight: FontWeight.w500);
+  static TextStyle inputTitleStyle = TextStyle(
+      color: AppColor.textDarkColor1,
+      fontSize: 15,
+      fontWeight: FontWeight.w500);
+  static TextStyle labelTitleStyle = TextStyle(
+      color: AppColor.textDarkColor2,
+      fontSize: 15,
+      fontWeight: FontWeight.w500);
 
   // new version
-  static TextStyle _buildHeadTextStyle(double fontSize, {FontWeight? fontWeight}) {
-    return TextStyle(
-      color: AppColor.textDarkColor1,
-      fontSize: fontSize,
-      fontWeight: fontWeight ?? FontWeight.w500
-    );
-  }
-
-  static TextStyle _buildBodyTextStyle(double fontSize, {FontWeight? fontWeight}) {
+  static TextStyle _buildHeadTextStyle(double fontSize,
+      {FontWeight? fontWeight}) {
     return TextStyle(
         color: AppColor.textDarkColor1,
         fontSize: fontSize,
-        fontWeight: fontWeight?? FontWeight.w400
-    );
+        fontWeight: fontWeight ?? FontWeight.w500);
   }
 
-  static TextStyle displayLarge = _buildHeadTextStyle(44, fontWeight:FontWeight.w400);
+  static TextStyle _buildBodyTextStyle(double fontSize,
+      {FontWeight? fontWeight}) {
+    return TextStyle(
+        color: AppColor.textDarkColor1,
+        fontSize: fontSize,
+        fontWeight: fontWeight ?? FontWeight.w400);
+  }
+
+  static TextStyle displayLarge =
+      _buildHeadTextStyle(44, fontWeight: FontWeight.w400);
   static TextStyle displayMedium = _buildHeadTextStyle(24); // head x large
   static TextStyle headLarge = _buildHeadTextStyle(18);
   static TextStyle headMedium = _buildHeadTextStyle(16);
