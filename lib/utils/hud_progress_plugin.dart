@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:flutter/services.dart';
 
-
 class HUDProgressPlugin {
-  static MethodChannel _channel = MethodChannel('flutter.safepal.io/HUDProgress');
+  static MethodChannel _channel =
+      MethodChannel('flutter.safepal.io/HUDProgress');
   static bool _tempDismiss = false;
 
   static Future<bool?> show({String? message, bool autoHide = true}) async {
@@ -33,6 +33,4 @@ class HUDProgressPlugin {
   static Future<bool?> isShow() async {
     return await _channel.invokeMethod('isShow');
   }
-
-
 }

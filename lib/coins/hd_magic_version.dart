@@ -1,6 +1,3 @@
-
-import 'package:safepal_example/coins/coin.dart';
-
 class HDMagicVersion {
   static const int None = 0;
 
@@ -27,7 +24,6 @@ class HDMagicVersion {
   // Dogecoin
   static const int DGUB = 0x02facafd;
   static const int DGPV = 0x02fac398;
-
 
   static bool isPublicKeyVersion(int version) {
     switch (version) {
@@ -65,23 +61,23 @@ class HDMagicVersion {
   }
 
   static Map<String, dynamic> extendedPublicKeyMagicVersions = {
-    'xpub' : XPUB,
-    'ypub' : YPUB,
-    'zpub' : ZPUB,
-    'ltub' : LTUB,
-    'mtub' : MTUB,
-    'dpub' : DPUB,
-    'dgub' : DGUB
+    'xpub': XPUB,
+    'ypub': YPUB,
+    'zpub': ZPUB,
+    'ltub': LTUB,
+    'mtub': MTUB,
+    'dpub': DPUB,
+    'dgub': DGUB
   };
 
   static Map<String, dynamic> extendedPrivateKeyMagicVersions = {
-    'xprv' : XPRV,
-    'yprv' : YPRV,
-    'zprv' : ZPRV,
-    'ltpv' : LTPV,
-    'mtpv' : MTPV,
-    'dprv' : DPRV,
-    'dgpv' : DGPV
+    'xprv': XPRV,
+    'yprv': YPRV,
+    'zprv': ZPRV,
+    'ltpv': LTPV,
+    'mtpv': MTPV,
+    'dprv': DPRV,
+    'dgpv': DGPV
   };
 
   static int? getExtendedMagicVersionFor({required String name}) {
@@ -95,5 +91,4 @@ class HDMagicVersion {
     result = extendedPrivateKeyMagicVersions[name];
     return result;
   }
-
 }

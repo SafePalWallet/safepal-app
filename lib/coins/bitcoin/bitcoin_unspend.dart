@@ -41,21 +41,17 @@ class BitcoinUnspend {
     return _amountVal;
   }
 
-  BitcoinUnspend({
-    this.txid,
-    this.txIndex,
-    this.amount,
-    this.confirmations,
-    this.lockTime,
+  BitcoinUnspend(
+      {this.txid,
+      this.txIndex,
+      this.amount,
+      this.confirmations,
+      this.lockTime,
+      this.address,
+      this.path,
+      this.coinbase});
 
-    this.address,
-    this.path,
-    this.coinbase
-  });
-
-
-
-  factory BitcoinUnspend.fromJson(Map<String, dynamic> json) => _$BitcoinUnspendFromJson(json);
+  factory BitcoinUnspend.fromJson(Map<String, dynamic> json) =>
+      _$BitcoinUnspendFromJson(json);
   Map<String, dynamic> toJson() => _$BitcoinUnspendToJson(this);
-
 }

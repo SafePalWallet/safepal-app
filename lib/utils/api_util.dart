@@ -1,4 +1,3 @@
-
 import 'package:safepal_example/manager/network_manager.dart';
 import 'package:dio/dio.dart';
 import 'dart:convert';
@@ -26,15 +25,10 @@ ApiResp commonHandleResp(ApiResp resp) {
         type: ApiErrorType.RESPONSE,
         errCode: code,
         message: messgeTxt,
-        subcode:subcode
-    );
+        subcode: subcode);
   }
   data = data['data'];
   ApiResp newResp = ApiResp(
-    data: data,
-    error:error,
-    srcResp: resp.srcResp,
-    message: messgeTxt
-  );
+      data: data, error: error, srcResp: resp.srcResp, message: messgeTxt);
   return newResp;
 }

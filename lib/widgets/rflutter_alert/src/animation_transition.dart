@@ -9,10 +9,9 @@
 import 'package:flutter/material.dart';
 
 /// Predefined functions for transition animations
-/// 
+///
 /// Exp: AnimationTransition.fromRight(animation, secondaryAnimation, child);
 class AnimationTransition {
-
   /// Slide animation, from right to left (SlideTransition)
   static fromRight(Animation<double> animation,
       Animation<double> secondaryAnimation, Widget child) {
@@ -62,8 +61,8 @@ class AnimationTransition {
   }
 
   /// Scale animation, from in to out (ScaleTransition)
-  static grow(Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
+  static grow(Animation<double> animation, Animation<double> secondaryAnimation,
+      Widget child) {
     return ScaleTransition(
       scale: Tween<double>(
         begin: 0.0,

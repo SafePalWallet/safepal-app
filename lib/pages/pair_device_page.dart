@@ -1,9 +1,7 @@
-
 import 'dart:typed_data';
 import 'package:convert/convert.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:protobuf/protobuf.dart';
 import 'package:safepal_example/model/models.dart';
 import 'package:safepal_example/pages/root_page.dart';
 import 'package:safepal_example/utils/utils_plugin.dart';
@@ -23,18 +21,13 @@ import '../widgets/qr_image_widget.dart';
 import '../utils/toast_util.dart';
 
 class PairDevicePage extends StatefulWidget {
-
-
   @override
   State<StatefulWidget> createState() {
     return _PairDevicePageState();
   }
-
 }
 
-
 class _PairDevicePageState extends State<PairDevicePage> {
-
   final TapGestureRecognizer _tapGestureRecognizer = TapGestureRecognizer();
   Uint8List? _qrdata;
   bool _isLoaded = false;
@@ -42,7 +35,7 @@ class _PairDevicePageState extends State<PairDevicePage> {
   @override
   void initState() {
     _initData();
-    _tapGestureRecognizer.onTap = (){
+    _tapGestureRecognizer.onTap = () {
       UtilsPlugin.openSystemBrowser("https://m.safepal.com/shop");
     };
     super.initState();
@@ -72,7 +65,7 @@ class _PairDevicePageState extends State<PairDevicePage> {
     final String uid = await appUtil.clientUId();
     final String model = await appUtil.phoneModel();
     final String? pubkey = await appUtil.getClientPubKey();
-    if(pubkey == null || pubkey.isEmpty) {
+    if (pubkey == null || pubkey.isEmpty) {
       return;
     }
     final BindAccountReq req = BindAccountReq();
@@ -81,9 +74,11 @@ class _PairDevicePageState extends State<PairDevicePage> {
     req.secRandom = hex.decode(pubkey);
     req.version = 1;
 
-    final CoinInfo bitcoinInfo = CoinInfo(type: CoinCategory.bitcoin.index, uname: "BTC");
+    final CoinInfo bitcoinInfo =
+        CoinInfo(type: CoinCategory.bitcoin.index, uname: "BTC");
     req.coin.add(bitcoinInfo);
-    final CoinInfo ethInfo = CoinInfo(type: CoinCategory.eth.index, uname: "ETH");
+    final CoinInfo ethInfo =
+        CoinInfo(type: CoinCategory.eth.index, uname: "ETH");
     req.coin.add(ethInfo);
     final Uint8List data = req.writeToBuffer();
 
@@ -94,8 +89,7 @@ class _PairDevicePageState extends State<PairDevicePage> {
         base64Encode: false,
         data: data,
         exHeader: null,
-        secKey: null
-    );
+        secKey: null);
 
     if (items.isEmpty) {
       print("get qr data failed!");
@@ -128,12 +122,14 @@ class _PairDevicePageState extends State<PairDevicePage> {
 
     final List<Coin> newCoinList = [];
     for (CoinPubkey item in resp.pubkey) {
-      final CoinBaseInfo coinInfo = CoinBaseInfo(type: item.coin.type, uname: StringUtils.trim0(item.coin.uname));
+      final CoinBaseInfo coinInfo = CoinBaseInfo(
+          type: item.coin.type, uname: StringUtils.trim0(item.coin.uname));
       // @todo current not support other coin
-      if (coinInfo.coinCatetory != CoinCategory.bitcoin && coinInfo.coinCatetory != CoinCategory.eth) {
+      if (coinInfo.coinCatetory != CoinCategory.bitcoin &&
+          coinInfo.coinCatetory != CoinCategory.eth) {
         continue;
       }
-      var createHDNodeHandler = (PubHDNode inputNode){
+      var createHDNodeHandler = (PubHDNode inputNode) {
         return HDNode(
             depth: inputNode.depth,
             childNum: inputNode.childNum,
@@ -142,8 +138,7 @@ class _PairDevicePageState extends State<PairDevicePage> {
             pubKey: inputNode.publicKey,
             purpose: inputNode.purpose,
             curve: inputNode.curve,
-            singleKey: inputNode.singleKey
-        );
+            singleKey: inputNode.singleKey);
       };
 
       List<HDNode>? extNodes;
@@ -153,7 +148,10 @@ class _PairDevicePageState extends State<PairDevicePage> {
           extNodes.add(createHDNodeHandler(nodeItem));
         }
       }
-      final Coin coin = Coin(coinInfo: coinInfo, node: createHDNodeHandler(item.node), extNodes: extNodes);
+      final Coin coin = Coin(
+          coinInfo: coinInfo,
+          node: createHDNodeHandler(item.node),
+          extNodes: extNodes);
       await coin.generateAccount();
       newCoinList.add(coin);
     }
@@ -163,27 +161,24 @@ class _PairDevicePageState extends State<PairDevicePage> {
       name: StringUtils.trim0(deviceInfo.name),
       version: deviceInfo.version,
       productSn: StringUtils.trim0(deviceInfo.productSn),
-
       seVersion: deviceInfo.seVersion,
       productBrand: StringUtils.trim0(deviceInfo.productBrand),
       productName: StringUtils.trim0(deviceInfo.productName),
       productType: StringUtils.trim0(deviceInfo.productType),
       productSeries: StringUtils.trim0(deviceInfo.productSeries),
-
       accountSuffix: accountSuffix,
       activeCode: StringUtils.trim0(deviceInfo.activeCode),
       activeTime: deviceInfo.activeTime.toInt(),
       activeTimeZone: deviceInfo.activeTimeZone,
-
       secRandom: resp.secRandom,
       clientId: resp.clientId,
       accountId: resp.accountId,
       accountType: resp.accountType,
       coins: newCoinList,
-
       addedTime: time,
     );
-    DebugLogger.v('accountSufix:${newWallet.accountSuffix} activeCode:${newWallet.activeCode} activeTime:${newWallet.activeTime} activeTimeZone:${newWallet.activeTimeZone} accountId:${newWallet.accountId} id:${newWallet.id} accounType:${newWallet.accountType}');
+    DebugLogger.v(
+        'accountSufix:${newWallet.accountSuffix} activeCode:${newWallet.activeCode} activeTime:${newWallet.activeTime} activeTimeZone:${newWallet.activeTimeZone} accountId:${newWallet.accountId} id:${newWallet.id} accounType:${newWallet.accountType}');
 
     return newWallet;
   }
@@ -203,8 +198,7 @@ class _PairDevicePageState extends State<PairDevicePage> {
   }
 
   Future<void> _qrScan() async {
-    final dynamic rawdata = await QRPlugin.launchQRCodeScan(
-        context,
+    final dynamic rawdata = await QRPlugin.launchQRCodeScan(context,
         showProgress: true,
         showNavbar: true,
         showGuideTips: true,
@@ -212,9 +206,8 @@ class _PairDevicePageState extends State<PairDevicePage> {
         title: "SCAN",
         tips: "Please scan the dynamic codes on SafePal wallet.",
         resultHandler: (dynamic data) {
-          DebugLogger.v('qr scan resultHandler finish');
-        }
-    );
+      DebugLogger.v('qr scan resultHandler finish');
+    });
     if (rawdata == null) {
       return;
     }
@@ -227,8 +220,7 @@ class _PairDevicePageState extends State<PairDevicePage> {
     final Object? model = await TransportUtil.tryParseProtobufData(
         context: context,
         respType: MessageType.MSG_BIND_ACCOUNT_RESP,
-        data: result
-    );
+        data: result);
     if (model == null || model is! BindAccountResp) {
       return;
     }
@@ -249,8 +241,14 @@ class _PairDevicePageState extends State<PairDevicePage> {
         width: 250,
         height: 250,
         alignment: Alignment.center,
-        child: _isLoaded ? Text("Generate QR Code failed", style: AppTextStyle.headLarge.apply(color: Colors.red),) :
-        CircularProgressIndicator(color: Colors.green,),
+        child: _isLoaded
+            ? Text(
+                "Generate QR Code failed",
+                style: AppTextStyle.headLarge.apply(color: Colors.red),
+              )
+            : CircularProgressIndicator(
+                color: Colors.green,
+              ),
       );
     }
 
@@ -260,35 +258,45 @@ class _PairDevicePageState extends State<PairDevicePage> {
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Expanded(child: ListView(
+          Expanded(
+              child: ListView(
             padding: EdgeInsets.only(left: 15, right: 15),
             children: [
-              SizedBox(height: 15,),
+              SizedBox(
+                height: 15,
+              ),
               Text(
                 "1. Open the hardware wallet device, click 'Scan' in the menu and scan the QR code below:",
                 style: AppTextStyle.bodyMedium,
                 textAlign: TextAlign.start,
                 maxLines: null,
               ),
-              SizedBox(height: 15,),
+              SizedBox(
+                height: 15,
+              ),
               qrWidget,
-              SizedBox(height: 15,),
+              SizedBox(
+                height: 15,
+              ),
               Text(
                 "2. After doing so, you will see a set of dynamic QR codes on the device. Then click 'Next' below. ",
                 style: AppTextStyle.bodyMedium,
                 textAlign: TextAlign.start,
                 maxLines: null,
               ),
-              SizedBox(height: 15,),
+              SizedBox(
+                height: 15,
+              ),
               Text.rich(TextSpan(
-                  text:"Not work? Check the",
+                  text: "Not work? Check the",
                   style: AppTextStyle.bodySmall,
-                  children: [TextSpan(
-                    text: " Pairing Guide",
-                    recognizer: _tapGestureRecognizer,
-                    style: AppTextStyle.bodySmall.apply(color: Colors.green),
-                  )])
-              )
+                  children: [
+                    TextSpan(
+                      text: " Pairing Guide",
+                      recognizer: _tapGestureRecognizer,
+                      style: AppTextStyle.bodySmall.apply(color: Colors.green),
+                    )
+                  ]))
             ],
           )),
           Padding(
@@ -297,11 +305,14 @@ class _PairDevicePageState extends State<PairDevicePage> {
               height: 44,
               width: 200,
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(primary: Colors.green),
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
                 child: Container(
-                  child: Text("Next", style: AppTextStyle.headMedium,),
+                  child: Text(
+                    "Next",
+                    style: AppTextStyle.headMedium,
+                  ),
                 ),
-                onPressed: (){
+                onPressed: () {
                   _qrScan();
                 },
               ),
@@ -311,5 +322,4 @@ class _PairDevicePageState extends State<PairDevicePage> {
       ),
     );
   }
-
 }

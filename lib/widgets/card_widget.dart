@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../utils/style.dart';
 
+// ignore: must_be_immutable
 class CardWidget extends StatefulWidget {
   Color? color; // card normal color
   Color? highlightColor; // card highlight color
@@ -14,22 +15,22 @@ class CardWidget extends StatefulWidget {
   final EdgeInsetsGeometry? padding;
   final bool enableBorderRadius;
 
-  CardWidget({
-    Key? key,
-    this.width = double.infinity,
-    this.height = double.infinity,
-    this.padding = const EdgeInsets.only(left: 8, right: 8, bottom: 5),
-    this.enableBorderRadius = true,
-    this.color,
-    this.highlightColor,
-    this.backgroundColor,
-    this.child,
-    this.onPress,
-    this.onLongPress
-  }) : super(key:key){
-    this.color=this.color ?? AppColor.mainBackground2;
-    this.highlightColor=this.highlightColor??AppColor.mainBackground4;
-    this.backgroundColor=this.backgroundColor??AppColor.mainBackground1;
+  CardWidget(
+      {Key? key,
+      this.width = double.infinity,
+      this.height = double.infinity,
+      this.padding = const EdgeInsets.only(left: 8, right: 8, bottom: 5),
+      this.enableBorderRadius = true,
+      this.color,
+      this.highlightColor,
+      this.backgroundColor,
+      this.child,
+      this.onPress,
+      this.onLongPress})
+      : super(key: key) {
+    this.color = this.color ?? AppColor.mainBackground2;
+    this.highlightColor = this.highlightColor ?? AppColor.mainBackground4;
+    this.backgroundColor = this.backgroundColor ?? AppColor.mainBackground1;
   }
 
   @override
@@ -53,56 +54,62 @@ class _CardWidgetState extends State<CardWidget> {
 
   @override
   Widget build(BuildContext context) {
-    var createContainer = (Widget? child){
+    var createContainer = (Widget? child) {
       Widget result = Container(
           decoration: BoxDecoration(
               color: _pressed ? widget.highlightColor : widget.color,
-              borderRadius: widget.enableBorderRadius ? borderRadius : BorderRadius.all(Radius.zero)
-          ),
-          child: child
-      );
+              borderRadius: widget.enableBorderRadius
+                  ? borderRadius
+                  : BorderRadius.all(Radius.zero)),
+          child: child);
       return result;
     };
     Widget container;
     if (widget.onPress == null) {
       container = createContainer(widget.child);
     } else {
-      FlatButton flatButton = FlatButton(
-        padding: EdgeInsets.all(0),
-        highlightColor: widget.highlightColor,
-        hoverColor: _pressed ? widget.highlightColor : widget.color,
-        splashColor: Colors.transparent,
-        onPressed:(){
+      TextButton textButton = TextButton(
+        style: ButtonStyle(
+          padding: MaterialStateProperty.all<EdgeInsets>(
+            EdgeInsets.all(0),
+          ),
+          overlayColor: MaterialStateProperty.resolveWith<Color?>(
+              (Set<MaterialState> states) {
+            if (states.contains(MaterialState.hovered)) {
+              return _pressed ? widget.highlightColor : widget.color;
+            } else if (states.contains(MaterialState.pressed)) {
+              return Colors.transparent;
+            }
+
+            return widget.highlightColor;
+          }),
+        ),
+        onPressed: () {
           setState(() {
             _updateState(true);
             if (widget.onPress != null) {
               widget.onPress!();
             }
-            Future.delayed(Duration(milliseconds: 50)).then((val){
-                  _updateState(false);
+            Future.delayed(Duration(milliseconds: 50)).then((val) {
+              _updateState(false);
             });
           });
         },
         onLongPress: widget.onLongPress,
         child: widget.child!,
-        onHighlightChanged: (val){
-        },
+        onFocusChange: (val) {},
       );
 
       Widget sizedBox = SizedBox(
-        width: double.infinity,
-        height: double.infinity,
-        child: flatButton
-      );
+          width: double.infinity, height: double.infinity, child: textButton);
       container = createContainer(sizedBox);
     }
 
     return Container(
-      color: widget.backgroundColor,
-      width: widget.width,
-      height: widget.height,
-      padding: widget.padding,
-      child: container
-    );
+        color: widget.backgroundColor,
+        width: widget.width,
+        height: widget.height,
+        padding: widget.padding,
+        child: container);
   }
 }

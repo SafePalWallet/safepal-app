@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:convert/convert.dart';
@@ -6,7 +5,6 @@ import 'package:safepal_example/coins/coin.dart';
 import 'package:safepal_example/model/models.dart';
 
 import '../transport/transport_util.dart';
-import '../utils/coin_utils.dart';
 import '../utils/app_util.dart';
 import '../utils/crypto_plugin.dart';
 
@@ -45,27 +43,21 @@ class Wallet {
     required this.version,
     required this.seVersion,
     required this.productSn,
-
     required this.productSeries,
     required this.productType,
     required this.productName,
     required this.productBrand,
     required this.accountSuffix,
-
     required this.activeTime,
     required this.activeCode,
     required this.activeTimeZone,
-
     required this.secRandom,
     required this.clientId,
     required this.accountId,
     required this.accountType,
-
     required this.addedTime,
-
     @JsonKey(fromJson: _coinsFromJson, toJson: _coinsToJson)
     required this.coins,
-
   });
 
   factory Wallet.fromJson(Map<String, dynamic> json) => _$WalletFromJson(json);
@@ -85,14 +77,15 @@ class Wallet {
     if (privateKey == null || privateKey.isEmpty) {
       return null;
     }
-    final Uint8List? secKey = await CryptoPlugin.generateCryptoKey(pubKey:this.secRandom, privateKey: hex.decode(privateKey));
+    final Uint8List? secKey = await CryptoPlugin.generateCryptoKey(
+        pubKey: this.secRandom, privateKey: hex.decode(privateKey));
     return secKey;
   }
 
   static dynamic _coinsToJson(List<Coin> coins) {
     return coins.map((e) => e.toJson());
   }
-  
+
   static List<Coin> _coinsFromJson(dynamic data) {
     if (data is! List) {
       return [];
@@ -103,5 +96,4 @@ class Wallet {
     }
     return coins;
   }
-
 }

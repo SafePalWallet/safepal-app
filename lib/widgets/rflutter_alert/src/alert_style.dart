@@ -13,8 +13,6 @@ import 'constants.dart';
 class AlertStyle {
   static const Color defaultOverColor = Color(0xb2000000);
 
-
-
   final AnimationType animationType;
   final Duration animationDuration;
   final ShapeBorder? alertBorder;
@@ -24,6 +22,7 @@ class AlertStyle {
   final TextStyle titleStyle;
   final TextStyle descStyle;
   final EdgeInsets buttonAreaPadding;
+
   /// Alert style constructor function
   /// The [animationType] parameter is used for transitions. Default: "fromBottom"
   /// The [animationDuration] parameter is used to set the animation transition time. Default: "200 ms"
@@ -51,6 +50,7 @@ class AlertStyle {
         fontWeight: FontWeight.w400,
         fontStyle: FontStyle.normal,
         fontSize: 18.0),
-    this.buttonAreaPadding = const EdgeInsets.only(left: 0, right: 0, bottom: 0, top: 20),
+    this.buttonAreaPadding =
+        const EdgeInsets.only(left: 0, right: 0, bottom: 0, top: 20),
   });
 }

@@ -7,41 +7,32 @@ import '../utils/style.dart';
 class AlertButtonConfig {
   final Color? titleColor;
 
-  AlertButtonConfig({
-    this.titleColor
-  });
+  AlertButtonConfig({this.titleColor});
 }
 
 class Alert {
   static bool isShow = false;
 
   static AlertButtonConfig _defaultConfig() {
-    return AlertButtonConfig(
-      titleColor: AppColor.blue
-    );
+    return AlertButtonConfig(titleColor: AppColor.blue);
   }
 
-  static Widget createDeafultDialogBottomWidget({
-    required List<String> buttons,
-    required ValueChanged<int> onPress
-  }) {
+  static Widget createDeafultDialogBottomWidget(
+      {required List<String> buttons, required ValueChanged<int> onPress}) {
     if (buttons.isEmpty) {
       return Container();
     }
     return Column(
       mainAxisSize: MainAxisSize.min,
-      children: [
-        Divider()
-      ],
+      children: [Divider()],
     );
   }
 
-  static List<DialogButton> createDialogButtons({
-    BuildContext? context,
-    required List<String?> buttons,
-    TextAlign? textAlign,
-    ValueChanged<int>? onPress
-  }) {
+  static List<DialogButton> createDialogButtons(
+      {BuildContext? context,
+      required List<String?> buttons,
+      TextAlign? textAlign,
+      ValueChanged<int>? onPress}) {
     List<DialogButton> dialogButtons = [];
     final Radius radius = Radius.circular(RAlert.defaultRadius);
     for (String? buttonTitle in buttons) {
@@ -49,7 +40,8 @@ class Alert {
       AlertButtonConfig config = _defaultConfig();
       BorderRadius borderRadius;
       if (buttons.length == 1) {
-        borderRadius = BorderRadius.only(bottomLeft: radius, bottomRight: radius);
+        borderRadius =
+            BorderRadius.only(bottomLeft: radius, bottomRight: radius);
       } else {
         if (index == 0) {
           borderRadius = BorderRadius.only(bottomLeft: radius);
@@ -90,35 +82,34 @@ class Alert {
   }) async {
     Completer<int> completer = Completer();
     show(
-      title: title,
-      context: context,
-      textAlign: textAlign,
-      content: content,
-      options: options,
-      attachChild: attachChild,
-      attachOption: attachOption,
-      willPop: willPop,
-      attachOnPress: attachOnPress,
-      onPress: (idx){
-      completer.complete(idx);
-    });
+        title: title,
+        context: context,
+        textAlign: textAlign,
+        content: content,
+        options: options,
+        attachChild: attachChild,
+        attachOption: attachOption,
+        willPop: willPop,
+        attachOnPress: attachOnPress,
+        onPress: (idx) {
+          completer.complete(idx);
+        });
     return completer.future;
   }
 
-  static void show({
-    required BuildContext? context,
-    required String content,
-    TextAlign? textAlign,
-    String? attachOption,
-    Widget? attachChild,
-    String? title,
-    TextStyle? titleStyle,
-    WillPopCallback? willPop,
-    required List<String> options,
-    ValueChanged<int>? onPress,
-    VoidCallback? attachOnPress,
-    bool isOverlay = false
-  }) {
+  static void show(
+      {required BuildContext? context,
+      required String content,
+      TextAlign? textAlign,
+      String? attachOption,
+      Widget? attachChild,
+      String? title,
+      TextStyle? titleStyle,
+      WillPopCallback? willPop,
+      required List<String> options,
+      ValueChanged<int>? onPress,
+      VoidCallback? attachOnPress,
+      bool isOverlay = false}) {
     _build(
         context: context,
         content: content,
@@ -132,8 +123,7 @@ class Alert {
         onPress: onPress,
         attachOnPress: attachOnPress,
         isOverlay: isOverlay,
-        onlyBuildWidget: false
-    );
+        onlyBuildWidget: false);
     return;
   }
 
@@ -163,8 +153,7 @@ class Alert {
         onPress: onPress,
         attachOnPress: attachOnPress,
         isOverlay: false,
-        onlyBuildWidget: true
-    );
+        onlyBuildWidget: true);
     if (child == null) {
       return Container();
     }
@@ -182,13 +171,14 @@ class Alert {
     late RAlert alert;
     List<DialogButton> buttons = createDialogButtons(
       context: context,
-      onPress: (idx){
+      onPress: (idx) {
         if (onPress != null) {
           onPress(idx);
         }
       },
       textAlign: TextAlign.center,
-      buttons: options,);
+      buttons: options,
+    );
     isShow = true;
     AlertStyle style = AlertStyle(isOverlayTapDismiss: false);
     alert = RAlert(
@@ -200,60 +190,61 @@ class Alert {
         buttons: buttons,
         bgColor: bgColor ?? AppColor.dialogBg,
         style: style,
-        radius: radius
-    );
+        radius: radius);
     return alert.buildDialog();
   }
 
-  static Widget? _build({
-    required BuildContext? context,
-    required String content,
-    TextAlign? textAlign,
-    String? attachOption,
-    Widget? attachChild,
-    String? title,
-    TextStyle? titleStyle,
-    WillPopCallback? willPop,
-    required List<String> options,
-    ValueChanged<int>? onPress,
-    VoidCallback? attachOnPress,
-    bool isOverlay = false,
-    bool onlyBuildWidget = false
-  }) {
+  static Widget? _build(
+      {required BuildContext? context,
+      required String content,
+      TextAlign? textAlign,
+      String? attachOption,
+      Widget? attachChild,
+      String? title,
+      TextStyle? titleStyle,
+      WillPopCallback? willPop,
+      required List<String> options,
+      ValueChanged<int>? onPress,
+      VoidCallback? attachOnPress,
+      bool isOverlay = false,
+      bool onlyBuildWidget = false}) {
     late RAlert alert;
     List<DialogButton> buttons = createDialogButtons(
         context: context,
-        onPress: (idx){
+        onPress: (idx) {
           if (!onlyBuildWidget) {
-            if(!isOverlay){
+            if (!isOverlay) {
               Navigator.pop(context!);
             }
           }
-          if(onPress != null) {
+          if (onPress != null) {
             onPress(idx);
           }
         },
         textAlign: TextAlign.center,
-        buttons: options
-    );
-    if(textAlign==null){
-      if(content!=null && content.length>30){
+        buttons: options);
+    if (textAlign == null) {
+      if (content.length > 30) {
         textAlign = TextAlign.left;
-      }else{
+      } else {
         textAlign = TextAlign.center;
       }
     }
     Text text = Text(
       content,
       textAlign: textAlign,
-      style: TextStyle(color: AppColor.dialogTextColor1, fontSize: 15, fontWeight: FontWeight.normal),
+      style: TextStyle(
+          color: AppColor.dialogTextColor1,
+          fontSize: 15,
+          fontWeight: FontWeight.normal),
       maxLines: null,
     );
     Widget titleWidget = Container();
     EdgeInsets contentPadding;
     double contentPaddingTop = 24;
     if (title != null) {
-      titleStyle = titleStyle ?? AppTextStyle.headMedium.apply(color: AppColor.dialogTextColor1);
+      titleStyle = titleStyle ??
+          AppTextStyle.headMedium.apply(color: AppColor.dialogTextColor1);
       titleWidget = Text(
         title,
         maxLines: 1,
@@ -268,7 +259,8 @@ class Alert {
       contentPaddingTop = 18.0;
     }
     Widget widget;
-    if (((attachOption != null) && attachOption.isNotEmpty) || attachChild != null) {
+    if (((attachOption != null) && attachOption.isNotEmpty) ||
+        attachChild != null) {
       Widget attachWidget;
       if (attachChild != null) {
         attachWidget = attachChild;
@@ -277,10 +269,13 @@ class Alert {
           alignment: Alignment.centerRight,
           color: Colors.white.withAlpha(0),
           padding: EdgeInsets.only(left: 20, right: 4, top: 12, bottom: 24),
-          child: Text(attachOption!, style: TextStyle(color: AppColor.blue, fontSize: 14),),
+          child: Text(
+            attachOption!,
+            style: TextStyle(color: AppColor.blue, fontSize: 14),
+          ),
         );
         Widget gesture = GestureDetector(
-          onTap: (){
+          onTap: () {
             if (!onlyBuildWidget) {
               Alert.isShow = false;
             }
@@ -291,34 +286,23 @@ class Alert {
           child: child,
         );
         attachWidget = Row(
-          children: <Widget>[
-            Expanded(
-                flex: 1,
-                child:Container()
-            ),
-            gesture
-          ],
+          children: <Widget>[Expanded(flex: 1, child: Container()), gesture],
         );
       }
       widget = Container(
         child: Column(
-          children: <Widget>[
-            titleWidget,
-            text,
-            attachWidget
-          ],
+          children: <Widget>[titleWidget, text, attachWidget],
         ),
       );
-      contentPadding = EdgeInsets.only(left: 24, top: contentPaddingTop, right: 24, bottom: 0);
+      contentPadding = EdgeInsets.only(
+          left: 24, top: contentPaddingTop, right: 24, bottom: 0);
     } else {
       widget = Column(
         mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          titleWidget,
-          text
-        ],
+        children: <Widget>[titleWidget, text],
       );
-      contentPadding = EdgeInsets.only(left: 24, bottom: 24, right: 24, top: contentPaddingTop);
+      contentPadding = EdgeInsets.only(
+          left: 24, bottom: 24, right: 24, top: contentPaddingTop);
     }
 
     alert = RAlert(
@@ -328,11 +312,10 @@ class Alert {
         content: Container(
           child: widget,
         ),
-        buttons:buttons,
-        willPop:willPop,
+        buttons: buttons,
+        willPop: willPop,
         bgColor: AppColor.dialogBg,
-        isOverlay:isOverlay
-    );
+        isOverlay: isOverlay);
     if (onlyBuildWidget) {
       return alert.buildDialog();
     }
@@ -341,29 +324,29 @@ class Alert {
     return null;
   }
 
-  static void showCustomWidget({
-    required BuildContext? context,
-    required Widget contentWidget,
-    required List<String?> options,
-    required ValueChanged<int>? onPress,
-    EdgeInsets? insetPadding,
-    WillPopCallback? willPop,
-    Color? bgColor,
-    double radius = 6.0,
-    bool isOverlay = false,
-    bool isTapBgDismiss = false
-  }) {
+  static void showCustomWidget(
+      {required BuildContext? context,
+      required Widget contentWidget,
+      required List<String?> options,
+      required ValueChanged<int>? onPress,
+      EdgeInsets? insetPadding,
+      WillPopCallback? willPop,
+      Color? bgColor,
+      double radius = 6.0,
+      bool isOverlay = false,
+      bool isTapBgDismiss = false}) {
     EdgeInsets contentPadding = EdgeInsets.all(0);
     late RAlert alert;
     List<DialogButton> buttons = createDialogButtons(
-        context: context,
-        onPress: (idx){
-          if (onPress != null) {
-            onPress(idx);
-          }
-        },
-        textAlign: TextAlign.center,
-        buttons: options,);
+      context: context,
+      onPress: (idx) {
+        if (onPress != null) {
+          onPress(idx);
+        }
+      },
+      textAlign: TextAlign.center,
+      buttons: options,
+    );
     isShow = true;
     AlertStyle style = AlertStyle(isOverlayTapDismiss: isTapBgDismiss);
     alert = RAlert(
@@ -373,12 +356,12 @@ class Alert {
         context: context,
         content: contentWidget,
         buttons: buttons,
-        bgColor: bgColor??AppColor.dialogBg,
+        bgColor: bgColor ?? AppColor.dialogBg,
         isOverlay: false,
         style: style,
         radius: radius
         // willPop: willPop
-    );
+        );
     alert.show();
   }
 
@@ -390,66 +373,77 @@ class Alert {
     bool isOverlay = false,
   }) async {
     Completer<int> completer = Completer<int>();
-    showCustomWidget(context: context, contentWidget: contentWidget, willPop: willPop, options: options, isOverlay:isOverlay,onPress: (idx){
-      // Navigator.of(context).pop();
-      // completer.complete(idx);
-      if(!completer.isCompleted) {
-        completer.complete(idx);
-      }
-    });
+    showCustomWidget(
+        context: context,
+        contentWidget: contentWidget,
+        willPop: willPop,
+        options: options,
+        isOverlay: isOverlay,
+        onPress: (idx) {
+          // Navigator.of(context).pop();
+          // completer.complete(idx);
+          if (!completer.isCompleted) {
+            completer.complete(idx);
+          }
+        });
     return completer.future;
   }
 
-  static void showHintDialog({
-    required BuildContext context,
-    required List<String> options,
-    required ValueChanged<int> onPress,
-    String? title,
-    required String content,
-    ValueChanged<bool>? checkedDidChange,
-    TextAlign textAlign = TextAlign.center,
-    Alignment alignment = Alignment.center,
-    Color titleBgColor = Colors.transparent,
-    WillPopCallback? willPop,
-    bool isOverlay = false
-  }){
+  static void showHintDialog(
+      {required BuildContext context,
+      required List<String> options,
+      required ValueChanged<int> onPress,
+      String? title,
+      required String content,
+      ValueChanged<bool>? checkedDidChange,
+      TextAlign textAlign = TextAlign.center,
+      Alignment alignment = Alignment.center,
+      Color titleBgColor = Colors.transparent,
+      WillPopCallback? willPop,
+      bool isOverlay = false}) {
     late RAlert alert;
     List<DialogButton> buttons = createDialogButtons(
         context: context,
-        onPress: (idx){
-          if(!isOverlay){
+        onPress: (idx) {
+          if (!isOverlay) {
             Navigator.pop(context);
           }
-          if (onPress != null) {
-            onPress(idx);
-          }
+          onPress(idx);
         },
         textAlign: TextAlign.center,
         buttons: options);
-    Widget titleWidget = title!=null?Container(
-      height: 44,
-      // alignment: Alignment.center,
-      alignment: alignment,
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: titleBgColor,
-        borderRadius: BorderRadius.only(topLeft: Radius.circular(5),topRight: Radius.circular(5))
-      ),
-      child: Text(
-        title,
-        textAlign: textAlign,
-        // style: TextStyle(color: Color(0xFF000000), fontSize: AppFont.font15, fontWeight: FontWeight.bold),
-        style: TextStyle(color: AppColor.textDarkColor1, fontSize: 15, fontWeight: FontWeight.bold),
-        maxLines: null,
-      ),
-    ):Container();
+    Widget titleWidget = title != null
+        ? Container(
+            height: 44,
+            // alignment: Alignment.center,
+            alignment: alignment,
+            width: double.infinity,
+            decoration: BoxDecoration(
+                color: titleBgColor,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(5), topRight: Radius.circular(5))),
+            child: Text(
+              title,
+              textAlign: textAlign,
+              // style: TextStyle(color: Color(0xFF000000), fontSize: AppFont.font15, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  color: AppColor.textDarkColor1,
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold),
+              maxLines: null,
+            ),
+          )
+        : Container();
 
     Widget contentWidget = Container(
-      margin: EdgeInsets.only(top:18,left: 24,right: 24),
+      margin: EdgeInsets.only(top: 18, left: 24, right: 24),
       child: Text(
         content,
         textAlign: textAlign,
-        style: TextStyle(color: AppColor.dialogTextColor1, fontSize: 15, fontWeight: FontWeight.normal),
+        style: TextStyle(
+            color: AppColor.dialogTextColor1,
+            fontSize: 15,
+            fontWeight: FontWeight.normal),
         maxLines: null,
       ),
     );
@@ -477,19 +471,12 @@ class Alert {
         contentPadding: EdgeInsets.only(bottom: bottomOffset),
         content: Column(
           crossAxisAlignment: crossAxisAlignment,
-          children: <Widget>[
-            titleWidget,
-            contentWidget,
-            attachChild
-          ],
+          children: <Widget>[titleWidget, contentWidget, attachChild],
         ),
-        buttons:buttons,
+        buttons: buttons,
         willPop: willPop,
         bgColor: AppColor.dialogBg,
-        isOverlay: isOverlay
-    );
+        isOverlay: isOverlay);
     alert.show();
   }
-
-
 }

@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class HDDerivedPath {
   int? purpose;
   int? coin;
@@ -10,7 +8,6 @@ class HDDerivedPath {
 
   // m/84'/2'/0'/0/0
   String? path;
-
 
   // m/84'/2'/0
   String get prefix {
@@ -58,15 +55,20 @@ class HDDerivedPath {
     return derivedPath;
   }
 
-  static HDDerivedPath derivedPath({int purpose = 44, int coin = 0, int account = 0, bool change = false, int index = 0}) {
+  static HDDerivedPath derivedPath(
+      {int purpose = 44,
+      int coin = 0,
+      int account = 0,
+      bool change = false,
+      int index = 0}) {
     HDDerivedPath derivedPath = HDDerivedPath();
     derivedPath.purpose = purpose;
     derivedPath.coin = coin;
     derivedPath.account = account;
     derivedPath.change = change;
     derivedPath.index = index;
-    derivedPath.path = 'm/${purpose}\'/${coin}\'${account}\'/${change ? 1 : 0}/${index}';
+    derivedPath.path =
+        'm/$purpose\'/$coin\'$account\'/${change ? 1 : 0}/$index';
     return derivedPath;
   }
-
 }

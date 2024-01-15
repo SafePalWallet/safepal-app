@@ -17,7 +17,6 @@ class DebugLogger {
     _printLog((tag == null || tag.isEmpty) ? TAG : tag, '  e  ', object);
   }
 
-
   static void msg(String object, {String? tag}) {
     String timeStr = dateformat.format(DateTime.now());
     _printLog('$timeStr', '  msg  ', object);
@@ -35,5 +34,4 @@ class DebugLogger {
     sb.write(object);
     return sb;
   }
-
 }

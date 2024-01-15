@@ -13,7 +13,7 @@ class BaseAppBar extends AppBar {
     bool centerTitle = true,
   }) {
     backgroundColor = backgroundColor ?? AppColor.mainBackground1;
-    if (title is Text && title.data!=null) {
+    if (title is Text && title.data != null) {
       Text text = title;
       if (text.style == null) {
         title = Text(
@@ -27,12 +27,10 @@ class BaseAppBar extends AppBar {
     Widget? leading;
     if (leadings != null && leadings.length > 1) {
       List<Widget> children = [];
-      if (leadings != null) {
-        children.addAll(leadings);
-      }
+      children.addAll(leadings);
 
       children.add(Expanded(child: Container()));
-      if(actions!=null && actions.isNotEmpty){
+      if (actions != null && actions.isNotEmpty) {
         children.addAll(actions);
       }
       actions = null;
@@ -43,23 +41,22 @@ class BaseAppBar extends AppBar {
             mainAxisSize: MainAxisSize.max,
             children: children,
           ),
-          title??Container()
+          title ?? Container()
         ],
       );
-    } else if (leadings != null && leadings.isNotEmpty){
+    } else if (leadings != null && leadings.isNotEmpty) {
       leading = leadings.first;
     }
 
     return BaseAppBar(
-      key: key,
-      leading: leading,
-      title: titleWidget,
-      actions: actions,
-      flexibleSpace: flexibleSpace,
-      centerTitle: centerTitle,
-      backgroundColor: backgroundColor,
-      bottom: bottom
-    );
+        key: key,
+        leading: leading,
+        title: titleWidget,
+        actions: actions,
+        flexibleSpace: flexibleSpace,
+        centerTitle: centerTitle,
+        backgroundColor: backgroundColor,
+        bottom: bottom);
   }
 
   BaseAppBar({
@@ -71,21 +68,19 @@ class BaseAppBar extends AppBar {
     Color? backgroundColor,
     PreferredSizeWidget? bottom,
     bool centerTitle = true,
-  }) :
-        super(
-          key: key,
-          title: title,
-          leading:leading,
-          actions : actions,
-          flexibleSpace : flexibleSpace,
-          elevation: 0,
-          bottomOpacity: (bottom != null) ? 1.0 : 0.0,
-          backgroundColor: backgroundColor,
-          centerTitle: centerTitle,
-          automaticallyImplyLeading:false,
-          titleSpacing: 0.0,
-          bottom:bottom
-      );
+  }) : super(
+            key: key,
+            title: title,
+            leading: leading,
+            actions: actions,
+            flexibleSpace: flexibleSpace,
+            elevation: 0,
+            bottomOpacity: (bottom != null) ? 1.0 : 0.0,
+            backgroundColor: backgroundColor,
+            centerTitle: centerTitle,
+            automaticallyImplyLeading: false,
+            titleSpacing: 0.0,
+            bottom: bottom);
 
   @override
   Size get preferredSize {

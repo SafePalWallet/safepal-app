@@ -18,14 +18,16 @@ abstract class Time {
     return dateFormat.format(DateTime.fromMillisecondsSinceEpoch(ms));
   }
 
-  static String formatUtcFormatter(int millisecondsSinceEpoch){
-    return "${dateformat.format(DateTime.fromMillisecondsSinceEpoch(millisecondsSinceEpoch,isUtc: true))} +UTC";
+  static String formatUtcFormatter(int millisecondsSinceEpoch) {
+    return "${dateformat.format(DateTime.fromMillisecondsSinceEpoch(millisecondsSinceEpoch, isUtc: true))} +UTC";
   }
 
   // timezone: seconds
-  static String formatTimeWithTimeZone(int seconds, {int timeZone = 0, bool showTimeZone = false}) {
+  static String formatTimeWithTimeZone(int seconds,
+      {int timeZone = 0, bool showTimeZone = false}) {
     seconds += timeZone;
-    DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(seconds * 1000, isUtc: true);
+    DateTime dateTime =
+        DateTime.fromMillisecondsSinceEpoch(seconds * 1000, isUtc: true);
     dateTime.add(Duration(seconds: timeZone));
     if (showTimeZone) {
       String gmtTimeZone;
@@ -55,17 +57,18 @@ abstract class Time {
   }
 
   static String formatTime(int utcSeconds) {
-    DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(utcSeconds * 1000, isUtc: true);
+    DateTime dateTime =
+        DateTime.fromMillisecondsSinceEpoch(utcSeconds * 1000, isUtc: true);
     dateTime = dateTime.toLocal();
     return dateformat.format(dateTime);
   }
 
   static String baseFormatTime(int utcSecons) {
-    DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(utcSecons * 1000, isUtc: true);
+    DateTime dateTime =
+        DateTime.fromMillisecondsSinceEpoch(utcSecons * 1000, isUtc: true);
     dateTime = dateTime.toLocal();
     return baseDateFormat.format(dateTime);
   }
-
 
   static int nowTimeSeconds() {
     DateTime time = DateTime.now();
@@ -76,5 +79,4 @@ abstract class Time {
     DateTime time = DateTime.now();
     return time.millisecondsSinceEpoch;
   }
-
 }

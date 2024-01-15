@@ -1,24 +1,21 @@
-
 class TransferHistory {
-
   final String amount;
   final int timestamp;
   final String txid;
   final String to;
 
-  TransferHistory({
-    required this.amount,
-    required this.timestamp,
-    required this.txid,
-    required this.to
-  });
+  TransferHistory(
+      {required this.amount,
+      required this.timestamp,
+      required this.txid,
+      required this.to});
 
   Map<String, dynamic> toJson() {
     return {
-      "amount" : this.amount,
-      "timestamp" : this.timestamp,
-      "txid" : this.txid,
-      "to" : this.to
+      "amount": this.amount,
+      "timestamp": this.timestamp,
+      "txid": this.txid,
+      "to": this.to
     };
   }
 
@@ -33,8 +30,7 @@ class TransferHistory {
         amount: data['amount'],
         timestamp: data['timestamp'],
         txid: data['txid'],
-        to: data['to']
-    );
+        to: data['to']);
   }
 
   @override
@@ -48,5 +44,4 @@ class TransferHistory {
 
   @override
   int get hashCode => this.txid.hashCode;
-
 }

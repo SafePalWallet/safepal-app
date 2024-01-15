@@ -1,4 +1,3 @@
-
 import 'package:decimal/decimal.dart';
 import 'package:flutter/material.dart';
 import 'package:safepal_example/manager/managers.dart';
@@ -8,7 +7,6 @@ import 'package:safepal_example/coins/ethereum/ethereum_api.dart';
 import 'package:safepal_example/pages/receive_address_widget.dart';
 import 'package:safepal_example/pages/root_page.dart';
 import 'package:safepal_example/pages/sign_message_page.dart';
-import 'package:safepal_example/manager/transfer_history_manager.dart';
 import 'package:safepal_example/pages/transfer_page.dart';
 import 'package:safepal_example/utils/coin_utils.dart';
 import 'package:safepal_example/utils/style.dart';
@@ -21,7 +19,6 @@ import '../utils/toast_util.dart';
 import '../model/transfer_history.dart';
 
 class MainWalletPage extends StatefulWidget {
-
   @override
   State<StatefulWidget> createState() {
     return _MainWalletPageState();
@@ -29,9 +26,7 @@ class MainWalletPage extends StatefulWidget {
 }
 
 class _MainWalletPageState extends State<MainWalletPage> {
-
   final TransferHistoryManager historyManager = TransferHistoryManager();
-
 
   late Wallet wallet;
   late Coin btc;
@@ -50,9 +45,10 @@ class _MainWalletPageState extends State<MainWalletPage> {
     super.initState();
   }
 
-  Future<void> _init() async  {
+  Future<void> _init() async {
     for (Coin coin in this.wallet.coins) {
-      if (coin.coinInfo.coinCatetory == CoinCategory.bitcoin && coin.coinInfo.uname == "BTC") {
+      if (coin.coinInfo.coinCatetory == CoinCategory.bitcoin &&
+          coin.coinInfo.uname == "BTC") {
         this.btc = coin;
       } else if (coin.coinInfo.coinCatetory == CoinCategory.eth) {
         this.eth = coin;
@@ -65,7 +61,8 @@ class _MainWalletPageState extends State<MainWalletPage> {
 
   Future<void> _loadAddress() async {
     for (Coin coin in this.wallet.coins) {
-      final String address = await coin.generateAddress(accountIndex: 0, index: 0);
+      final String address =
+          await coin.generateAddress(accountIndex: 0, index: 0);
       if (coin.coinInfo.coinCatetory == CoinCategory.bitcoin) {
         btcAddr = address;
       } else if (coin.coinInfo.coinCatetory == CoinCategory.eth) {
@@ -102,10 +99,7 @@ class _MainWalletPageState extends State<MainWalletPage> {
   }
 
   Future<void> _fetchBalance() async {
-    await Future.wait([
-      _fetchBitcoinBalance(),
-      _fetchEthereumBalance()
-    ]);
+    await Future.wait([_fetchBitcoinBalance(), _fetchEthereumBalance()]);
     _updateUI();
   }
 
@@ -113,28 +107,32 @@ class _MainWalletPageState extends State<MainWalletPage> {
     await _fetchBalance();
   }
 
-  Widget _createButtonWidget({
-    required String title,
-    required VoidCallback onPress
-  }) {
+  Widget _createButtonWidget(
+      {required String title, required VoidCallback onPress}) {
     return Expanded(
       child: ElevatedButton(
           style: TextButton.styleFrom(backgroundColor: Colors.green),
           onPressed: onPress,
           child: Container(
-            child: Text(title, style: AppTextStyle.headMedium,),
+            child: Text(
+              title,
+              style: AppTextStyle.headMedium,
+            ),
             height: 35,
             width: double.infinity,
             alignment: Alignment.center,
             color: Colors.green,
-          )
-      ),
+          )),
     );
   }
 
   Widget _createTransferHistory({required List<TransferHistory> items}) {
     final List<Widget> children = [];
-    children.add(Text("Submitted Transactions", style: AppTextStyle.bodySmall, textAlign: TextAlign.start,));
+    children.add(Text(
+      "Submitted Transactions",
+      style: AppTextStyle.bodySmall,
+      textAlign: TextAlign.start,
+    ));
     if (items.isEmpty) {
       children.add(Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -143,7 +141,8 @@ class _MainWalletPageState extends State<MainWalletPage> {
             padding: EdgeInsets.only(top: 8, bottom: 8),
             child: Text(
               "No data yet.",
-              style: AppTextStyle.bodySmall.apply(color: AppColor.textDarkColor2),
+              style:
+                  AppTextStyle.bodySmall.apply(color: AppColor.textDarkColor2),
               textAlign: TextAlign.center,
             ),
           )
@@ -157,15 +156,20 @@ class _MainWalletPageState extends State<MainWalletPage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text("TxID", style: AppTextStyle.bodySmall,),
-              SizedBox(width: 6,),
+              Text(
+                "TxID",
+                style: AppTextStyle.bodySmall,
+              ),
+              SizedBox(
+                width: 6,
+              ),
               GestureDetector(
                 child: Text(
                   "${item.txid.substring(0, 10)}...${item.txid.substring(item.txid.length - 8)}",
                   style: AppTextStyle.bodySmall.apply(color: Colors.green),
                   overflow: TextOverflow.ellipsis,
                 ),
-                onTap: (){
+                onTap: () {
                   UtilsPlugin.copy(item.txid);
                   ToastUtil.show("Copy");
                 },
@@ -173,16 +177,18 @@ class _MainWalletPageState extends State<MainWalletPage> {
             ],
           ),
         ));
-        children.add(Divider(height: 1.0, color: AppColor.lineButton,));
+        children.add(Divider(
+          height: 1.0,
+          color: AppColor.lineButton,
+        ));
       }
     }
 
     return Container(
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(8)),
-        border: Border.all(color: AppColor.lineButton)
-      ),
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+          border: Border.all(color: AppColor.lineButton)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -191,79 +197,122 @@ class _MainWalletPageState extends State<MainWalletPage> {
     );
   }
 
-  Widget _createCoinInfo({
-    required String icon,
-    required String name,
-    required String balance,
-    required String title,
-    required String address,
-    required VoidCallback onSend,
-    required VoidCallback onReceive,
-    required List<TransferHistory> historys,
-    VoidCallback? onSignMessage,
-    VoidCallback? onPressTitle
-  }) {
-
+  Widget _createCoinInfo(
+      {required String icon,
+      required String name,
+      required String balance,
+      required String title,
+      required String address,
+      required VoidCallback onSend,
+      required VoidCallback onReceive,
+      required List<TransferHistory> historys,
+      VoidCallback? onSignMessage,
+      VoidCallback? onPressTitle}) {
     return Container(
       padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(color: AppColor.mainBackground2, borderRadius: BorderRadius.all(Radius.circular(8))),
+      decoration: BoxDecoration(
+          color: AppColor.mainBackground2,
+          borderRadius: BorderRadius.all(Radius.circular(8))),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              Image.asset(icon, width: 32, height: 32,),
-              SizedBox(width: 8,),
-              Text(name, style: AppTextStyle.headMedium,),
-              Expanded(child: Container(),),
-              Text(balance, style: AppTextStyle.headMedium, textAlign: TextAlign.end,)
+              Image.asset(
+                icon,
+                width: 32,
+                height: 32,
+              ),
+              SizedBox(
+                width: 8,
+              ),
+              Text(
+                name,
+                style: AppTextStyle.headMedium,
+              ),
+              Expanded(
+                child: Container(),
+              ),
+              Text(
+                balance,
+                style: AppTextStyle.headMedium,
+                textAlign: TextAlign.end,
+              )
             ],
           ),
-          SizedBox(height: 8,),
+          SizedBox(
+            height: 8,
+          ),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(title, style: AppTextStyle.bodySmall,),
+              Text(
+                title,
+                style: AppTextStyle.bodySmall,
+              ),
               Expanded(child: Container())
             ],
           ),
-          SizedBox(height: 8,),
+          SizedBox(
+            height: 8,
+          ),
           GestureDetector(
-            child: Text(address, style: AppTextStyle.bodyMedium, textAlign: TextAlign.start,),
-            onTap: (){
+            child: Text(
+              address,
+              style: AppTextStyle.bodyMedium,
+              textAlign: TextAlign.start,
+            ),
+            onTap: () {
               UtilsPlugin.copy(address);
               ToastUtil.show("Copy");
             },
           ),
-          SizedBox(height: 8,),
+          SizedBox(
+            height: 8,
+          ),
           Row(
             children: [
               _createButtonWidget(title: "Send", onPress: onSend),
-              SizedBox(width: 10,),
-              _createButtonWidget(title: "Receive", onPress: (){
-                final child = ReceiveAddressWidget(
-                  title: title,
-                  address: address,
-                  tokenIcon: icon,
-                  onClose: (){
-                    Navigator.of(this.context).pop();
-                  },
-                );
-                Alert.showCustomWidget(context: this.context, contentWidget: child, options: [], onPress: (idx){});
-              }),
+              SizedBox(
+                width: 10,
+              ),
+              _createButtonWidget(
+                  title: "Receive",
+                  onPress: () {
+                    final child = ReceiveAddressWidget(
+                      title: title,
+                      address: address,
+                      tokenIcon: icon,
+                      onClose: () {
+                        Navigator.of(this.context).pop();
+                      },
+                    );
+                    Alert.showCustomWidget(
+                        context: this.context,
+                        contentWidget: child,
+                        options: [],
+                        onPress: (idx) {});
+                  }),
             ],
           ),
-          SizedBox(height: 8,),
+          SizedBox(
+            height: 8,
+          ),
           Row(
             children: [
-              onSignMessage != null ?
-              _createButtonWidget(title: "Sign Message", onPress: (){
-                onSignMessage();
-              }) : Container()
+              onSignMessage != null
+                  ? _createButtonWidget(
+                      title: "Sign Message",
+                      onPress: () {
+                        onSignMessage();
+                      })
+                  : Container()
             ],
           ),
-          SizedBox(height: 8,),
+          SizedBox(
+            height: 8,
+          ),
           // _createTransferHistory(items: historys)
         ],
       ),
@@ -271,7 +320,7 @@ class _MainWalletPageState extends State<MainWalletPage> {
   }
 
   void _showSignMessagePage(Coin coin) {
-    Navigator.of(this.context).push(MaterialPageRoute(builder: (context){
+    Navigator.of(this.context).push(MaterialPageRoute(builder: (context) {
       return SignMessagePage(wallet: wallet, coin: coin);
     }));
   }
@@ -282,10 +331,11 @@ class _MainWalletPageState extends State<MainWalletPage> {
         historyManager: this.historyManager,
         wallet: wallet,
         coin: coin,
-        onSendHandler: (){
+        onSendHandler: () {
           Navigator.of(this.context).pop();
           _updateUI();
-        },);
+        },
+      );
     }));
   }
 
@@ -304,21 +354,18 @@ class _MainWalletPageState extends State<MainWalletPage> {
                 balance: this.btcBalance?.toString() ?? "",
                 title: "Legacy Address",
                 address: this.btcAddr ?? "",
-                historys:this.historyManager.historys(isBitcoin: true),
-                onSend: (){
+                historys: this.historyManager.historys(isBitcoin: true),
+                onSend: () {
                   _showTransferPage(this.btc);
                 },
-                onReceive: (){
-
-                },
-                onPressTitle: (){
-
-                },
-                onSignMessage: (){
+                onReceive: () {},
+                onPressTitle: () {},
+                onSignMessage: () {
                   _showSignMessagePage(this.btc);
-                }
+                }),
+            SizedBox(
+              height: 10,
             ),
-            SizedBox(height: 10,),
             _createCoinInfo(
                 icon: "assets/images/coins/ethereum.png",
                 name: "ETH",
@@ -326,19 +373,14 @@ class _MainWalletPageState extends State<MainWalletPage> {
                 title: "Ethereum Address",
                 address: this.ethAddr ?? "",
                 historys: this.historyManager.historys(isBitcoin: false),
-                onSend: (){
+                onSend: () {
                   _showTransferPage(this.eth);
                 },
-                onReceive: (){
-
-                },
-                onPressTitle: (){
-
-                },
-                onSignMessage: (){
+                onReceive: () {},
+                onPressTitle: () {},
+                onSignMessage: () {
                   _showSignMessagePage(this.eth);
-                }
-            )
+                })
           ],
         ),
         onRefresh: _onRefresh,
@@ -351,5 +393,4 @@ class _MainWalletPageState extends State<MainWalletPage> {
       setState(() {});
     }
   }
-
 }

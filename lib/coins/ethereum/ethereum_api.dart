@@ -1,4 +1,3 @@
-
 import 'dart:math';
 
 import '../../manager/network_manager.dart';
@@ -6,9 +5,7 @@ import '../../manager/network_manager.dart';
 class EthereumApi {
   String _url = "https://rpc.ankr.com/eth";
 
-  EthereumApi({
-    String? url
-  }) {
+  EthereumApi({String? url}) {
     if (url != null) {
       _url = url;
     }
@@ -22,7 +19,12 @@ class EthereumApi {
     body['jsonrpc'] = '2.0';
     body['method'] = method;
     body['params'] = params;
-    ApiResp obj = await manager.post(path: "", data: body, headerClient: false, accountInfo: false, options: jsonOptions);
+    ApiResp obj = await manager.post(
+        path: "",
+        data: body,
+        headerClient: false,
+        accountInfo: false,
+        options: jsonOptions);
     return processRPCResp(obj);
   }
 
@@ -32,12 +34,16 @@ class EthereumApi {
     }
     dynamic data = resp.data;
     if (data is! Map) {
-      SFResonseError respError = SFResonseError(type: ApiErrorType.RESPONSE, errCode: -800, message: "invalid resp");
+      SFResonseError respError = SFResonseError(
+          type: ApiErrorType.RESPONSE, errCode: -800, message: "invalid resp");
       throw respError;
     }
     dynamic error = data['error'];
     if (error != null) {
-      SFResonseError respError = SFResonseError(type: ApiErrorType.RESPONSE, errCode: error['code'], message: error['message']);
+      SFResonseError respError = SFResonseError(
+          type: ApiErrorType.RESPONSE,
+          errCode: error['code'],
+          message: error['message']);
       throw respError;
     }
     dynamic result = data['result'];
@@ -45,7 +51,7 @@ class EthereumApi {
   }
 
   Future<int> eth_chainId() async {
-    final String result = await _post("eth_chainId", []) as String;
+    final String result = await _post("eth_chainId", []);
     final int nonce = int.parse(result.substring(2), radix: 16);
     return nonce;
   }
@@ -60,11 +66,9 @@ class EthereumApi {
     return BigInt.tryParse(bal.substring(2), radix: 16)!.toString();
   }
 
-  Future<String> eth_call(String? to, String data, {String tag = "latest", String? from}) async {
-    Map<String, dynamic> params = {
-      "to" : to,
-      "data" : data
-    };
+  Future<String> eth_call(String? to, String data,
+      {String tag = "latest", String? from}) async {
+    Map<String, dynamic> params = {"to": to, "data": data};
     if (from != null) {
       params['from'] = from;
     }
@@ -73,18 +77,20 @@ class EthereumApi {
     return result;
   }
 
-  Future<int> eth_getTransactionCount(String? address, {String tag = "latest"}) async {
-    final String result = await _post("eth_getTransactionCount", [address, tag]) as String;
+  Future<int> eth_getTransactionCount(String? address,
+      {String tag = "latest"}) async {
+    final String result =
+        await _post("eth_getTransactionCount", [address, tag]);
     return int.parse(result.substring(2), radix: 16);
   }
 
   Future<int> eth_estimateGas(Map<String, dynamic>? args) async {
-    final String result = await _post('eth_estimateGas', [args]) as String;
+    final String result = await _post('eth_estimateGas', [args]);
     return int.parse(result.substring(2), radix: 16);
   }
 
   Future<int> eth_gasPrice() async {
-    final String result = await _post("eth_gasPrice", []) as String;
+    final String result = await _post("eth_gasPrice", []);
     final gasPrice = int.parse(result.substring(2), radix: 16);
     return gasPrice;
   }
@@ -100,5 +106,4 @@ class EthereumApi {
   //   ApiResp resp = await _post("eth_getTransactionByHash", [hash]);
   //   return resp;
   // }
-
 }

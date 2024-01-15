@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../utils/style.dart';
 
+// ignore: must_be_immutable
 class FlatWidget extends StatefulWidget {
   Color? _color; // card normal color
   Color? _highlightColor; // card highlight color
@@ -10,16 +11,16 @@ class FlatWidget extends StatefulWidget {
   final double? height;
   final double width;
 
-  FlatWidget({
-    Key? key,
-    this.width = double.infinity,
-    this.height = double.infinity,
-    Color? color,
-    Color? highlightColor,
-    this.child,
-    this.onPress,
-    this.onLongPress
-  }) : super(key:key) {
+  FlatWidget(
+      {Key? key,
+      this.width = double.infinity,
+      this.height = double.infinity,
+      Color? color,
+      Color? highlightColor,
+      this.child,
+      this.onPress,
+      this.onLongPress})
+      : super(key: key) {
     _highlightColor = highlightColor ?? AppColor.mainBackground4;
     _color = color ?? AppColor.mainBackground1;
   }
@@ -47,18 +48,29 @@ class _FlatWidgetState extends State<FlatWidget> {
     if (widget.onPress == null) {
       container = widget.child;
     } else {
-      FlatButton flatButton = FlatButton(
-//        textTheme: ButtonTextTheme.normal,
-        padding: EdgeInsets.all(0),
-        highlightColor: widget._highlightColor,
-        hoverColor: _pressed ? widget._highlightColor : widget._color,
-        splashColor: Colors.transparent,
-        onPressed:(){
+      TextButton flatButton = TextButton(
+        // textTheme: ButtonTextTheme.normal,
+        style: ButtonStyle(
+          padding: MaterialStateProperty.all<EdgeInsets>(
+            EdgeInsets.all(0),
+          ),
+          overlayColor: MaterialStateProperty.resolveWith<Color?>(
+              (Set<MaterialState> states) {
+            if (states.contains(MaterialState.hovered)) {
+              return _pressed ? widget._highlightColor : widget._color;
+            } else if (states.contains(MaterialState.pressed)) {
+              return Colors.transparent;
+            }
+
+            return widget._highlightColor;
+          }),
+        ),
+        onPressed: () {
           _updateState(true);
           if (widget.onPress != null) {
             widget.onPress!();
           }
-          Future.delayed(Duration(milliseconds: 50)).then((val){
+          Future.delayed(Duration(milliseconds: 50)).then((val) {
             _updateState(false);
           });
           // setState(() {
@@ -75,14 +87,10 @@ class _FlatWidgetState extends State<FlatWidget> {
         },
         onLongPress: widget.onLongPress,
         child: widget.child!,
-        onHighlightChanged: (val){
-        },
+        onFocusChange: (val) {},
       );
       container = SizedBox(
-          width: double.infinity,
-          height: double.infinity,
-          child: flatButton
-      );
+          width: double.infinity, height: double.infinity, child: flatButton);
     }
 
     Color? color;
@@ -93,11 +101,10 @@ class _FlatWidgetState extends State<FlatWidget> {
     }
 
     return Container(
-        color:  color,
+        color: color,
         width: widget.width,
         height: widget.height,
         padding: EdgeInsets.all(0),
-        child: container
-    );
+        child: container);
   }
 }

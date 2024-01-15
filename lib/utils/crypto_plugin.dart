@@ -1,5 +1,4 @@
 import 'package:flutter/services.dart';
-import 'dart:typed_data';
 import 'package:safepal_example/utils/base_plugin.dart';
 import 'package:safepal_example/model/models.dart';
 
@@ -17,20 +16,25 @@ class CryptoPlugin extends BasePlugin {
   static const String HASHER_SHA2_RIPEMD = "sha256ripemd";
   static const String HASHER_RIPEMD160 = "ripemd160";
 
-  static const MethodChannel _channel = const MethodChannel('flutter.safepal.io/crypto');
+  static const MethodChannel _channel =
+      const MethodChannel('flutter.safepal.io/crypto');
 
   static Future<T?> invokeMethod<T>(String method, dynamic argments) async {
-    return await BasePlugin.invokeMethod<T>(channel: _channel, method: method, argments: argments);
+    return await BasePlugin.invokeMethod<T>(
+        channel: _channel, method: method, argments: argments);
   }
 
   // item0: pubkey;item1:private key
-  static Future<List<String>> generateEcdsaKeypair({bool compressPubKey = false}) async {
-    List<dynamic>? temps = await invokeMethod<List<dynamic>>('generateEcdsaKeypair', {"compress" : compressPubKey ? 1 : 0});
+  static Future<List<String>> generateEcdsaKeypair(
+      {bool compressPubKey = false}) async {
+    List<dynamic>? temps = await invokeMethod<List<dynamic>>(
+        'generateEcdsaKeypair', {"compress": compressPubKey ? 1 : 0});
     List<String> results = List.from(temps!);
     return results;
   }
 
-  static Future<String?> base58Encode(Uint8List data, {String? base58Hasher = HASHER_SHA2}) async {
+  static Future<String?> base58Encode(Uint8List data,
+      {String? base58Hasher = HASHER_SHA2}) async {
     final Map<String, dynamic> argment = {};
     if (base58Hasher != null) {
       argment['base58Hasher'] = base58Hasher;
@@ -40,8 +44,9 @@ class CryptoPlugin extends BasePlugin {
   }
 
   // if base58Hasher is null, would not check
-  static Future<List<int>?> base58Decode(String address, {String? base58Hasher, int? len}) async {
-    final Map<String, dynamic> argment= {};
+  static Future<List<int>?> base58Decode(String address,
+      {String? base58Hasher, int? len}) async {
+    final Map<String, dynamic> argment = {};
     argment['address'] = address;
     argment['characterSet'] = 0;
     if (base58Hasher != null) {
@@ -54,7 +59,8 @@ class CryptoPlugin extends BasePlugin {
     return result;
   }
 
-  static Future<Uint8List?> generateCryptoKey({required List<int>pubKey, required List<int>privateKey}) async {
+  static Future<Uint8List?> generateCryptoKey(
+      {required List<int> pubKey, required List<int> privateKey}) async {
     final Map<String, dynamic> argment = {};
     argment['private_key'] = Uint8List.fromList(privateKey);
     argment['pub_key'] = Uint8List.fromList(pubKey);
@@ -75,7 +81,13 @@ class CryptoPlugin extends BasePlugin {
   static HDNode _toHDNodeFromMap(Map<String, dynamic> data) {
     Uint8List? chainCode = data["chainCode"] as Uint8List?;
     Uint8List? publicKey = data["publicKey"] as Uint8List?;
-    HDNode node = HDNode(depth: data["depth"], childNum: data["childNum"], fingerPrint: data["fingerprint"], chainCode: chainCode?.toList(), pubKey: publicKey?.toList(), curve: null);
+    HDNode node = HDNode(
+        depth: data["depth"],
+        childNum: data["childNum"],
+        fingerPrint: data["fingerprint"],
+        chainCode: chainCode?.toList(),
+        pubKey: publicKey?.toList(),
+        curve: null);
     return node;
   }
 
@@ -85,7 +97,8 @@ class CryptoPlugin extends BasePlugin {
     return await invokeMethod('getEthAddressForNode', args);
   }
 
-  static Future<String?> getHDNodeXpub(HDNode? node, {String curve = "secp256k1", required int version}) async {
+  static Future<String?> getHDNodeXpub(HDNode? node,
+      {String curve = "secp256k1", required int version}) async {
     Map<String, dynamic> args = {};
     args['node'] = _toHdNodeMap(node!);
     args['version'] = version;
@@ -150,7 +163,8 @@ class CryptoPlugin extends BasePlugin {
     return invokeMethod("checkEthAddress", args);
   }
 
-  static Future<List<int>?> aes256CFBEncrypt(List<int> data, List<int>? aesKey) async {
+  static Future<List<int>?> aes256CFBEncrypt(
+      List<int> data, List<int>? aesKey) async {
     if (data.isEmpty || aesKey == null || aesKey.isEmpty) {
       return null;
     }
@@ -160,7 +174,8 @@ class CryptoPlugin extends BasePlugin {
     return invokeMethod("aes256CFBEncrypt", args);
   }
 
-  static Future<List<int>?> aes256CFBDecrypt(List<int>? data, List<int>? aesKey) async {
+  static Future<List<int>?> aes256CFBDecrypt(
+      List<int>? data, List<int>? aesKey) async {
     if (data == null || data.isEmpty || aesKey == null || aesKey.isEmpty) {
       return null;
     }
@@ -170,7 +185,8 @@ class CryptoPlugin extends BasePlugin {
     return invokeMethod("aes256CFBDecrypt", args);
   }
 
-  static Future<HDNode> getChildHDNode(HDNode hdnode, int chidIndex, String? curve) async {
+  static Future<HDNode> getChildHDNode(
+      HDNode hdnode, int chidIndex, String? curve) async {
     Map<String, dynamic> node = _toHdNodeMap(hdnode);
     Map<String, dynamic> args = {};
     args["node"] = node;
@@ -181,7 +197,8 @@ class CryptoPlugin extends BasePlugin {
     return _toHDNodeFromMap(maps);
   }
 
-  static Future<HDNode> deserializeXpub(String xpub, int version, String? curve) async {
+  static Future<HDNode> deserializeXpub(
+      String xpub, int version, String? curve) async {
     Map<String, dynamic> args = {};
     args["xpub"] = xpub;
     args["version"] = version;
@@ -190,5 +207,4 @@ class CryptoPlugin extends BasePlugin {
     Map<String, dynamic> maps = Map<String, dynamic>.from(data);
     return _toHDNodeFromMap(maps);
   }
-
 }
